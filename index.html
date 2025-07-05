@@ -1722,7 +1722,7 @@
                     </div>
                 </div>
                 <div class="contact-form animate-on-scroll">
-                    <form id="contactForm">
+                    <form id="contactForm" name="contact" method="POST" data-netlify="true">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" required>
@@ -1832,38 +1832,14 @@
             observer.observe(el);
         });
 
-        // Form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            
-            const subject = `GTM Engineering Inquiry from ${data.name}`;
-            const body = `Hi Hari,
-
-I'm reaching out regarding potential GTM engineering services.
-
-Name: ${data.name}
-Email: ${data.email}
-Company: ${data.company || 'Not specified'}
-
-Project Details:
-${data.message}
-
-Looking forward to discussing how we can work together!
-
-Best regards,
-${data.name}`;
-            
-            const mailtoLink = `mailto:mail2hariprasadss@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            window.location.href = mailtoLink;
-            
-            // Show success message
-            alert('Thank you for your interest! Your default email client should open with a pre-filled message.');
-            this.reset();
-        });
-
+        // Form submission for Netlify
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    // Let Netlify handle the form submission naturally
+    // Just show a user-friendly message
+    const submitButton = this.querySelector('button[type="submit"]');
+    submitButton.textContent = 'Sending...';
+    submitButton.disabled = true;
+});
         // Navigation background on scroll
         window.addEventListener('scroll', function() {
             const nav = document.querySelector('nav');
