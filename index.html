@@ -1,0 +1,2075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hari - GTM Engineer | Lead Generation & Automation Expert</title>
+    <meta name="description" content="GTM Engineer specializing in lead generation, email marketing, and automation. Expert in Clay, n8n, APIs, and building scalable revenue systems.">
+    <meta name="keywords" content="GTM Engineer, Lead Generation, Email Marketing, Automation, Clay, n8n, APIs, Revenue Operations">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0f0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-tertiary: #2a2a2a;
+            --accent-primary: #00ff88;
+            --accent-secondary: #ff3d71;
+            --accent-tertiary: #00d4ff;
+            --text-primary: #ffffff;
+            --text-secondary: #cccccc;
+            --text-muted: #888888;
+            --border-color: #333333;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Custom Cursor - Desktop Only */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--accent-primary);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.1s ease;
+            mix-blend-mode: difference;
+            display: none;
+        }
+
+        .cursor-follower {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            transition: all 0.3s ease;
+            display: none;
+        }
+
+        @media (min-width: 769px) {
+            body {
+                cursor: none;
+            }
+            
+            .cursor,
+            .cursor-follower {
+                display: block;
+            }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent-primary);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .logo:hover::before {
+            left: 100%;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-primary);
+            background: rgba(0, 255, 136, 0.1);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--accent-primary);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 80px;
+            background: radial-gradient(circle at 20% 20%, rgba(0, 255, 136, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(255, 61, 113, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--accent-primary), var(--accent-tertiary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-weight: 500;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.5s forwards;
+        }
+
+        .hero-text .description {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            opacity: 0;
+            animation: fadeInUp 1s ease 1s forwards;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeInUp 1s ease 1.5s forwards;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--accent-primary), var(--accent-tertiary));
+            color: var(--bg-primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--accent-primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-primary);
+            color: var(--bg-primary);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+        }
+
+        /* Interactive Tech Grid */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            padding: 3rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tech-grid::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(0, 255, 136, 0.1), transparent);
+            animation: rotate 20s linear infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .tech-item {
+            background: var(--bg-tertiary);
+            padding: 2rem 1.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            z-index: 1;
+            min-height: 140px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .tech-item::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, var(--accent-primary), transparent);
+            transition: all 0.6s ease;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+        }
+
+        .tech-item:hover::before {
+            width: 200%;
+            height: 200%;
+            opacity: 0.1;
+        }
+
+        .tech-item:hover {
+            transform: translateY(-10px) scale(1.05);
+            border-color: var(--accent-primary);
+            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.2);
+        }
+
+        .tech-item .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 60px;
+        }
+
+        .tech-item:hover .icon {
+            transform: scale(1.1);
+        }
+
+        .tech-item .name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        .tech-item:hover .name {
+            color: var(--accent-primary);
+        }
+
+        /* Clay logo styles */
+        .clay-logo {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .clay-logo::before {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            right: 6px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 4px;
+        }
+
+        .clay-logo::after {
+            content: '';
+            position: absolute;
+            bottom: 6px;
+            left: 6px;
+            right: 6px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 4px;
+        }
+
+        /* Floating Stats */
+        .stats {
+            padding: 5rem 0;
+            background: var(--bg-secondary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23333" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.1;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            backdrop-filter: blur(20px);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-tertiary));
+            transform: scaleX(0);
+            transition: transform 0.6s ease;
+        }
+
+        .stat-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-primary);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 0;
+            background: var(--bg-primary);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-tertiary));
+            transform: translateX(-50%);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .about-text p:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .about-text p:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .highlight {
+            color: var(--accent-primary);
+            font-weight: 600;
+            position: relative;
+        }
+
+        .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-primary), transparent);
+            opacity: 0.3;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(20px);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.05), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .skill-category:hover::before {
+            left: 100%;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-primary);
+        }
+
+        .skill-category h3 {
+            color: var(--accent-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-category h3::before {
+            content: '▶';
+            font-size: 0.8rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-tag {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-tag::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.3), transparent);
+            transition: left 0.4s ease;
+        }
+
+        .skill-tag:hover::before {
+            left: 100%;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-2px);
+        }
+
+        /* Experience Timeline */
+        .experience {
+            padding: 5rem 0;
+            background: var(--bg-secondary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--accent-primary), var(--accent-tertiary));
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 4rem 0;
+            padding: 2.5rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            width: 45%;
+            transition: all 0.4s ease;
+        }
+
+        .timeline-item:nth-child(odd) {
+            margin-left: 0;
+            transform: translateX(-20px);
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-left: auto;
+            transform: translateX(20px);
+        }
+
+        .timeline-item:hover {
+            transform: translateX(0) translateY(-10px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.2);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            transform: translateY(-50%);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+        }
+
+        .timeline-item:nth-child(odd)::before {
+            right: -70px;
+        }
+
+        .timeline-item:nth-child(even)::before {
+            left: -70px;
+        }
+
+        .timeline-content h3 {
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .timeline-content .period {
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .timeline-content p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 5rem 0;
+            background: var(--bg-primary);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .project-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(20px);
+            position: relative;
+            group: hover;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 25px 50px rgba(0, 255, 136, 0.2);
+        }
+
+        .project-header {
+            padding: 2.5rem;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-tertiary));
+            color: var(--bg-primary);
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: rotate 10s linear infinite;
+        }
+
+        .project-content {
+            padding: 2.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-content h3 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .project-content p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .project-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metric {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--bg-tertiary);
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .metric:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-3px);
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .tech-badge {
+            background: linear-gradient(45deg, var(--accent-primary), var(--accent-tertiary));
+            color: var(--bg-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .tech-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 0;
+            background: var(--bg-secondary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 70%, rgba(0, 255, 136, 0.1) 0%, transparent 50%);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info {
+            padding: 2rem;
+        }
+
+        .contact-info h3 {
+            color: var(--accent-primary);
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            transition: all 0.4s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
+            border-color: var(--accent-primary);
+        }
+
+        .contact-item .icon {
+            font-size: 1.8rem;
+            color: var(--accent-primary);
+            min-width: 40px;
+        }
+
+        .contact-item a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent-primary);
+        }
+
+        .contact-form {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            padding: 3rem;
+            backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-tertiary));
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-primary);
+            color: var(--text-muted);
+            text-align: center;
+            padding: 3rem 0;
+            border-top: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-tertiary));
+            z-index: 10000;
+            transition: width 0.3s ease;
+        }
+
+        /* Particle Animation */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .particle:nth-child(2n) {
+            animation-delay: 2s;
+            background: var(--accent-tertiary);
+        }
+
+        .particle:nth-child(3n) {
+            animation-delay: 4s;
+            background: var(--accent-secondary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-content {
+                gap: 3rem;
+            }
+            
+            .hero-text h1 {
+                font-size: 3.5rem;
+            }
+            
+            .tech-grid {
+                grid-template-columns: repeat(3, 1fr);
+                padding: 2.5rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-text .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero-text .description {
+                font-size: 1rem;
+            }
+
+            .tech-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+                padding: 2rem;
+            }
+
+            .tech-item {
+                padding: 1.5rem 1rem;
+                min-height: 120px;
+            }
+
+            .tech-item .icon {
+                font-size: 2.5rem;
+                height: 50px;
+            }
+
+            .tech-item .name {
+                font-size: 0.9rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .stat-item {
+                padding: 2rem 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: calc(100% - 60px);
+                margin-left: 40px;
+                transform: translateX(0) !important;
+            }
+
+            .timeline-item::before {
+                left: -30px !important;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+
+            .btn {
+                padding: 12px 24px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .tech-grid {
+                padding: 1.5rem;
+            }
+
+            .tech-item {
+                padding: 1rem;
+                min-height: 100px;
+            }
+
+            .tech-item .icon {
+                font-size: 2rem;
+                height: 40px;
+            }
+
+            .tech-item .name {
+                font-size: 0.8rem;
+            }
+
+            .clay-logo {
+                width: 36px;
+                height: 36px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .contact-form {
+                padding: 2rem;
+            }
+
+            .project-content {
+                padding: 2rem;
+            }
+
+            .project-metrics {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .cursor, .cursor-follower, .particles, .scroll-progress {
+                display: none;
+            }
+            
+            nav {
+                position: static;
+                background: transparent;
+            }
+            
+            .hero {
+                padding-top: 0;
+            }
+            
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+
+        /* High contrast mode */
+        @media (prefers-contrast: high) {
+            :root {
+                --bg-primary: #000000;
+                --bg-secondary: #111111;
+                --bg-tertiary: #222222;
+                --text-primary: #ffffff;
+                --text-secondary: #ffffff;
+                --text-muted: #cccccc;
+                --border-color: #ffffff;
+            }
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            .particles {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    <div class="scroll-progress"></div>
+    <div class="particles"></div>
+
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <a href="#" class="logo">HARI.GTM</a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>GTM Engineer</h1>
+                    <p class="subtitle">Revenue Automation & Lead Generation Expert</p>
+                    <p class="description">
+                        I architect and build scalable revenue systems that transform how businesses generate leads, 
+                        nurture prospects, and accelerate growth. With 9+ years of experience in automation and 
+                        AI-powered solutions, I've helped companies generate 1M+ leads while saving thousands of 
+                        operational hours through intelligent workflows and prompt engineering.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="#projects" class="btn btn-primary">View My Work ⚡</a>
+                        <a href="#contact" class="btn btn-secondary">Let's Connect 🚀</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="tech-grid">
+                        <div class="tech-item" data-tool="Clay">
+                            <div class="icon">
+                                <div class="clay-logo"></div>
+                            </div>
+                            <div class="name">Clay</div>
+                        </div>
+                        <div class="tech-item" data-tool="Smartlead">
+                            <div class="icon">📧</div>
+                            <div class="name">Smartlead</div>
+                        </div>
+                        <div class="tech-item" data-tool="n8n">
+                            <div class="icon">🔗</div>
+                            <div class="name">n8n</div>
+                        </div>
+                        <div class="tech-item" data-tool="HubSpot">
+                            <div class="icon">🎯</div>
+                            <div class="name">HubSpot</div>
+                        </div>
+                        <div class="tech-item" data-tool="GoHighLevel">
+                            <div class="icon">⚡</div>
+                            <div class="name">GHL</div>
+                        </div>
+                        <div class="tech-item" data-tool="Apollo">
+                            <div class="icon">🚀</div>
+                            <div class="name">Apollo</div>
+                        </div>
+                        <div class="tech-item" data-tool="Sales Navigator">
+                            <div class="icon">💼</div>
+                            <div class="name">Sales Navigator</div>
+                        </div>
+                        <div class="tech-item" data-tool="ZoomInfo">
+                            <div class="icon">🔍</div>
+                            <div class="name">ZoomInfo</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item animate-on-scroll">
+                    <div class="stat-number">9+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-item animate-on-scroll">
+                    <div class="stat-number">1M+</div>
+                    <div class="stat-label">Leads Generated</div>
+                </div>
+                <div class="stat-item animate-on-scroll">
+                    <div class="stat-number">40+</div>
+                    <div class="stat-label">Hours Saved Weekly</div>
+                </div>
+                <div class="stat-item animate-on-scroll">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Core Tools Mastered</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">
+                    Bridging the gap between strategy and execution with data-driven automation
+                </p>
+            </div>
+            <div class="about-content">
+                <div class="about-text animate-on-scroll">
+                    <p>
+                        Hey there! I'm <span class="highlight">Hariprasad Sivakumar</span> (call me Hari), 
+                        a GTM Engineer who transforms how businesses approach revenue generation through 
+                        intelligent automation and data-driven strategies.
+                    </p>
+                    <p>
+                        With over 9 years of experience across <span class="highlight">SaaS, FinTech, E-commerce, 
+                        and Data Intelligence</span>, I've mastered the art of building systems that work 
+                        while you sleep. Currently serving as Lead Research Manager at TaskDrive, I also work with 
+                        <span class="highlight">confidential clients</span> as a freelance GTM Engineer, 
+                        helping them scale their operations and achieve remarkable growth.
+                    </p>
+                    <p>
+                        When I'm not building automations, you'll find me exploring the latest in AI and 
+                        prompt engineering, crafting sophisticated prompts that unlock the full potential 
+                        of LLMs for business automation. I'm always looking for the next breakthrough 
+                        that can give businesses a competitive edge.
+                    </p>
+                </div>
+                <div class="skills-grid animate-on-scroll">
+                    <div class="skill-category">
+                        <h3>Automation & Workflows</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Clay</span>
+                            <span class="skill-tag">n8n</span>
+                            <span class="skill-tag">Zapier</span>
+                            <span class="skill-tag">Apify</span>
+                            <span class="skill-tag">Webhooks</span>
+                            <span class="skill-tag">Custom Data Scraping</span>
+                            <span class="skill-tag">API Integration</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>CRM & Sales Tools</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">HubSpot</span>
+                            <span class="skill-tag">GoHighLevel</span>
+                            <span class="skill-tag">Apollo</span>
+                            <span class="skill-tag">Close CRM</span>
+                            <span class="skill-tag">Airtable</span>
+                            <span class="skill-tag">PostHog</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Lead Generation</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Smartlead</span>
+                            <span class="skill-tag">LinkedIn Sales Navigator</span>
+                            <span class="skill-tag">ZoomInfo</span>
+                            <span class="skill-tag">Apollo</span>
+                            <span class="skill-tag">Prospeo</span>
+                            <span class="skill-tag">Instantly</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Communication & Collaboration</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Slack</span>
+                            <span class="skill-tag">Zoom</span>
+                            <span class="skill-tag">Microsoft Teams</span>
+                            <span class="skill-tag">Google Meet</span>
+                            <span class="skill-tag">Notion</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Experience</h2>
+                <p class="section-subtitle">
+                    Building revenue systems across industries and verticals
+                </p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-content">
+                        <h3>Lead Research Manager</h3>
+                        <div class="period">2023 - Present</div>
+                        <p>
+                            Leading data intelligence and lead research initiatives at TaskDrive, 
+                            building sophisticated automation systems using Clay, n8n, and API integrations. 
+                            Scaling lead generation operations that process 50K+ leads monthly while 
+                            maintaining 95%+ data accuracy through advanced enrichment workflows.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-content">
+                        <h3>Lead Generation Specialist</h3>
+                        <div class="period">2022 - 2023</div>
+                        <p>
+                            Architected and deployed comprehensive lead generation systems at Scienaptic AI, 
+                            combining multiple data sources and automation tools to increase qualified pipeline 
+                            by 400%. Specialized in multi-channel outreach sequences using Smartlead and 
+                            custom data enrichment workflows.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-content">
+                        <h3>Research Manager</h3>
+                        <div class="period">2019 - 2021</div>
+                        <p>
+                            Managed data operations and research initiatives at Instawork, developing 
+                            automated data collection and analysis systems. Built scalable processes 
+                            that reduced manual research time by 60% while improving data quality 
+                            and lead conversion rates.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-content">
+                        <h3>Data Operations Manager</h3>
+                        <div class="period">2016 - 2019</div>
+                        <p>
+                            Spearheaded data operations at Tracxn Technologies, managing large-scale 
+                            data collection and enrichment processes. Implemented automated workflows 
+                            that processed 1M+ data points monthly, laying the foundation for 
+                            revenue operations expertise.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">
+                    Real-world solutions that drive measurable results
+                </p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card animate-on-scroll">
+                    <div class="project-header">⚡</div>
+                    <div class="project-content">
+                        <h3>Automated Lead Scoring & Routing</h3>
+                        <p>
+                            Built an intelligent lead scoring system using Clay and n8n that automatically 
+                            qualifies, scores, and routes leads to the right sales reps based on 50+ 
+                            data points and behavioral triggers.
+                        </p>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <div class="metric-value">85%</div>
+                                <div class="metric-label">Lead Quality Increase</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">40hrs</div>
+                                <div class="metric-label">Weekly Time Saved</div>
+                            </div>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-badge">Clay</span>
+                            <span class="tech-badge">n8n</span>
+                            <span class="tech-badge">HubSpot</span>
+                            <span class="tech-badge">Apollo</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card animate-on-scroll">
+                    <div class="project-header">🎯</div>
+                    <div class="project-content">
+                        <h3>Multi-Channel Outreach Engine</h3>
+                        <p>
+                            Designed and deployed a comprehensive outreach system using Clay and Smartlead that coordinates 
+                            email, LinkedIn, and phone touchpoints across multiple sequences, 
+                            resulting in 4x higher response rates and consistent pipeline growth.
+                        </p>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <div class="metric-value">400%</div>
+                                <div class="metric-label">Response Rate Increase</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">50K+</div>
+                                <div class="metric-label">Monthly Touchpoints</div>
+                            </div>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-badge">Clay</span>
+                            <span class="tech-badge">Smartlead</span>
+                            <span class="tech-badge">Apollo</span>
+                            <span class="tech-badge">LinkedIn Sales Navigator</span>
+                            <span class="tech-badge">n8n</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card animate-on-scroll">
+                    <div class="project-header">🔍</div>
+                    <div class="project-content">
+                        <h3>Custom Data Enrichment Pipeline</h3>
+                        <p>
+                            Created a sophisticated data enrichment system that automatically scrapes, 
+                            validates, and enriches prospect data from multiple sources, providing 
+                            sales teams with 99.5% accurate contact information and behavioral insights.
+                        </p>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <div class="metric-value">99.5%</div>
+                                <div class="metric-label">Data Accuracy</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">25hrs</div>
+                                <div class="metric-label">Weekly Research Time Saved</div>
+                            </div>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-badge">Clay</span>
+                            <span class="tech-badge">ZoomInfo</span>
+                            <span class="tech-badge">Apollo</span>
+                            <span class="tech-badge">n8n</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Let's Build Something Amazing</h2>
+                <p class="section-subtitle">
+                    Ready to transform your revenue operations? Let's discuss your automation needs.
+                </p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info animate-on-scroll">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-item">
+                        <div class="icon">📧</div>
+                        <div>
+                            <strong>Email</strong><br>
+                            <a href="mailto:mail2hariprasadss@gmail.com">mail2hariprasadss@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon">📱</div>
+                        <div>
+                            <strong>Phone</strong><br>
+                            <a href="tel:+919500808013">+91 9500808013</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon">📍</div>
+                        <div>
+                            <strong>Location</strong><br>
+                            Bengaluru, India
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon">💼</div>
+                        <div>
+                            <strong>LinkedIn</strong><br>
+                            <a href="https://linkedin.com/in/hariprasadss" target="_blank">linkedin.com/in/hariprasadss</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form animate-on-scroll">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Project Details</label>
+                            <textarea id="message" name="message" placeholder="Tell me about your automation needs, current challenges, and goals..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message 🚀</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Hariprasad Sivakumar. Crafted with passion for automation and revenue growth.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Detect device type
+        const isMobile = window.innerWidth <= 768;
+        const isTablet = window.innerWidth > 768 && window.innerWidth <= 1024;
+
+        // Custom Cursor (Desktop only)
+        if (!isMobile) {
+            const cursor = document.querySelector('.cursor');
+            const cursorFollower = document.querySelector('.cursor-follower');
+
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+                
+                setTimeout(() => {
+                    cursorFollower.style.left = e.clientX + 'px';
+                    cursorFollower.style.top = e.clientY + 'px';
+                }, 100);
+            });
+        }
+
+        // Scroll Progress
+        window.addEventListener('scroll', () => {
+            const scrollProgress = document.querySelector('.scroll-progress');
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollTop = window.scrollY;
+            const progress = (scrollTop / scrollHeight) * 100;
+            scrollProgress.style.width = progress + '%';
+        });
+
+        // Particle System (Desktop only)
+        function createParticles() {
+            if (isMobile) return;
+            
+            const particles = document.querySelector('.particles');
+            const particleCount = isTablet ? 30 : 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 4 + 2) + 's';
+                particles.appendChild(particle);
+            }
+        }
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            const subject = `GTM Engineering Inquiry from ${data.name}`;
+            const body = `Hi Hari,
+
+I'm reaching out regarding potential GTM engineering services.
+
+Name: ${data.name}
+Email: ${data.email}
+Company: ${data.company || 'Not specified'}
+
+Project Details:
+${data.message}
+
+Looking forward to discussing how we can work together!
+
+Best regards,
+${data.name}`;
+            
+            const mailtoLink = `mailto:mail2hariprasadss@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            alert('Thank you for your interest! Your default email client should open with a pre-filled message.');
+            this.reset();
+        });
+
+        // Navigation background on scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(15, 15, 15, 0.98)';
+            } else {
+                nav.style.background = 'rgba(15, 15, 15, 0.95)';
+            }
+        });
+
+        // Counter animation for stats
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = counter.innerText.replace(/[^0-9]/g, '');
+                const suffix = counter.innerText.replace(/[0-9]/g, '');
+                const increment = parseInt(target) / 100;
+                let current = 0;
+                
+                const updateCounter = () => {
+                    if (current < parseInt(target)) {
+                        current += increment;
+                        counter.innerText = Math.ceil(current) + suffix;
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.innerText = target + suffix;
+                    }
+                };
+                
+                updateCounter();
+            });
+        }
+
+        // Trigger counter animation when stats section is visible
+        const statsSection = document.querySelector('.stats');
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+        
+        statsObserver.observe(statsSection);
+
+        // Mobile menu toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (mobileMenu) {
+            mobileMenu.addEventListener('click', function() {
+                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.background = 'var(--bg-secondary)';
+                navLinks.style.padding = '1rem';
+                navLinks.style.borderRadius = '0 0 10px 10px';
+            });
+        }
+
+        // Enhanced hover effects for project cards (Desktop only)
+        if (!isMobile) {
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-20px) rotateX(5deg)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) rotateX(0deg)';
+                });
+            });
+        }
+
+        // Tech item click effects
+        document.querySelectorAll('.tech-item').forEach(item => {
+            item.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 150);
+            });
+        });
+
+        // Initialize
+        window.addEventListener('load', function() {
+            createParticles();
+            
+            // Typing effect for hero subtitle (Desktop only)
+            if (!isMobile) {
+                const subtitle = document.querySelector('.hero-text .subtitle');
+                const originalText = subtitle.textContent;
+                subtitle.textContent = '';
+                
+                let i = 0;
+                const typeWriter = () => {
+                    if (i < originalText.length) {
+                        subtitle.textContent += originalText.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, 50);
+                    }
+                };
+                
+                setTimeout(typeWriter, 1000);
+            }
+        });
+
+        // Optimize performance for mobile
+        if (isMobile) {
+            // Reduce animation complexity
+            document.querySelectorAll('*').forEach(el => {
+                el.style.willChange = 'auto';
+            });
+            
+            // Disable some effects on mobile
+            document.querySelector('.tech-grid::before').style.display = 'none';
+        }
+
+        // Touch events for mobile
+        if (isMobile) {
+            document.addEventListener('touchstart', function(e) {
+                // Add touch feedback
+                if (e.target.closest('.tech-item, .btn, .project-card')) {
+                    e.target.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        e.target.style.transform = 'scale(1)';
+                    }, 150);
+                }
+            });
+        }
+
+        // Lazy loading for performance
+        const lazyLoad = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy');
+                    observer.unobserve(img);
+                }
+            });
+        };
+
+        const imageObserver = new IntersectionObserver(lazyLoad, {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('img[data-src]').forEach(img => {
+            imageObserver.observe(img);
+        });
+
+        // Performance monitoring
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                if (window.performance && window.performance.timing) {
+                    const loadTime = window.performance.timing.loadEventEnd - window.performance.timing.navigationStart;
+                    console.log('Page load time:', loadTime + 'ms');
+                }
+            }, 0);
+        });
+
+        // Accessibility improvements
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-navigation');
+            }
+        });
+
+        document.addEventListener('mousedown', function() {
+            document.body.classList.remove('keyboard-navigation');
+        });
+
+        // Error handling
+        window.addEventListener('error', function(e) {
+            console.error('An error occurred:', e.error);
+        });
+
+        // Responsive font size adjustment
+        function adjustFontSizes() {
+            const viewportWidth = window.innerWidth;
+            const root = document.documentElement;
+            
+            if (viewportWidth <= 480) {
+                root.style.fontSize = '14px';
+            } else if (viewportWidth <= 768) {
+                root.style.fontSize = '15px';
+            } else if (viewportWidth <= 1024) {
+                root.style.fontSize = '16px';
+            } else {
+                root.style.fontSize = '16px';
+            }
+        }
+
+        // Call on load and resize
+        window.addEventListener('load', adjustFontSizes);
+        window.addEventListener('resize', adjustFontSizes);
+
+        // Prevent horizontal scroll on mobile
+        if (isMobile) {
+            document.body.style.overflowX = 'hidden';
+        }
+    </script>
+</body>
+</html>
