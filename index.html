@@ -1831,14 +1831,6 @@
             observer.observe(el);
         });
 
-        // Form submission for Netlify
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    // Let Netlify handle the form submission naturally
-    // Just show a user-friendly message
-    const submitButton = this.querySelector('button[type="submit"]');
-    submitButton.textContent = 'Sending...';
-    submitButton.disabled = true;
-});
         // Navigation background on scroll
         window.addEventListener('scroll', function() {
             const nav = document.querySelector('nav');
