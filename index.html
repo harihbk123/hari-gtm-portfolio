@@ -4,44 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hariprasad Sivakumar - GTM Engineer | Revenue Automation Expert</title>
-    <meta name="description" content="GTM Engineer specializing in revenue automation and lead generation. 9+ years experience, 1M+ leads generated, helping businesses scale with AI-powered automation systems.">
-    <meta name="keywords" content="GTM Engineer, Revenue Automation, Lead Generation, Sales Automation, AI Automation, Data Enrichment">
-    <meta property="og:title" content="Hariprasad Sivakumar - GTM Engineer">
-    <meta property="og:description" content="Revenue Automation & Lead Generation Expert with 9+ years experience">
-    <meta property="og:type" content="website">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         :root {
-            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            --primary-color: #667eea;
-            --secondary-color: #764ba2;
-            --accent-color: #f093fb;
-            --text-primary: #1a202c;
-            --text-secondary: #4a5568;
-            --text-muted: #718096;
-            --background: #ffffff;
-            --surface: #f8fafc;
-            --surface-elevated: #ffffff;
-            --border: #e2e8f0;
-            --shadow: rgba(0, 0, 0, 0.1);
-            --shadow-lg: rgba(0, 0, 0, 0.15);
-            --glass-bg: rgba(255, 255, 255, 0.25);
-            --glass-border: rgba(255, 255, 255, 0.18);
-        }
-
-        [data-theme="dark"] {
-            --text-primary: #f7fafc;
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --accent: #f093fb;
+            --neon-blue: #00d4ff;
+            --neon-pink: #ff0080;
+            --neon-green: #39ff14;
+            --text-primary: #ffffff;
             --text-secondary: #e2e8f0;
             --text-muted: #a0aec0;
-            --background: #0f1419;
-            --surface: #1a202c;
-            --surface-elevated: #2d3748;
-            --border: #4a5568;
-            --shadow: rgba(0, 0, 0, 0.3);
-            --shadow-lg: rgba(0, 0, 0, 0.4);
-            --glass-bg: rgba(0, 0, 0, 0.25);
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #1a1a2e;
+            --bg-tertiary: #16213e;
+            --glass-bg: rgba(255, 255, 255, 0.05);
             --glass-border: rgba(255, 255, 255, 0.1);
+            --shadow: rgba(102, 126, 234, 0.3);
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
         }
 
         * {
@@ -52,17 +34,10 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            line-height: 1.6;
+            background: var(--bg-primary);
             color: var(--text-primary);
-            background: var(--background);
-            transition: all 0.3s ease;
             overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+            line-height: 1.6;
         }
 
         /* Animated Background */
@@ -73,609 +48,473 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.03;
-            pointer-events: none;
+            background: var(--bg-primary);
         }
 
-        .floating-shape {
+        .bg-shapes {
             position: absolute;
-            border-radius: 50%;
-            background: var(--primary-gradient);
-            animation: float 20s infinite linear;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
         }
 
-        .floating-shape:nth-child(1) {
-            width: 100px;
-            height: 100px;
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) {
             top: 20%;
             left: 10%;
+            width: 80px;
+            height: 80px;
+            background: var(--neon-blue);
+            border-radius: 50%;
             animation-delay: 0s;
         }
 
-        .floating-shape:nth-child(2) {
-            width: 150px;
-            height: 150px;
+        .shape:nth-child(2) {
             top: 60%;
-            right: 10%;
-            animation-delay: -7s;
+            right: 20%;
+            width: 60px;
+            height: 60px;
+            background: var(--neon-pink);
+            transform: rotate(45deg);
+            animation-delay: 2s;
         }
 
-        .floating-shape:nth-child(3) {
-            width: 80px;
-            height: 80px;
-            bottom: 20%;
+        .shape:nth-child(3) {
+            bottom: 30%;
             left: 20%;
-            animation-delay: -14s;
+            width: 40px;
+            height: 40px;
+            background: var(--neon-green);
+            border-radius: 50%;
+            animation-delay: 4s;
+        }
+
+        .shape:nth-child(4) {
+            top: 40%;
+            right: 40%;
+            width: 100px;
+            height: 100px;
+            background: var(--primary);
+            border-radius: 50%;
+            animation-delay: 6s;
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
-            25% { transform: translateY(-20px) rotate(90deg); }
-            50% { transform: translateY(-40px) rotate(180deg); }
-            75% { transform: translateY(-20px) rotate(270deg); }
+            33% { transform: translateY(-30px) rotate(120deg); }
+            66% { transform: translateY(30px) rotate(240deg); }
         }
 
-        /* Modern Navigation */
-        .modern-nav {
+        /* Navigation */
+        .nav-container {
             position: fixed;
             top: 20px;
             left: 50%;
             transform: translateX(-50%);
+            z-index: 1000;
             background: var(--glass-bg);
             backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
             border-radius: 50px;
-            padding: 8px;
-            z-index: 1000;
-            box-shadow: 0 8px 32px var(--shadow-lg);
-            transition: all 0.3s ease;
+            padding: 5px;
+            box-shadow: 0 8px 32px var(--shadow);
         }
 
-        .modern-nav ul {
-            list-style: none;
+        .nav-menu {
             display: flex;
+            list-style: none;
             gap: 5px;
             margin: 0;
+            padding: 0;
         }
 
-        .modern-nav a {
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
+        .nav-link {
+            display: block;
             padding: 12px 20px;
+            color: var(--text-secondary);
+            text-decoration: none;
             border-radius: 40px;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .modern-nav a:hover, .modern-nav a.active {
-            background: var(--primary-gradient);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-        }
-
-        /* Dark Mode Toggle */
-        .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 1001;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 32px var(--shadow-lg);
-        }
-
-        .theme-toggle:hover {
-            transform: scale(1.1);
-            background: var(--primary-gradient);
-            color: white;
-        }
-
-        /* Scroll Progress */
-        .scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 3px;
-            background: var(--primary-gradient);
-            z-index: 1002;
-            transition: width 0.1s ease;
-        }
-
-        /* Modern Header */
-        .hero-section {
-            min-height: 100vh;
-            background: var(--primary-gradient);
-            color: white;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-bg-pattern {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.1;
-            background-image: 
-                radial-gradient(circle at 25% 25%, white 2px, transparent 2px),
-                radial-gradient(circle at 75% 75%, white 2px, transparent 2px);
-            background-size: 50px 50px;
-            animation: patternMove 20s linear infinite;
-        }
-
-        @keyframes patternMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .hero-text h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 900;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #ffffff 0%, #f0f4f8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.2;
-        }
-
-        .hero-text .subtitle {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            opacity: 0.95;
-        }
-
-        .hero-text .description {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            margin-bottom: 40px;
-            opacity: 0.9;
-        }
-
-        .modern-profile {
-            position: relative;
-            display: flex;
-            justify-content: center;
-        }
-
-        .profile-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 30px;
-            padding: 40px;
-            text-align: center;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            transform: perspective(1000px) rotateY(-5deg);
-            transition: all 0.3s ease;
-        }
-
-        .profile-card:hover {
-            transform: perspective(1000px) rotateY(0deg) translateY(-10px);
-        }
-
-        .profile-image-container {
-            position: relative;
-            margin-bottom: 30px;
-        }
-
-        .profile-image {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .profile-glow {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(240, 147, 251, 0.3) 0%, transparent 70%);
-            animation: pulse 3s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
-            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.3; }
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 30px;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 1.8rem;
-            font-weight: 800;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .stat-label {
+            font-weight: 500;
             font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 20px;
-            margin-top: 40px;
-            flex-wrap: wrap;
-        }
-
-        .cta-primary {
-            background: rgba(255, 255, 255, 0.95);
-            color: var(--primary-color);
-            padding: 18px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
             position: relative;
             overflow: hidden;
         }
 
-        .cta-primary::before {
+        .nav-link::before {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: left 0.5s ease;
+            background: var(--gradient);
+            transition: left 0.3s ease;
+            z-index: -1;
         }
 
-        .cta-primary:hover::before {
-            left: 100%;
+        .nav-link:hover::before,
+        .nav-link.active::before {
+            left: 0;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 1200px;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-pink), var(--neon-green));
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientMove 3s ease-in-out infinite;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease-out forwards, gradientMove 3s ease-in-out infinite 1s;
+        }
+
+        @keyframes gradientMove {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.3s forwards;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.6s forwards;
+        }
+
+        /* CTA Buttons */
+        .cta-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.9s forwards;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .cta-primary {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 10px 30px var(--shadow);
         }
 
         .cta-primary:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px var(--shadow);
         }
 
         .cta-secondary {
             background: transparent;
-            color: white;
-            padding: 18px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            border: 2px solid rgba(255, 255, 255, 0.5);
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
+            color: var(--neon-blue);
+            border: 2px solid var(--neon-blue);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
         }
 
         .cta-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(0, 212, 255, 0.1);
             transform: translateY(-2px);
-            border-color: white;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
         }
 
-        /* Modern Sections */
+        /* Floating Stats */
+        .floating-stats {
+            position: absolute;
+            top: 50%;
+            right: 5%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 2;
+        }
+
+        .stat-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            min-width: 150px;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px var(--shadow);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 900;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Sections */
         .section {
-            padding: 120px 0;
+            padding: 100px 20px;
             position: relative;
         }
 
-        .section:nth-child(even) {
-            background: var(--surface);
+        .section-alt {
+            background: var(--bg-secondary);
         }
 
         .section-header {
             text-align: center;
             margin-bottom: 80px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .section-title {
-            font-size: clamp(2rem, 4vw, 3rem);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 800;
             margin-bottom: 20px;
-            background: var(--primary-gradient);
+            background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
         .section-subtitle {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto;
+            line-height: 1.6;
         }
 
-        /* Animated Counter */
-        .counter {
-            font-weight: 800;
-            color: var(--primary-color);
-        }
-
-        /* Modern Cards */
-        .modern-grid {
+        /* Services Grid */
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .modern-card {
-            background: var(--surface-elevated);
-            border-radius: 24px;
-            padding: 40px 30px;
-            text-align: center;
-            border: 1px solid var(--border);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        .service-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            padding: 40px;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            cursor: pointer;
         }
 
-        .modern-card::before {
+        .service-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
-            background: var(--primary-gradient);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
+            bottom: 0;
+            background: conic-gradient(from 0deg, transparent, var(--neon-blue), transparent);
+            animation: rotate 4s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        .modern-card:hover::before {
-            transform: scaleX(1);
+        .service-card:hover::before {
+            opacity: 0.1;
         }
 
-        .modern-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 25px 60px var(--shadow-lg);
-            border-color: var(--primary-color);
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
-        .card-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--primary-gradient);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            font-size: 32px;
-            color: white;
-            transition: all 0.3s ease;
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px var(--shadow);
         }
 
-        .modern-card:hover .card-icon {
-            transform: scale(1.1) rotate(5deg);
+        .service-icon {
+            font-size: 2.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            display: block;
         }
 
-        .card-title {
-            font-size: 1.4rem;
+        .service-title {
+            font-size: 1.3rem;
             font-weight: 700;
             margin-bottom: 15px;
             color: var(--text-primary);
         }
 
-        .card-description {
+        .service-description {
             color: var(--text-secondary);
             line-height: 1.6;
+            position: relative;
+            z-index: 2;
         }
 
-        /* Interactive Stats */
-        .stats-grid {
+        /* Numbers Grid */
+        .numbers-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 30px;
-            margin-top: 60px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
-        .stat-card {
-            background: var(--surface-elevated);
-            padding: 40px 30px;
+        .number-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
             border-radius: 20px;
+            padding: 40px 20px;
             text-align: center;
-            border: 1px solid var(--border);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
-        .stat-card::after {
+        .number-card::after {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--primary-gradient);
+            background: var(--gradient);
             opacity: 0;
             transition: opacity 0.3s ease;
-            z-index: 1;
         }
 
-        .stat-card:hover::after {
+        .number-card:hover::after {
             opacity: 0.05;
         }
 
-        .stat-card:hover {
+        .number-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px var(--shadow-lg);
+            box-shadow: 0 20px 50px var(--shadow);
         }
 
-        .stat-card > * {
-            position: relative;
-            z-index: 2;
-        }
-
-        .stat-card .stat-number {
+        .number-value {
             font-size: 3rem;
             font-weight: 900;
-            background: var(--primary-gradient);
+            background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 10px;
             display: block;
-        }
-
-        .stat-card .stat-label {
-            color: var(--text-muted);
-            font-weight: 600;
-            font-size: 1rem;
-        }
-
-        /* Experience Timeline */
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: var(--primary-gradient);
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 60px;
-            width: calc(50% - 30px);
-        }
-
-        .timeline-item:nth-child(odd) {
-            left: 0;
-            text-align: right;
-        }
-
-        .timeline-item:nth-child(even) {
-            left: calc(50% + 30px);
-            text-align: left;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            width: 20px;
-            height: 20px;
-            background: var(--primary-gradient);
-            border-radius: 50%;
-            border: 4px solid var(--background);
-            box-shadow: 0 0 0 4px var(--primary-color);
-        }
-
-        .timeline-item:nth-child(odd)::before {
-            right: -40px;
-        }
-
-        .timeline-item:nth-child(even)::before {
-            left: -40px;
-        }
-
-        .timeline-content {
-            background: var(--surface-elevated);
-            padding: 30px;
-            border-radius: 20px;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-        }
-
-        .timeline-content:hover {
-            transform: scale(1.02);
-            box-shadow: 0 15px 40px var(--shadow-lg);
-        }
-
-        /* Contact Section */
-        .contact-section {
-            background: var(--surface);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--primary-gradient);
-            opacity: 0.05;
-            z-index: 1;
-        }
-
-        .contact-content {
+            margin-bottom: 10px;
             position: relative;
             z-index: 2;
         }
 
+        .number-label {
+            color: var(--text-muted);
+            font-weight: 500;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Contact Grid */
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-top: 60px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         .contact-card {
-            background: var(--surface-elevated);
-            padding: 40px 30px;
-            border-radius: 24px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            padding: 40px;
             text-align: center;
-            border: 1px solid var(--border);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -688,7 +527,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--primary-gradient);
+            background: var(--gradient);
             opacity: 0;
             transition: opacity 0.3s ease;
         }
@@ -699,88 +538,138 @@
 
         .contact-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px var(--shadow-lg);
+            box-shadow: 0 20px 50px var(--shadow);
         }
 
-        .contact-card > * {
+        .contact-icon {
+            font-size: 2.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
             position: relative;
             z-index: 2;
         }
 
-        .contact-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--primary-gradient);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            font-size: 28px;
-            color: white;
-            transition: all 0.3s ease;
-        }
-
-        .contact-card:hover .contact-icon {
-            transform: scale(1.15) rotate(10deg);
-        }
-
-        .contact-card h3 {
-            font-size: 1.4rem;
+        .contact-title {
+            font-size: 1.3rem;
             font-weight: 700;
             margin-bottom: 15px;
             color: var(--text-primary);
+            position: relative;
+            z-index: 2;
         }
 
-        .contact-card p {
+        .contact-description {
             color: var(--text-secondary);
             margin-bottom: 25px;
             line-height: 1.6;
+            position: relative;
+            z-index: 2;
         }
 
-        .contact-card a {
+        .contact-link {
             display: inline-block;
-            background: var(--primary-gradient);
+            background: var(--gradient);
             color: white;
-            padding: 15px 30px;
+            padding: 12px 25px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
         }
 
-        .contact-card a:hover {
+        .contact-link:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 10px 25px var(--shadow);
         }
 
-        /* Companies Section */
-        .companies-section {
-            padding: 80px 0;
-            background: var(--surface);
+        /* Footer */
+        .footer {
+            padding: 60px 20px 40px;
+            background: var(--bg-secondary);
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-text {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .social-link {
+            color: var(--text-muted);
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            padding: 10px;
+            border-radius: 50%;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+        }
+
+        .social-link:hover {
+            color: var(--neon-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+
+        /* Trusted Companies Section */
+        .trusted-section {
+            padding: 80px 20px;
+            background: var(--bg-secondary);
+            overflow: hidden;
+        }
+
+        .trusted-title {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 50px;
+            font-weight: 500;
         }
 
         .companies-marquee {
-            overflow: hidden;
             position: relative;
-            margin-top: 40px;
+            overflow: hidden;
+            height: 80px;
+            mask: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
+            -webkit-mask: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
         }
 
         .companies-track {
             display: flex;
-            gap: 60px;
+            align-items: center;
+            gap: 80px;
             animation: marquee 20s linear infinite;
+            height: 100%;
         }
 
         .company-logo {
-            height: 50px;
+            height: 40px;
             width: auto;
-            filter: grayscale(100%) opacity(0.6);
+            filter: grayscale(100%) brightness(0.7);
             transition: all 0.3s ease;
+            flex-shrink: 0;
         }
 
         .company-logo:hover {
-            filter: grayscale(0%) opacity(1);
+            filter: grayscale(0%) brightness(1);
             transform: scale(1.1);
         }
 
@@ -789,327 +678,576 @@
             100% { transform: translateX(-50%); }
         }
 
-        /* Floating CTA */
-        .floating-cta {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--primary-gradient);
+        /* Experience Section */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .experience-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient);
+        }
+
+        .experience-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px var(--shadow);
+        }
+
+        .experience-header {
+            margin-bottom: 20px;
+        }
+
+        .experience-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .experience-company {
+            font-size: 1.1rem;
+            color: var(--neon-blue);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .experience-period {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .experience-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .experience-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: var(--glass-bg);
+            color: var(--text-secondary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            background: var(--neon-blue);
+            color: var(--bg-primary);
+            transform: translateY(-2px);
+        }
+
+        .tag.clay {
+            background: linear-gradient(45deg, #00d4ff, #0099cc);
             color: white;
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
+            border: none;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: conic-gradient(from 0deg, transparent, var(--neon-green), transparent);
+            animation: rotate 6s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .project-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 70px var(--shadow);
+        }
+
+        .project-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .project-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
-            text-decoration: none;
-            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4);
-            transition: all 0.3s ease;
-            z-index: 1000;
-            animation: floatBounce 3s ease-in-out infinite;
+            font-size: 1.3rem;
+            color: white;
         }
 
-        @keyframes floatBounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            position: relative;
+            z-index: 2;
         }
 
-        .floating-cta:hover {
-            transform: scale(1.15) translateY(-5px);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+        .project-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .project-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .stat {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .stat-value {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            position: relative;
+            z-index: 2;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .modern-nav {
-                position: relative;
-                top: auto;
-                left: auto;
+            .floating-stats {
+                position: static;
                 transform: none;
-                margin-bottom: 20px;
-                width: 100%;
-                border-radius: 20px;
+                flex-direction: row;
+                justify-content: center;
+                margin-top: 40px;
+                gap: 15px;
             }
 
-            .modern-nav ul {
+            .stat-card {
+                padding: 20px;
+                min-width: 120px;
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .nav-menu {
                 flex-wrap: wrap;
                 justify-content: center;
             }
 
-            .hero-grid {
+            .nav-link {
+                padding: 10px 15px;
+                font-size: 0.8rem;
+            }
+
+            .services-grid,
+            .numbers-grid,
+            .contact-grid {
                 grid-template-columns: 1fr;
-                gap: 40px;
-                text-align: center;
             }
 
-            .hero-text h1 {
-                font-size: 2.5rem;
-            }
-
-            .timeline::before {
-                left: 20px;
-            }
-
-            .timeline-item {
-                width: calc(100% - 60px);
-                left: 60px !important;
-                text-align: left !important;
-            }
-
-            .timeline-item::before {
-                left: -50px !important;
-            }
-
-            .hero-cta {
-                justify-content: center;
-            }
-
-            .floating-cta {
-                width: 60px;
-                height: 60px;
-                font-size: 20px;
+            .cta-container {
+                flex-direction: column;
+                align-items: center;
             }
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .fade-in-up {
-            animation: fadeInUp 0.8s ease-out forwards;
-            opacity: 0;
-        }
-
-        .slide-in-left {
-            animation: slideInLeft 0.8s ease-out forwards;
-            opacity: 0;
-        }
-
-        .slide-in-right {
-            animation: slideInRight 0.8s ease-out forwards;
-            opacity: 0;
-        }
-
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Loading animation */
-        .page-loader {
+        /* Loading Animation */
+        .loader {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--background);
+            background: var(--bg-primary);
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 9999;
+            z-index: 10000;
             transition: opacity 0.5s ease;
         }
 
-        .loader {
+        .loader-spinner {
             width: 50px;
             height: 50px;
+            border: 3px solid transparent;
+            border-top: 3px solid var(--neon-blue);
             border-radius: 50%;
-            background: var(--primary-gradient);
-            animation: loaderPulse 1.5s ease-in-out infinite;
+            animation: spin 1s linear infinite;
         }
 
-        @keyframes loaderPulse {
-            0%, 100% { transform: scale(0.8); opacity: 0.8; }
-            50% { transform: scale(1.2); opacity: 0.4; }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loader.hide {
+            opacity: 0;
+            pointer-events: none;
         }
     </style>
 </head>
 <body>
-    <!-- Page Loader -->
-    <div class="page-loader" id="pageLoader">
-        <div class="loader"></div>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-spinner"></div>
     </div>
 
     <!-- Animated Background -->
     <div class="animated-bg">
-        <div class="floating-shape"></div>
-        <div class="floating-shape"></div>
-        <div class="floating-shape"></div>
+        <div class="bg-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
     </div>
 
-    <!-- Scroll Progress -->
-    <div class="scroll-progress" id="scrollProgress"></div>
-
-    <!-- Theme Toggle -->
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-        <i class="fas fa-moon" id="themeIcon"></i>
-    </button>
-
-    <!-- Modern Navigation -->
-    <nav class="modern-nav" id="modernNav">
-        <ul>
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <ul class="nav-menu">
             <li><a href="#hero" class="nav-link active">Home</a></li>
-            <li><a href="#about" class="nav-link">About</a></li>
-            <li><a href="#services" class="nav-link">Services</a></li>
-            <li><a href="#results" class="nav-link">Results</a></li>
             <li><a href="#experience" class="nav-link">Experience</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#results" class="nav-link">Results</a></li>
             <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
     </nav>
 
     <!-- Hero Section -->
     <section id="hero" class="hero-section">
-        <div class="hero-bg-pattern"></div>
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-grid">
-                    <div class="hero-text">
-                        <h1>Hariprasad Sivakumar</h1>
-                        <div class="subtitle">GTM Engineer & Revenue Automation Expert</div>
-                        <p class="description">I architect and build scalable revenue systems that transform how businesses generate leads, nurture prospects, and accelerate growth. With 9+ years of experience and 1M+ leads generated, I help companies scale through intelligent automation and AI-powered workflows.</p>
-                        <div class="hero-cta">
-                            <a href="https://calendly.com/harigtm" target="_blank" class="cta-primary">
-                                <i class="fas fa-calendar-alt"></i> Schedule Strategy Call
-                            </a>
-                            <a href="#results" class="cta-secondary">
-                                <i class="fas fa-chart-line"></i> View Results
-                            </a>
-                        </div>
-                    </div>
-                    <div class="modern-profile">
-                        <div class="profile-card">
-                            <div class="profile-image-container">
-                                <div class="profile-glow"></div>
-                                <img src="https://media.licdn.com/dms/image/v2/D5603AQGxK8Y1vT8J1w/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1704365089033?e=1740614400&v=beta&t=YpGt8wKpRKdHGhCGVXfOsHoXfJhGxCGLvYqOqQWoM8s" alt="Hariprasad Sivakumar" class="profile-image">
-                            </div>
-                            <div class="hero-stats">
-                                <div class="stat-item">
-                                    <span class="stat-number counter" data-target="9">0</span>
-                                    <span class="stat-label">Years</span>
-                                </div>
-                                <div class="stat-item">
-                                    <span class="stat-number counter" data-target="1000000">0</span>
-                                    <span class="stat-label">Leads</span>
-                                </div>
-                                <div class="stat-item">
-                                    <span class="stat-number counter" data-target="400">0</span>
-                                    <span class="stat-label">% Growth</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <div class="hero-content">
+            <h1 class="hero-title">Hariprasad Sivakumar</h1>
+            <h2 class="hero-subtitle">GTM Engineer & Revenue Automation Expert</h2>
+            <p class="hero-description">
+                I architect and build scalable revenue systems that transform how businesses generate leads, 
+                nurture prospects, and accelerate growth. With 9+ years of experience in automation and 
+                AI-powered solutions, I've helped companies generate 1M+ leads while saving thousands of operational hours.
+            </p>
+            <div class="cta-container">
+                <a href="https://calendly.com/harigtm/30min" target="_blank" class="cta-btn cta-primary">
+                    <i class="fas fa-calendar-alt"></i> Schedule Strategy Call
+                </a>
+                <a href="#projects" class="cta-btn cta-secondary">
+                    <i class="fas fa-eye"></i> View My Work
+                </a>
+            </div>
+        </div>
+        
+        <div class="floating-stats">
+            <div class="stat-card">
+                <span class="stat-number">9+</span>
+                <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">1M+</span>
+                <span class="stat-label">Leads Generated</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">400%</span>
+                <span class="stat-label">Pipeline Growth</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted Companies Section -->
+    <section class="trusted-section">
+        <div class="section-header">
+            <h3 class="trusted-title">Trusted by innovative companies worldwide</h3>
+        </div>
+        <div class="companies-marquee">
+            <div class="companies-track">
+                <img src="https://logo.clearbit.com/endflow.com" alt="Endflow" class="company-logo">
+                <img src="https://logo.clearbit.com/recruitramp.com" alt="RecruitRamp" class="company-logo">
+                <img src="https://logo.clearbit.com/scienaptic.com" alt="Scienaptic" class="company-logo">
+                <img src="https://logo.clearbit.com/taskdrive.com" alt="TaskDrive" class="company-logo">
+                <img src="https://logo.clearbit.com/tracxn.com" alt="Tracxn" class="company-logo">
+                <img src="https://logo.clearbit.com/instawork.com" alt="Instawork" class="company-logo">
+                <!-- Duplicate for seamless loop -->
+                <img src="https://logo.clearbit.com/endflow.com" alt="Endflow" class="company-logo">
+                <img src="https://logo.clearbit.com/recruitramp.com" alt="RecruitRamp" class="company-logo">
+                <img src="https://logo.clearbit.com/scienaptic.com" alt="Scienaptic" class="company-logo">
+                <img src="https://logo.clearbit.com/taskdrive.com" alt="TaskDrive" class="company-logo">
+                <img src="https://logo.clearbit.com/tracxn.com" alt="Tracxn" class="company-logo">
+                <img src="https://logo.clearbit.com/instawork.com" alt="Instawork" class="company-logo">
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="section-header">
+            <h2 class="section-title">Professional Experience</h2>
+            <p class="section-subtitle">
+                Building revenue systems across industries and verticals
+            </p>
+        </div>
+        
+        <div class="experience-grid">
+            <div class="experience-card fade-in">
+                <div class="experience-header">
+                    <h3 class="experience-title">Lead Research Manager</h3>
+                    <div class="experience-company">TaskDrive</div>
+                    <div class="experience-period">2023 - Present</div>
+                </div>
+                <p class="experience-description">
+                    Leading data intelligence and lead research initiatives at TaskDrive, building sophisticated 
+                    automation systems using Clay, n8n, and API integrations. Scaling lead generation operations 
+                    that process 50K+ leads monthly while maintaining 95%+ data accuracy through advanced enrichment workflows.
+                </p>
+                <div class="experience-tags">
+                    <span class="tag">Clay</span>
+                    <span class="tag">n8n</span>
+                    <span class="tag">API Integration</span>
+                    <span class="tag">Lead Generation</span>
+                </div>
+            </div>
+
+            <div class="experience-card fade-in">
+                <div class="experience-header">
+                    <h3 class="experience-title">GTM Engineer (Freelance)</h3>
+                    <div class="experience-company">Scienaptic AI</div>
+                    <div class="experience-period">2022 - 2023</div>
+                </div>
+                <p class="experience-description">
+                    Architected and deployed comprehensive lead generation systems at Scienaptic AI, combining 
+                    multiple data sources and automation tools to increase qualified pipeline by 400%. Specialized 
+                    in multi-channel outreach sequences using Smartlead and custom data enrichment workflows.
+                </p>
+                <div class="experience-tags">
+                    <span class="tag">Smartlead</span>
+                    <span class="tag">Data Enrichment</span>
+                    <span class="tag">Multi-Channel Outreach</span>
+                    <span class="tag">Clay</span>
+                </div>
+            </div>
+
+            <div class="experience-card fade-in">
+                <div class="experience-header">
+                    <h3 class="experience-title">Data Operations Manager</h3>
+                    <div class="experience-company">Instawork</div>
+                    <div class="experience-period">2021 - 2022</div>
+                </div>
+                <p class="experience-description">
+                    Managed data operations and research initiatives at Instawork, developing automated data 
+                    collection and analysis systems. Built scalable processes that reduced manual research time 
+                    by 60% while improving data quality and lead conversion rates.
+                </p>
+                <div class="experience-tags">
+                    <span class="tag">Data Operations</span>
+                    <span class="tag">Process Automation</span>
+                    <span class="tag">Clay</span>
+                    <span class="tag">Research</span>
+                </div>
+            </div>
+
+            <div class="experience-card fade-in">
+                <div class="experience-header">
+                    <h3 class="experience-title">Senior Data Analyst</h3>
+                    <div class="experience-company">Tracxn Technologies</div>
+                    <div class="experience-period">2019 - 2021</div>
+                </div>
+                <p class="experience-description">
+                    Spearheaded data operations at Tracxn Technologies, managing large-scale data collection 
+                    and enrichment processes. Implemented automated workflows that processed 1M+ data points 
+                    monthly, laying the foundation for revenue operations expertise.
+                </p>
+                <div class="experience-tags">
+                    <span class="tag">Data Analysis</span>
+                    <span class="tag">Automation</span>
+                    <span class="tag">Workflows</span>
+                    <span class="tag">Revenue Operations</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Companies Section -->
-    <section class="companies-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 style="font-size: 1.2rem; color: var(--text-muted); font-weight: 600;">Trusted by leading companies across industries</h2>
-            </div>
-            <div class="companies-marquee">
-                <div class="companies-track">
-                    <img src="https://logo.clearbit.com/taskdrive.com" alt="TaskDrive" class="company-logo">
-                    <img src="https://logo.clearbit.com/scienaptic.ai" alt="Scienaptic AI" class="company-logo">
-                    <img src="https://logo.clearbit.com/instawork.com" alt="Instawork" class="company-logo">
-                    <img src="https://logo.clearbit.com/tracxn.com" alt="Tracxn Technologies" class="company-logo">
-                    <img src="https://logo.clearbit.com/taskdrive.com" alt="TaskDrive" class="company-logo">
-                    <img src="https://logo.clearbit.com/scienaptic.ai" alt="Scienaptic AI" class="company-logo">
-                    <img src="https://logo.clearbit.com/instawork.com" alt="Instawork" class="company-logo">
-                    <img src="https://logo.clearbit.com/tracxn.com" alt="Tracxn Technologies" class="company-logo">
-                </div>
-            </div>
+    <!-- Projects Section -->
+    <section id="projects" class="section section-alt">
+        <div class="section-header">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">
+                Real-world solutions that drive measurable results
+            </p>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Bridging Strategy & Execution</h2>
-                <p class="section-subtitle">with data-driven automation that scales while you sleep</p>
-            </div>
-            
-            <div class="hero-grid">
-                <div style="font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary);">
-                    <p style="margin-bottom: 25px;"><strong style="color: var(--text-primary);">Hey there! I'm Hariprasad Sivakumar (call me Hari)</strong>, a GTM Engineer who transforms how businesses approach revenue generation through intelligent automation and data-driven strategies.</p>
-                    
-                    <p style="margin-bottom: 25px;">With over <strong style="color: var(--primary-color);">9 years of experience</strong> across SaaS, FinTech, E-commerce, and Market Research, I've mastered the art of building systems that work while you sleep. Currently serving as <strong style="color: var(--primary-color);">Lead Research Manager at TaskDrive</strong>, I also work with confidential clients as a freelance GTM Engineer.</p>
-                    
-                    <p style="margin-bottom: 30px;">When I'm not building automations, you'll find me exploring the latest in <strong style="color: var(--primary-color);">AI and prompt engineering</strong>, crafting sophisticated prompts that unlock the full potential of LLMs for business automation.</p>
-
-                    <div style="display: flex; flex-direction: column; gap: 15px;">
-                        <div style="display: flex; align-items: center; gap: 15px;">
-                            <div style="width: 40px; height: 40px; background: var(--primary-gradient); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white;">
-                                <i class="fas fa-code"></i>
-                            </div>
-                            <span>Clay, n8n, Smartlead Expert</span>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 15px;">
-                            <div style="width: 40px; height: 40px; background: var(--primary-gradient); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white;">
-                                <i class="fas fa-brain"></i>
-                            </div>
-                            <span>AI & Prompt Engineering Specialist</span>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 15px;">
-                            <div style="width: 40px; height: 40px; background: var(--primary-gradient); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white;">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <span>Revenue Operations Architect</span>
-                        </div>
+        
+        <div class="projects-grid">
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="project-title">Automated Lead Scoring & Routing</h3>
+                </div>
+                <p class="project-description">
+                    Built an intelligent lead scoring system using Clay and n8n that automatically qualifies, 
+                    scores, and routes leads to the right sales reps based on 50+ data points and behavioral triggers.
+                </p>
+                <div class="project-stats">
+                    <div class="stat">
+                        <span class="stat-value">85%</span>
+                        <span class="stat-label">Lead Quality Increase</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">40hrs</span>
+                        <span class="stat-label">Weekly Time Saved</span>
                     </div>
                 </div>
-                
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <span class="stat-number counter" data-target="9">0</span>
-                        <div class="stat-label">Years Experience</div>
+                <div class="project-tags">
+                    <span class="tag clay">Clay</span>
+                    <span class="tag">n8n</span>
+                    <span class="tag">HubSpot</span>
+                    <span class="tag">Apollo</span>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fas fa-rocket"></i>
                     </div>
-                    <div class="stat-card">
-                        <span class="stat-number counter" data-target="1000000">0</span>
-                        <div class="stat-label">Leads Generated</div>
+                    <h3 class="project-title">Multi-Channel Outreach Engine</h3>
+                </div>
+                <p class="project-description">
+                    Designed and deployed a comprehensive outreach system using Clay and Smartlead that coordinates 
+                    email, LinkedIn, and phone touchpoints across multiple sequences, resulting in 4x higher response rates.
+                </p>
+                <div class="project-stats">
+                    <div class="stat">
+                        <span class="stat-value">400%</span>
+                        <span class="stat-label">Response Rate Increase</span>
                     </div>
-                    <div class="stat-card">
-                        <span class="stat-number counter" data-target="50000">0</span>
-                        <div class="stat-label">Monthly Leads</div>
+                    <div class="stat">
+                        <span class="stat-value">50K+</span>
+                        <span class="stat-label">Monthly Touchpoints</span>
                     </div>
-                    <div class="stat-card">
-                        <span class="stat-number counter" data-target="95">0</span>
-                        <div class="stat-label">Data Accuracy</div>
+                </div>
+                <div class="project-tags">
+                    <span class="tag clay">Clay</span>
+                    <span class="tag">Smartlead</span>
+                    <span class="tag">Apollo</span>
+                    <span class="tag">LinkedIn Sales Navigator</span>
+                    <span class="tag">n8n</span>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fas fa-database"></i>
                     </div>
+                    <h3 class="project-title">Custom Data Enrichment Pipeline</h3>
+                </div>
+                <p class="project-description">
+                    Created a sophisticated data enrichment system that automatically scrapes, validates, and enriches 
+                    prospect data from multiple sources, providing sales teams with 99.5% accurate contact information.
+                </p>
+                <div class="project-stats">
+                    <div class="stat">
+                        <span class="stat-value">99.5%</span>
+                        <span class="stat-label">Data Accuracy</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">25hrs</span>
+                        <span class="stat-label">Weekly Research Time Saved</span>
+                    </div>
+                </div>
+                <div class="project-tags">
+                    <span class="tag clay">Clay</span>
+                    <span class="tag">ZoomInfo</span>
+                    <span class="tag">Apollo</span>
+                    <span class="tag">n8n</span>
                 </div>
             </div>
         </div>
@@ -1117,336 +1255,199 @@
 
     <!-- Services Section -->
     <section id="services" class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Transform Your Revenue Operations</h2>
-                <p class="section-subtitle">End-to-end automation solutions that scale your business intelligently</p>
+        <div class="section-header">
+            <h2 class="section-title">Revenue Automation Solutions</h2>
+            <p class="section-subtitle">
+                End-to-end automation systems that scale your business while you focus on strategy
+            </p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <i class="fas fa-robot service-icon"></i>
+                <h3 class="service-title">Lead Generation Systems</h3>
+                <p class="service-description">
+                    Build intelligent lead scoring systems using Clay and n8n that automatically qualify, 
+                    score, and route leads based on 50+ data points and behavioral triggers.
+                </p>
             </div>
-            
-            <div class="modern-grid">
-                <div class="modern-card">
-                    <div class="card-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h3 class="card-title">Revenue Automation</h3>
-                    <p class="card-description">Build intelligent systems that automate your entire revenue funnel from lead capture to customer acquisition, eliminating manual processes and reducing costs by 60%.</p>
-                </div>
 
-                <div class="modern-card">
-                    <div class="card-icon">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <h3 class="card-title">Lead Generation & Research</h3>
-                    <p class="card-description">Deploy sophisticated lead generation systems that identify, qualify, and nurture prospects automatically using advanced data enrichment and AI-powered scoring.</p>
-                </div>
+            <div class="service-card fade-in">
+                <i class="fas fa-paper-plane service-icon"></i>
+                <h3 class="service-title">Multi-Channel Outreach</h3>
+                <p class="service-description">
+                    Deploy comprehensive outreach systems that coordinate email, LinkedIn, and phone 
+                    touchpoints with intelligent sequencing, resulting in 4x higher response rates.
+                </p>
+            </div>
 
-                <div class="modern-card">
-                    <div class="card-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3 class="card-title">AI-Powered Workflows</h3>
-                    <p class="card-description">Leverage cutting-edge AI and prompt engineering to create intelligent workflows that adapt and optimize based on real-time performance data.</p>
-                </div>
+            <div class="service-card fade-in">
+                <i class="fas fa-database service-icon"></i>
+                <h3 class="service-title">Data Enrichment Engine</h3>
+                <p class="service-description">
+                    Create sophisticated data enrichment systems that automatically scrape, validate, 
+                    and enrich prospect data, providing 99.5% accurate contact information instantly.
+                </p>
+            </div>
 
-                <div class="modern-card">
-                    <div class="card-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3 class="card-title">GTM Strategy & Execution</h3>
-                    <p class="card-description">Design and implement comprehensive go-to-market strategies with data-driven automation that scales with your business growth seamlessly.</p>
-                </div>
+            <div class="service-card fade-in">
+                <i class="fas fa-brain service-icon"></i>
+                <h3 class="service-title">AI-Powered Workflows</h3>
+                <p class="service-description">
+                    Leverage advanced AI and prompt engineering to create intelligent workflows that 
+                    adapt and optimize based on real-time performance data and market changes.
+                </p>
+            </div>
 
-                <div class="modern-card">
-                    <div class="card-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3 class="card-title">Data Enrichment & Intelligence</h3>
-                    <p class="card-description">Transform raw data into actionable intelligence with advanced enrichment processes that provide 99.5% accurate prospect information instantly.</p>
-                </div>
+            <div class="service-card fade-in">
+                <i class="fas fa-chart-line service-icon"></i>
+                <h3 class="service-title">Revenue Operations</h3>
+                <p class="service-description">
+                    Design and implement comprehensive revenue operations systems that process 50K+ 
+                    leads monthly while maintaining 95%+ data accuracy through advanced automation.
+                </p>
+            </div>
 
-                <div class="modern-card">
-                    <div class="card-icon">
-                        <i class="fas fa-paper-plane"></i>
-                    </div>
-                    <h3 class="card-title">Multi-Channel Outreach</h3>
-                    <p class="card-description">Orchestrate seamless outreach campaigns across email, LinkedIn, and phone with intelligent sequencing and personalization at scale.</p>
-                </div>
+            <div class="service-card fade-in">
+                <i class="fas fa-cogs service-icon"></i>
+                <h3 class="service-title">Process Optimization</h3>
+                <p class="service-description">
+                    Streamline your entire sales process with automated workflows that reduce manual 
+                    research time by 60% while improving lead quality and conversion rates.
+                </p>
             </div>
         </div>
     </section>
 
     <!-- Results Section -->
-    <section id="results" class="section" style="background: var(--primary-gradient); color: white; position: relative; overflow: hidden;">
-        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.1; background-image: radial-gradient(circle at 25% 25%, white 2px, transparent 2px), radial-gradient(circle at 75% 75%, white 2px, transparent 2px); background-size: 50px 50px;"></div>
-        <div class="container">
-            <div style="position: relative; z-index: 2;">
-                <div class="section-header">
-                    <h2 class="section-title" style="color: white; -webkit-text-fill-color: white;">Proven Results That Speak Volumes</h2>
-                    <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Real impact across multiple organizations and industries</p>
-                </div>
-                
-                <div class="modern-grid">
-                    <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 24px; padding: 40px 30px; text-align: center; transition: all 0.3s ease;">
-                        <span style="font-size: 3.5rem; font-weight: 900; display: block; margin-bottom: 15px; color: white;" class="counter" data-target="1000000">0</span>
-                        <div style="font-size: 1.2rem; font-weight: 600; margin-bottom: 8px;">Total Leads Generated</div>
-                        <div style="font-size: 0.9rem; opacity: 0.8;">Across all clients and projects</div>
-                    </div>
-                    <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 24px; padding: 40px 30px; text-align: center; transition: all 0.3s ease;">
-                        <span style="font-size: 3.5rem; font-weight: 900; display: block; margin-bottom: 15px; color: white;" class="counter" data-target="50000">0</span>
-                        <div style="font-size: 1.2rem; font-weight: 600; margin-bottom: 8px;">Monthly Lead Processing</div>
-                        <div style="font-size: 0.9rem; opacity: 0.8;">Current processing capacity</div>
-                    </div>
-                    <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 24px; padding: 40px 30px; text-align: center; transition: all 0.3s ease;">
-                        <span style="font-size: 3.5rem; font-weight: 900; display: block; margin-bottom: 15px; color: white;" class="counter" data-target="400">0</span>
-                        <div style="font-size: 1.2rem; font-weight: 600; margin-bottom: 8px;">% Pipeline Increase</div>
-                        <div style="font-size: 0.9rem; opacity: 0.8;">Qualified pipeline growth</div>
-                    </div>
-                    <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 24px; padding: 40px 30px; text-align: center; transition: all 0.3s ease;">
-                        <span style="font-size: 3.5rem; font-weight: 900; display: block; margin-bottom: 15px; color: white;" class="counter" data-target="95">0</span>
-                        <div style="font-size: 1.2rem; font-weight: 600; margin-bottom: 8px;">% Data Accuracy</div>
-                        <div style="font-size: 0.9rem; opacity: 0.8;">Maintained across workflows</div>
-                    </div>
-                    <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 24px; padding: 40px 30px; text-align: center; transition: all 0.3s ease;">
-                        <span style="font-size: 3.5rem; font-weight: 900; display: block; margin-bottom: 15px; color: white;" class="counter" data-target="60">0</span>
-                        <div style="font-size: 1.2rem; font-weight: 600; margin-bottom: 8px;">% Time Reduction</div>
-                        <div style="font-size: 0.9rem; opacity: 0.8;">Manual research time saved</div>
-                    </div>
-                    <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 24px; padding: 40px 30px; text-align: center; transition: all 0.3s ease;">
-                        <span style="font-size: 3.5rem; font-weight: 900; display: block; margin-bottom: 15px; color: white;" class="counter" data-target="4">0</span>
-                        <div style="font-size: 1.2rem; font-weight: 600; margin-bottom: 8px;">x Response Rates</div>
-                        <div style="font-size: 0.9rem; opacity: 0.8;">Higher with intelligent outreach</div>
-                    </div>
-                </div>
-            </div>
+    <section id="results" class="section">
+        <div class="section-header">
+            <h2 class="section-title">Proven Results</h2>
+            <p class="section-subtitle">
+                Real impact across multiple organizations and industries
+            </p>
         </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Building Revenue Systems</h2>
-                <p class="section-subtitle">across industries and verticals with proven expertise</p>
+        
+        <div class="numbers-grid">
+            <div class="number-card fade-in">
+                <span class="number-value">1M+</span>
+                <div class="number-label">Total Leads Generated</div>
             </div>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px;">
-                            <img src="https://logo.clearbit.com/taskdrive.com" alt="TaskDrive" style="width: 50px; height: 50px; border-radius: 10px; object-fit: cover;">
-                            <div>
-                                <h3 style="font-size: 1.4rem; font-weight: 700; color: var(--text-primary); margin-bottom: 5px;">Lead Research Manager</h3>
-                                <p style="color: var(--primary-color); font-weight: 600;">TaskDrive</p>
-                            </div>
-                        </div>
-                        <p style="color: var(--text-secondary); line-height: 1.7;">Leading data intelligence and lead research initiatives, building sophisticated automation systems using Clay, n8n, and API integrations. Scaling operations to process 50K+ leads monthly while maintaining 95%+ data accuracy.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px;">
-                            <img src="https://logo.clearbit.com/scienaptic.ai" alt="Scienaptic AI" style="width: 50px; height: 50px; border-radius: 10px; object-fit: cover;">
-                            <div>
-                                <h3 style="font-size: 1.4rem; font-weight: 700; color: var(--text-primary); margin-bottom: 5px;">GTM Engineer</h3>
-                                <p style="color: var(--primary-color); font-weight: 600;">Scienaptic AI</p>
-                            </div>
-                        </div>
-                        <p style="color: var(--text-secondary); line-height: 1.7;">Architected comprehensive lead generation systems, combining multiple data sources and automation tools to increase qualified pipeline by 400%. Specialized in multi-channel outreach using Smartlead and custom workflows.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px;">
-                            <img src="https://logo.clearbit.com/instawork.com" alt="Instawork" style="width: 50px; height: 50px; border-radius: 10px; object-fit: cover;">
-                            <div>
-                                <h3 style="font-size: 1.4rem; font-weight: 700; color: var(--text-primary); margin-bottom: 5px;">Data Operations Manager</h3>
-                                <p style="color: var(--primary-color); font-weight: 600;">Instawork</p>
-                            </div>
-                        </div>
-                        <p style="color: var(--text-secondary); line-height: 1.7;">Managed data operations and research initiatives, developing automated data collection systems. Built scalable processes that reduced manual research time by 60% while improving data quality and conversion rates.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px;">
-                            <img src="https://logo.clearbit.com/tracxn.com" alt="Tracxn Technologies" style="width: 50px; height: 50px; border-radius: 10px; object-fit: cover;">
-                            <div>
-                                <h3 style="font-size: 1.4rem; font-weight: 700; color: var(--text-primary); margin-bottom: 5px;">Data Operations Specialist</h3>
-                                <p style="color: var(--primary-color); font-weight: 600;">Tracxn Technologies</p>
-                            </div>
-                        </div>
-                        <p style="color: var(--text-secondary); line-height: 1.7;">Spearheaded data operations, managing large-scale data collection and enrichment processes. Implemented automated workflows processing 1M+ data points monthly, laying the foundation for revenue operations expertise.</p>
-                    </div>
-                </div>
+            <div class="number-card fade-in">
+                <span class="number-value">50K+</span>
+                <div class="number-label">Monthly Lead Processing</div>
             </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Real-World Solutions</h2>
-                <p class="section-subtitle">that drive measurable results and transform business operations</p>
+            <div class="number-card fade-in">
+                <span class="number-value">400%</span>
+                <div class="number-label">Pipeline Increase</div>
             </div>
-            
-            <div class="modern-grid">
-                <div class="modern-card">
-                    <div class="card-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); font-size: 2rem;">
-                        🎯
-                    </div>
-                    <h3 class="card-title">Intelligent Lead Scoring System</h3>
-                    <p class="card-description">Built an intelligent lead scoring system using Clay and n8n that automatically qualifies, scores, and routes leads to the right sales reps based on 50+ data points and behavioral triggers.</p>
-                    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px;">
-                        <span style="background: var(--surface); color: var(--text-secondary); padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 500;">Clay</span>
-                        <span style="background: var(--surface); color: var(--text-secondary); padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 500;">n8n</span>
-                        <span style="background: var(--surface); color: var(--text-secondary); padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 500;">API Integration</span>
-                        <span style="background: var(--surface); color: var(--text-secondary); padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 500;">ML</span>
-                    </div>
-                </div>
-
-                <div class="modern-card">
-                    <div class="card-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); font-size: 2rem;">
-                        📧
-                    </div>
-                    <h3 class="card-title">Multi-Channel Outreach System</h3>
-                    <p class="card-description">Designed and deployed a comprehensive outreach system using Clay and Smartlead that coordinates email, LinkedIn, and phone touchpoints, resulting in 4x higher response rates.</p>
-                    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px;">
-                        <span style="background: var(--surface); color: var(--text-secondary); padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 500;">Clay</span>
-                        <span style="background: var(--surface); color: var(--text-secondary); padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 500;">Smartlead</span>
-                        <span style="background: var(--surface); color: var(--text-secondary); padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 500;">LinkedIn API</span>
-                        <span style="background: var(--surface); color: var(--text-secondary); padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 500;">Automation</span>
-                    </div>
-                </div>
-
-                <div class="modern-card">
-                    <div class="card-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); font-size: 2rem;">
-                        🔍
-                    </div>
-                    <h3 class="card-title">Data Enrichment Engine</h3>
-                    <p class="card-description">Created a sophisticated data enrichment system that automatically scrapes, validates, and enriches prospect data from multiple sources, providing 99.5% accurate contact information.</p>
-                    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px;">
-                        <span style="background: var(--surface); color: var(--text-secondary); padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 500;">Web Scraping</span>
-                        <span style="background: var(--surface); color: var(--text-secondary); padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 500;">Data Validation</span>
-                        <span style="background: var(--surface); color: var(--text-secondary); padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 500;">APIs</span>
-                        <span style="background: var(--surface); color: var(--text-secondary); padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 500;">Real-time</span>
-                    </div>
-                </div>
+            <div class="number-card fade-in">
+                <span class="number-value">95%</span>
+                <div class="number-label">Data Accuracy</div>
+            </div>
+            <div class="number-card fade-in">
+                <span class="number-value">60%</span>
+                <div class="number-label">Time Saved</div>
+            </div>
+            <div class="number-card fade-in">
+                <span class="number-value">4X</span>
+                <div class="number-label">Response Rates</div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <div class="contact-content">
-                <div class="section-header">
-                    <h2 class="section-title">Ready to Transform Your Revenue Operations?</h2>
-                    <p class="section-subtitle">Let's discuss your automation needs and build systems that scale your business while you sleep</p>
-                </div>
-                
-                <div class="contact-grid">
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-calendar-alt"></i>
-                        </div>
-                        <h3>Schedule a Strategy Call</h3>
-                        <p>Book a 30-minute consultation to discuss your revenue automation needs and growth goals</p>
-                        <a href="https://calendly.com/harigtm" target="_blank">Schedule Now</a>
-                    </div>
-                    
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <h3>Email Direct</h3>
-                        <p>Send me a message about your project requirements and automation challenges</p>
-                        <a href="mailto:hello@hariprasadss.com">Send Email</a>
-                    </div>
-                    
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fab fa-linkedin"></i>
-                        </div>
-                        <h3>Connect on LinkedIn</h3>
-                        <p>Let's connect and discuss how automation can transform your business operations</p>
-                        <a href="https://linkedin.com/in/hariprasadss" target="_blank">Connect</a>
-                    </div>
-                </div>
-                
-                <div style="text-align: center; margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border);">
-                    <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 1rem;">
-                        <strong>Specializations:</strong> GTM Engineering • Revenue Automation • Lead Generation • Data Enrichment • AI-Powered Workflows • Prompt Engineering
-                    </p>
-                    <p style="color: var(--text-muted); margin-bottom: 30px; font-size: 1rem;">
-                        <strong>Industries:</strong> SaaS • FinTech • E-commerce • Staffing & Recruitment • Market Research • B2B Services
-                    </p>
-                    <div style="display: flex; justify-content: center; gap: 25px; margin-bottom: 30px;">
-                        <a href="https://linkedin.com/in/hariprasadss" target="_blank" style="color: var(--text-muted); font-size: 1.5rem; transition: color 0.3s ease;"><i class="fab fa-linkedin"></i></a>
-                        <a href="mailto:hello@hariprasadss.com" style="color: var(--text-muted); font-size: 1.5rem; transition: color 0.3s ease;"><i class="fas fa-envelope"></i></a>
-                        <a href="https://calendly.com/harigtm" target="_blank" style="color: var(--text-muted); font-size: 1.5rem; transition: color 0.3s ease;"><i class="fas fa-calendar-alt"></i></a>
-                    </div>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">&copy; 2025 Hariprasad Sivakumar. All rights reserved.</p>
-                </div>
+    <section id="contact" class="section section-alt">
+        <div class="section-header">
+            <h2 class="section-title">Ready to Transform Your Revenue?</h2>
+            <p class="section-subtitle">
+                Let's discuss your automation needs and build systems that drive growth
+            </p>
+        </div>
+        
+        <div class="contact-grid">
+            <div class="contact-card fade-in">
+                <i class="fas fa-calendar-alt contact-icon"></i>
+                <h3 class="contact-title">Schedule a Call</h3>
+                <p class="contact-description">
+                    Book a 30-minute strategy session to discuss your revenue automation goals
+                </p>
+                <a href="https://calendly.com/harigtm/30min" target="_blank" class="contact-link">Schedule Now</a>
+            </div>
+            
+            <div class="contact-card fade-in">
+                <i class="fas fa-envelope contact-icon"></i>
+                <h3 class="contact-title">Email Direct</h3>
+                <p class="contact-description">
+                    Send me details about your project and automation challenges
+                </p>
+                <a href="mailto:hello@hariprasadss.com" class="contact-link">Send Email</a>
+            </div>
+            
+            <div class="contact-card fade-in">
+                <i class="fab fa-linkedin contact-icon"></i>
+                <h3 class="contact-title">Connect on LinkedIn</h3>
+                <p class="contact-description">
+                    Let's connect and explore how automation can transform your business
+                </p>
+                <a href="https://linkedin.com/in/hariprasadss" target="_blank" class="contact-link">Connect</a>
             </div>
         </div>
     </section>
 
-    <!-- Floating CTA -->
-    <a href="https://calendly.com/harigtm" target="_blank" class="floating-cta" title="Schedule a Call">
-        <i class="fas fa-phone"></i>
-    </a>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-text">
+                <strong>Specializations:</strong> GTM Engineering • Revenue Automation • Lead Generation • Data Enrichment • AI Workflows<br>
+                <strong>Industries:</strong> SaaS • FinTech • E-commerce • Staffing & Recruitment • Market Research • B2B Services
+            </p>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/hariprasadss" target="_blank" class="social-link">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:hello@hariprasadss.com" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://github.com/hariprasadss" target="_blank" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 20px;">
+                &copy; 2025 Hariprasad Sivakumar. All rights reserved.
+            </p>
+        </div>
+    </footer>
 
     <script>
         // Page Loader
         window.addEventListener('load', function() {
-            const loader = document.getElementById('pageLoader');
             setTimeout(() => {
-                loader.style.opacity = '0';
-                setTimeout(() => {
-                    loader.style.display = 'none';
-                }, 500);
+                document.getElementById('loader').classList.add('hide');
             }, 1000);
         });
 
-        // Theme Toggle
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = document.getElementById('themeIcon');
-        const body = document.body;
-
-        // Check for saved theme preference or default to light
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        body.setAttribute('data-theme', currentTheme);
-        updateThemeIcon(currentTheme);
-
-        themeToggle.addEventListener('click', function() {
-            const currentTheme = body.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            body.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateThemeIcon(newTheme);
-        });
-
-        function updateThemeIcon(theme) {
-            themeIcon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-        }
-
-        // Scroll Progress
-        window.addEventListener('scroll', function() {
-            const scrollProgress = document.getElementById('scrollProgress');
-            const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-            scrollProgress.style.width = scrolled + '%';
+        // Smooth Scrolling Navigation
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
         });
 
         // Navigation Active State
         const navLinks = document.querySelectorAll('.nav-link');
         const sections = document.querySelectorAll('section[id]');
 
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', () => {
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
@@ -1464,114 +1465,41 @@
             });
         });
 
-        // Smooth scrolling for navigation
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const targetSection = document.getElementById(targetId);
-                
-                if (targetSection) {
-                    const offsetTop = targetSection.offsetTop - 100;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Animated Counters
-        function animateCounters() {
-            const counters = document.querySelectorAll('.counter');
-            
-            counters.forEach(counter => {
-                const target = parseInt(counter.getAttribute('data-target'));
-                const increment = target / 200;
-                let current = 0;
-                
-                const updateCounter = () => {
-                    if (current < target) {
-                        current += increment;
-                        if (target >= 1000000) {
-                            counter.textContent = (current / 1000000).toFixed(1) + 'M+';
-                        } else if (target >= 1000) {
-                            counter.textContent = (current / 1000).toFixed(0) + 'K+';
-                        } else if (target === 400 || target === 95 || target === 60) {
-                            counter.textContent = Math.floor(current) + '%';
-                        } else if (target === 4) {
-                            counter.textContent = Math.floor(current) + 'X';
-                        } else {
-                            counter.textContent = Math.floor(current) + '+';
-                        }
-                        requestAnimationFrame(updateCounter);
-                    } else {
-                        if (target >= 1000000) {
-                            counter.textContent = (target / 1000000).toFixed(1) + 'M+';
-                        } else if (target >= 1000) {
-                            counter.textContent = (target / 1000).toFixed(0) + 'K+';
-                        } else if (target === 400 || target === 95 || target === 60) {
-                            counter.textContent = target + '%';
-                        } else if (target === 4) {
-                            counter.textContent = target + 'X';
-                        } else {
-                            counter.textContent = target + '+';
-                        }
-                    }
-                };
-                
-                updateCounter();
-            });
-        }
-
-        // Intersection Observer for animations
+        // Scroll Animations
         const observerOptions = {
-            threshold: 0.2,
+            threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in-up');
-                    
-                    // Trigger counter animation when stats section is visible
-                    if (entry.target.querySelector('.counter')) {
-                        animateCounters();
-                    }
+                    entry.target.classList.add('visible');
                 }
             });
         }, observerOptions);
 
-        // Observe elements for animations
-        document.querySelectorAll('.modern-card, .stat-card, .timeline-item, .contact-card, .section-header').forEach(el => {
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
         });
 
-        // Navigation scroll behavior
-        let lastScrollTop = 0;
-        const nav = document.getElementById('modernNav');
-
-        window.addEventListener('scroll', function() {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        // Parallax Effect for Background Shapes
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const shapes = document.querySelectorAll('.shape');
             
-            if (scrollTop > lastScrollTop && scrollTop > 100) {
-                // Scrolling down
-                nav.style.transform = 'translateX(-50%) translateY(-100px)';
-                nav.style.opacity = '0.8';
-            } else {
-                // Scrolling up
-                nav.style.transform = 'translateX(-50%) translateY(0)';
-                nav.style.opacity = '1';
-            }
-            
-            lastScrollTop = scrollTop;
+            shapes.forEach((shape, index) => {
+                const speed = 0.5 + (index * 0.1);
+                const yPos = -(scrolled * speed);
+                shape.style.transform = `translateY(${yPos}px)`;
+            });
         });
 
-        // Enhanced hover effects
-        document.querySelectorAll('.modern-card, .contact-card').forEach(card => {
+        // Enhanced Hover Effects
+        document.querySelectorAll('.service-card, .number-card, .contact-card').forEach(card => {
             card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-15px) scale(1.02)';
+                this.style.transform = 'translateY(-10px) scale(1.02)';
             });
             
             card.addEventListener('mouseleave', function() {
@@ -1579,132 +1507,202 @@
             });
         });
 
-        // CTA button effects
-        document.querySelectorAll('.cta-primary, .cta-secondary').forEach(button => {
-            button.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-2px) scale(1.05)';
+        // Stat Cards Animation
+        document.querySelectorAll('.stat-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.05)';
             });
             
-            button.addEventListener('mouseleave', function() {
+            card.addEventListener('mouseleave', function() {
                 this.style.transform = 'translateY(0) scale(1)';
             });
         });
 
-        // Parallax effect for hero section
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const heroPattern = document.querySelector('.hero-bg-pattern');
-            if (heroPattern) {
-                heroPattern.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
-        });
-
-        // Dynamic background colors for dark mode
-        const colors = ['--primary-color', '--secondary-color', '--accent-color'];
-        
-        // Add loading state management
-        let elementsLoaded = 0;
-        const totalElements = document.querySelectorAll('img').length;
-
-        document.querySelectorAll('img').forEach(img => {
-            img.addEventListener('load', function() {
-                elementsLoaded++;
-                if (elementsLoaded === totalElements) {
-                    // All images loaded, can trigger additional animations
-                    document.body.classList.add('loaded');
+        // Button Hover Effects
+        document.querySelectorAll('.cta-btn').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                if (this.classList.contains('cta-primary')) {
+                    this.style.transform = 'translateY(-3px) scale(1.05)';
+                } else {
+                    this.style.transform = 'translateY(-2px) scale(1.02)';
                 }
             });
-        });
-
-        // Enhanced typing effect for hero title (optional)
-        function typeWriter(element, text, speed = 50) {
-            let i = 0;
-            element.innerHTML = '';
             
-            function typing() {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(typing, speed);
-                }
-            }
-            
-            typing();
-        }
-
-        // Initialize animations on page load
-        setTimeout(() => {
-            document.querySelectorAll('.section-header, .hero-text').forEach(el => {
-                el.classList.add('fade-in-up');
-            });
-        }, 1200);
-
-        // Enhanced scroll animations
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const rate = scrolled * -0.5;
-            
-            // Parallax for floating shapes
-            document.querySelectorAll('.floating-shape').forEach((shape, index) => {
-                const speed = (index + 1) * 0.2;
-                shape.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.1}deg)`;
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
             });
         });
 
-        // Add subtle animation delays for staggered effects
-        document.querySelectorAll('.modern-card').forEach((card, index) => {
-            card.style.animationDelay = `${index * 0.1}s`;
-        });
-
-        document.querySelectorAll('.stat-card').forEach((card, index) => {
-            card.style.animationDelay = `${index * 0.15}s`;
-        });
-
-        // Social links hover effects
-        document.querySelectorAll('a[href*="linkedin"], a[href*="mailto"], a[href*="calendly"]').forEach(link => {
+        // Contact Link Hover Effects
+        document.querySelectorAll('.contact-link').forEach(link => {
             link.addEventListener('mouseenter', function() {
-                this.style.color = 'var(--primary-color)';
-                this.style.transform = 'translateY(-2px) scale(1.1)';
+                this.style.transform = 'translateY(-2px) scale(1.05)';
             });
             
             link.addEventListener('mouseleave', function() {
-                this.style.color = '';
-                this.style.transform = '';
+                this.style.transform = 'translateY(0) scale(1)';
             });
         });
 
-        // Add keyboard navigation support
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Tab') {
-                document.body.classList.add('keyboard-nav');
+        // Social Links Hover Effects
+        document.querySelectorAll('.social-link').forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px) scale(1.1)';
+            });
+            
+            link.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Dynamic Background Color Change
+        let colorIndex = 0;
+        const colors = ['#667eea', '#764ba2', '#f093fb', '#00d4ff', '#ff0080'];
+        
+        setInterval(() => {
+            document.documentElement.style.setProperty('--primary', colors[colorIndex]);
+            colorIndex = (colorIndex + 1) % colors.length;
+        }, 5000);
+
+        // Intersection Observer for Number Animation
+        const numberObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const numberValue = entry.target.querySelector('.number-value');
+                    const text = numberValue.textContent;
+                    
+                    // Simple animation for numbers
+                    if (text.includes('M+')) {
+                        let count = 0;
+                        const target = 1;
+                        const increment = target / 50;
+                        
+                        const updateNumber = () => {
+                            if (count < target) {
+                                count += increment;
+                                numberValue.textContent = count.toFixed(1) + 'M+';
+                                requestAnimationFrame(updateNumber);
+                            } else {
+                                numberValue.textContent = '1M+';
+                            }
+                        };
+                        updateNumber();
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+
+        // Observe number cards
+        document.querySelectorAll('.number-card').forEach(card => {
+            numberObserver.observe(card);
+        });
+
+        // Keyboard Navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                window.scrollBy(0, 100);
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                window.scrollBy(0, -100);
             }
         });
 
-        document.addEventListener('mousedown', function() {
-            document.body.classList.remove('keyboard-nav');
-        });
-
-        // Performance optimization - lazy load images
-        if ('IntersectionObserver' in window) {
-            const imageObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        if (img.dataset.src) {
-                            img.src = img.dataset.src;
-                            img.classList.remove('lazy');
-                            imageObserver.unobserve(img);
-                        }
-                    }
-                });
+        // Enhanced Mobile Experience
+        if (window.innerWidth <= 768) {
+            // Reduce animation intensity on mobile
+            document.querySelectorAll('.shape').forEach(shape => {
+                shape.style.animationDuration = '30s';
             });
-
-            document.querySelectorAll('img[data-src]').forEach(img => {
-                imageObserver.observe(img);
+            
+            // Optimize scroll performance
+            let ticking = false;
+            
+            function updateScrollEffects() {
+                // Reduced scroll effects for mobile
+                const scrolled = window.pageYOffset;
+                const shapes = document.querySelectorAll('.shape');
+                
+                shapes.forEach((shape, index) => {
+                    const speed = 0.2 + (index * 0.05);
+                    const yPos = -(scrolled * speed);
+                    shape.style.transform = `translateY(${yPos}px)`;
+                });
+                
+                ticking = false;
+            }
+            
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    requestAnimationFrame(updateScrollEffects);
+                    ticking = true;
+                }
             });
         }
 
-        console.log('🚀 Modern website loaded successfully!');
+        // Performance Optimization
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        
+        if (prefersReducedMotion.matches) {
+            // Disable animations for users who prefer reduced motion
+            document.querySelectorAll('*').forEach(el => {
+                el.style.animation = 'none';
+                el.style.transition = 'none';
+            });
+        }
+
+        // Error Handling for Images
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', function() {
+                this.style.display = 'none';
+            });
+        });
+
+        // Console Easter Egg
+        console.log(`
+        🚀 Welcome to Hariprasad Sivakumar's Portfolio!
+        
+        ═══════════════════════════════════════════════════════════
+        
+        Looking for a GTM Engineer who can transform your revenue?
+        
+        📊 1M+ Leads Generated
+        🎯 400% Pipeline Growth  
+        🤖 AI-Powered Automation
+        
+        Let's build something amazing together!
+        
+        📧 hello@hariprasadss.com
+        💼 linkedin.com/in/hariprasadss
+        
+        ═══════════════════════════════════════════════════════════
+        `);
+
+        // Initialize all systems
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🔥 Modern portfolio website loaded successfully!');
+            
+            // Add subtle entrance animation to main elements
+            setTimeout(() => {
+                document.querySelector('.hero-title').style.transform = 'translateY(0)';
+                document.querySelector('.hero-title').style.opacity = '1';
+            }, 100);
+            
+            setTimeout(() => {
+                document.querySelector('.hero-subtitle').style.transform = 'translateY(0)';
+                document.querySelector('.hero-subtitle').style.opacity = '1';
+            }, 300);
+            
+            setTimeout(() => {
+                document.querySelector('.hero-description').style.transform = 'translateY(0)';
+                document.querySelector('.hero-description').style.opacity = '1';
+            }, 500);
+            
+            setTimeout(() => {
+                document.querySelector('.cta-container').style.transform = 'translateY(0)';
+                document.querySelector('.cta-container').style.opacity = '1';
+            }, 700);
+        });
     </script>
 </body>
 </html>
