@@ -1096,7 +1096,7 @@
 
             <div class="experience-card fade-in">
                 <div class="experience-header">
-                    <h3 class="experience-title">GTM Engineer (Freelance)</h3>
+                    <h3 class="experience-title">Lead Generation Expert</h3>
                     <div class="experience-company">Scienaptic AI</div>
                     <div class="experience-period">2022 - 2023</div>
                 </div>
@@ -1115,7 +1115,7 @@
 
             <div class="experience-card fade-in">
                 <div class="experience-header">
-                    <h3 class="experience-title">Data Operations Manager</h3>
+                    <h3 class="experience-title">Research Manager</h3>
                     <div class="experience-company">Instawork</div>
                     <div class="experience-period">2021 - 2022</div>
                 </div>
@@ -1134,7 +1134,7 @@
 
             <div class="experience-card fade-in">
                 <div class="experience-header">
-                    <h3 class="experience-title">Senior Data Analyst</h3>
+                    <h3 class="experience-title">Data Operations Manager</h3>
                     <div class="experience-company">Tracxn Technologies</div>
                     <div class="experience-period">2019 - 2021</div>
                 </div>
@@ -1608,36 +1608,217 @@
             }
         });
 
-        // Enhanced Mobile Experience
-        if (window.innerWidth <= 768) {
-            // Reduce animation intensity on mobile
-            document.querySelectorAll('.shape').forEach(shape => {
-                shape.style.animationDuration = '30s';
+        // Enhanced Mobile Experience with Performance Optimizations
+        function optimizeForMobile() {
+            if (window.innerWidth <= 768) {
+                // Reduce animation intensity on mobile
+                document.querySelectorAll('.shape').forEach(shape => {
+                    shape.style.animationDuration = '25s';
+                    shape.style.opacity = '0.05';
+                });
+                
+                // Optimize scroll performance with throttling
+                let scrollTimeout;
+                const throttledScrollHandler = () => {
+                    if (scrollTimeout) return;
+                    scrollTimeout = setTimeout(() => {
+                        updateScrollEffects();
+                        scrollTimeout = null;
+                    }, 16); // ~60fps
+                };
+                
+                function updateScrollEffects() {
+                    const scrolled = window.pageYOffset;
+                    const shapes = document.querySelectorAll('.shape');
+                    
+                    shapes.forEach((shape, index) => {
+                        const speed = 0.1 + (index * 0.02);
+                        const yPos = -(scrolled * speed);
+                        shape.style.transform = `translateY(${yPos}px)`;
+                    });
+                }
+                
+                // Replace existing scroll listener
+                window.removeEventListener('scroll', existingScrollHandler);
+                window.addEventListener('scroll', throttledScrollHandler, { passive: true });
+                
+                // Disable hover effects on mobile for better performance
+                const style = document.createElement('style');
+                style.textContent = `
+                    @media (max-width: 768px) {
+                        .service-card::before,
+                        .project-card::before,
+                        .number-card::after,
+                        .contact-card::before {
+                            display: none;
+                        }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+        }
+
+        // Touch gesture improvements
+        function enhanceTouchExperience() {
+            let startY = 0;
+            let isScrolling = false;
+
+            document.addEventListener('touchstart', (e) => {
+                startY = e.touches[0].pageY;
+                isScrolling = false;
+            }, { passive: true });
+
+            document.addEventListener('touchmove', (e) => {
+                if (!isScrolling) {
+                    const currentY = e.touches[0].pageY;
+                    const diffY = Math.abs(currentY - startY);
+                    
+                    if (diffY > 10) {
+                        isScrolling = true;
+                    }
+                }
+            }, { passive: true });
+
+            // Prevent zoom on double tap for buttons
+            document.querySelectorAll('.cta-btn, .contact-link').forEach(btn => {
+                btn.addEventListener('touchend', (e) => {
+                    e.preventDefault();
+                    btn.click();
+                });
             });
+        }
+
+        // Enhanced error handling and fallbacks
+        function addErrorHandling() {
+            // Handle image loading errors
+            document.querySelectorAll('img').forEach(img => {
+                img.addEventListener('error', function() {
+                    // Create a placeholder div with company name
+                    const placeholder = document.createElement('div');
+                    placeholder.style.cssText = `
+                        width: ${this.style.width || '40px'};
+                        height: ${this.style.height || '40px'};
+                        background: var(--glass-bg);
+                        border: 1px solid var(--glass-border);
+                        border-radius: 8px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 0.7rem;
+                        color: var(--text-muted);
+                        font-weight: 500;
+                    `;
+                    placeholder.textContent = this.alt.substring(0, 3).toUpperCase();
+                    this.parentNode.replaceChild(placeholder, this);
+                });
+            });
+
+            // Handle animation failures
+            const testElement = document.createElement('div');
+            testElement.style.animation = 'test 0s';
+            if (!testElement.style.animation) {
+                // Fallback for browsers without animation support
+                document.querySelectorAll('.fade-in').forEach(el => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                });
+            }
+        }
+
+        // Improved intersection observer with better performance
+        function enhanceScrollAnimations() {
+            const observerOptions = {
+                threshold: [0.1, 0.3, 0.7],
+                rootMargin: '0px 0px -20px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        
+                        // Unobserve after animation to improve performance
+                        if (entry.intersectionRatio > 0.7) {
+                            observer.unobserve(entry.target);
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all fade-in elements
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Page visibility optimization
+        function handlePageVisibility() {
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    // Pause animations when page is not visible
+                    document.documentElement.style.setProperty('--animation-play-state', 'paused');
+                } else {
+                    // Resume animations when page becomes visible
+                    document.documentElement.style.setProperty('--animation-play-state', 'running');
+                }
+            });
+        }
+
+        // Initialize all enhancements
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Enhanced mobile-optimized portfolio loaded!');
             
-            // Optimize scroll performance
-            let ticking = false;
+            optimizeForMobile();
+            enhanceTouchExperience();
+            addErrorHandling();
+            enhanceScrollAnimations();
+            handlePageVisibility();
             
-            function updateScrollEffects() {
-                // Reduced scroll effects for mobile
+            // Add loading complete class for additional styling
+            setTimeout(() => {
+                document.body.classList.add('loaded');
+            }, 1000);
+        });
+
+        // Viewport height fix for mobile browsers
+        function setVH() {
+            const vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+
+        setVH();
+        window.addEventListener('resize', setVH);
+        window.addEventListener('orientationchange', () => {
+            setTimeout(setVH, 500);
+        });
+
+        // Enhanced resize handler with debouncing
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                if (window.innerWidth <= 768) {
+                    optimizeForMobile();
+                }
+            }, 250);
+        });
+
+        // Store reference to scroll handler
+        let existingScrollHandler = () => {};
+
+        // Replace the existing scroll effect with optimized version
+        if (window.innerWidth > 768) {
+            existingScrollHandler = () => {
                 const scrolled = window.pageYOffset;
                 const shapes = document.querySelectorAll('.shape');
                 
                 shapes.forEach((shape, index) => {
-                    const speed = 0.2 + (index * 0.05);
+                    const speed = 0.5 + (index * 0.1);
                     const yPos = -(scrolled * speed);
                     shape.style.transform = `translateY(${yPos}px)`;
                 });
-                
-                ticking = false;
-            }
-            
-            window.addEventListener('scroll', () => {
-                if (!ticking) {
-                    requestAnimationFrame(updateScrollEffects);
-                    ticking = true;
-                }
-            });
+            };
+            window.addEventListener('scroll', existingScrollHandler, { passive: true });
         }
 
         // Performance Optimization
