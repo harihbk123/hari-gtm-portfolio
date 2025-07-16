@@ -290,6 +290,18 @@
             gap: 10px;
         }
 
+        .dashboard-timestamp {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+            opacity: 0.8;
+        }
+
+        .dashboard-timestamp::before {
+            content: '• ';
+            color: var(--neon-green);
+        }
+
         .status-indicator {
             width: 8px;
             height: 8px;
@@ -337,7 +349,7 @@
         }
 
         .stat-number {
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-size: clamp(1.3rem, 3.5vw, 2.2rem);
             font-weight: 900;
             background: var(--gradient-primary);
             -webkit-background-clip: text;
@@ -346,6 +358,9 @@
             display: block;
             margin-bottom: 8px;
             animation: countUp 2s ease-out forwards;
+            line-height: 1.1;
+            word-break: keep-all;
+            white-space: nowrap;
         }
 
         .stat-label {
@@ -355,14 +370,16 @@
         }
 
         .performance-chart {
-            height: 60px;
+            height: 80px;
             background: linear-gradient(90deg, 
                 var(--neon-green) 0%, 
                 var(--neon-blue) 50%, 
                 var(--neon-purple) 100%);
-            border-radius: 8px;
+            border-radius: 12px;
             position: relative;
             overflow: hidden;
+            margin-top: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .performance-chart::before {
@@ -377,6 +394,40 @@
                 rgba(255, 255, 255, 0.3) 50%, 
                 transparent 100%);
             animation: shimmer 3s ease-in-out infinite;
+        }
+
+        .performance-chart::after {
+            content: 'Revenue Growth Trend';
+            position: absolute;
+            bottom: 8px;
+            left: 12px;
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+        }
+
+        .chart-metrics {
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            display: flex;
+            gap: 15px;
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .chart-metric {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .chart-metric::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: currentColor;
         }
 
         @keyframes shimmer {
@@ -1514,10 +1565,36 @@
 
             .live-stats-dashboard {
                 max-width: 100%;
+                padding: 25px 20px;
             }
 
             .stats-grid {
                 grid-template-columns: 1fr 1fr;
+                gap: 15px;
+            }
+
+            .stat-card {
+                padding: 15px 10px;
+            }
+
+            .stat-number {
+                font-size: clamp(1.2rem, 5vw, 1.8rem);
+                margin-bottom: 5px;
+            }
+
+            .stat-label {
+                font-size: 0.8rem;
+                line-height: 1.2;
+            }
+
+            .performance-chart {
+                height: 60px;
+                margin-top: 20px;
+            }
+
+            .chart-metrics {
+                font-size: 0.65rem;
+                gap: 10px;
             }
 
             .cta-container {
@@ -1589,6 +1666,44 @@
 
             .hero-section {
                 padding: 100px 15px 30px;
+            }
+
+            .live-stats-dashboard {
+                padding: 20px 15px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+            .stat-card {
+                padding: 12px 8px;
+            }
+
+            .stat-number {
+                font-size: clamp(1.1rem, 5vw, 1.6rem);
+            }
+
+            .stat-label {
+                font-size: 0.75rem;
+            }
+
+            .performance-chart {
+                height: 50px;
+            }
+
+            .performance-chart::after {
+                font-size: 0.65rem;
+                bottom: 6px;
+                left: 8px;
+            }
+
+            .chart-metrics {
+                font-size: 0.6rem;
+                gap: 8px;
+                top: 6px;
+                right: 8px;
             }
 
             .section-title {
@@ -1699,6 +1814,9 @@
                         <span class="status-indicator"></span>
                         Live Performance
                     </h3>
+                    <div class="dashboard-timestamp">
+                        <span id="last-updated">Just now</span>
+                    </div>
                 </div>
                 <div class="stats-grid">
                     <div class="stat-card">
@@ -1718,7 +1836,12 @@
                         <span class="stat-label">Pipeline Growth</span>
                     </div>
                 </div>
-                <div class="performance-chart"></div>
+                <div class="performance-chart">
+                    <div class="chart-metrics">
+                        <div class="chart-metric">↗ 95%</div>
+                        <div class="chart-metric">⚡ Live</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -2527,18 +2650,35 @@
             img.addEventListener('error', tryFallback);
         });
 
+        // Enhanced Live Dashboard Updates
+        function updateDashboardTimestamp() {
+            const timestamp = document.getElementById('last-updated');
+            if (timestamp) {
+                const now = new Date();
+                const timeString = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                const timeAgo = ['Just now', '30s ago', '1m ago', '2m ago'];
+                const randomTime = timeAgo[Math.floor(Math.random() * timeAgo.length)];
+                timestamp.textContent = randomTime;
+            }
+        }
+
+        // Update timestamp every 10 seconds
+        setInterval(updateDashboardTimestamp, 10000);
+
         // Enhanced Live Stats Animation
         function animateStats() {
             const statNumbers = document.querySelectorAll('.stat-number');
-            statNumbers.forEach(stat => {
-                const finalValue = stat.textContent;
-                const isNumeric = /^\d+/.test(finalValue);
+            const targets = ['9+', '1M+', '20+', '400%'];
+            
+            statNumbers.forEach((stat, index) => {
+                const target = targets[index];
+                const isNumeric = /^\d+/.test(target);
                 
                 if (isNumeric) {
-                    const numValue = parseInt(finalValue.replace(/\D/g, ''));
-                    const suffix = finalValue.replace(/\d+/, '');
+                    const numValue = parseInt(target.replace(/\D/g, ''));
+                    const suffix = target.replace(/\d+/, '');
                     let current = 0;
-                    const increment = Math.ceil(numValue / 50);
+                    const increment = Math.ceil(numValue / 30);
                     
                     const timer = setInterval(() => {
                         current += increment;
@@ -2548,6 +2688,9 @@
                         }
                         stat.textContent = current + suffix;
                     }, 50);
+                } else {
+                    // For non-numeric values like "1M+", "400%"
+                    stat.textContent = target;
                 }
             });
         }
@@ -2752,10 +2895,13 @@
 
         // Enhanced Initialization
         function initializePortfolio() {
-            // Start animations
+            // Initialize dashboard
+            updateDashboardTimestamp();
+            
+            // Start animations with proper timing
             setTimeout(() => {
-                startToolHighlight();
                 animateStats();
+                startToolHighlight();
                 createNeuralConnections();
                 animatePerformanceChart();
             }, 1000);
