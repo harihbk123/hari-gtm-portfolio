@@ -18,6 +18,7 @@
             --neon-pink: #ff0080;
             --neon-green: #39ff14;
             --neon-purple: #bf40bf;
+            --neon-orange: #ff6b35;
             --text-primary: #ffffff;
             --text-secondary: #e2e8f0;
             --text-muted: #94a3b8;
@@ -290,18 +291,6 @@
             gap: 10px;
         }
 
-        .dashboard-timestamp {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            font-family: 'JetBrains Mono', monospace;
-            opacity: 0.8;
-        }
-
-        .dashboard-timestamp::before {
-            content: '• ';
-            color: var(--neon-green);
-        }
-
         .status-indicator {
             width: 8px;
             height: 8px;
@@ -349,7 +338,7 @@
         }
 
         .stat-number {
-            font-size: clamp(1.3rem, 3.5vw, 2.2rem);
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
             font-weight: 900;
             background: var(--gradient-primary);
             -webkit-background-clip: text;
@@ -358,9 +347,6 @@
             display: block;
             margin-bottom: 8px;
             animation: countUp 2s ease-out forwards;
-            line-height: 1.1;
-            word-break: keep-all;
-            white-space: nowrap;
         }
 
         .stat-label {
@@ -370,16 +356,14 @@
         }
 
         .performance-chart {
-            height: 80px;
+            height: 60px;
             background: linear-gradient(90deg, 
                 var(--neon-green) 0%, 
                 var(--neon-blue) 50%, 
                 var(--neon-purple) 100%);
-            border-radius: 12px;
+            border-radius: 8px;
             position: relative;
             overflow: hidden;
-            margin-top: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .performance-chart::before {
@@ -394,40 +378,6 @@
                 rgba(255, 255, 255, 0.3) 50%, 
                 transparent 100%);
             animation: shimmer 3s ease-in-out infinite;
-        }
-
-        .performance-chart::after {
-            content: 'Revenue Growth Trend';
-            position: absolute;
-            bottom: 8px;
-            left: 12px;
-            font-size: 0.7rem;
-            color: rgba(255, 255, 255, 0.8);
-            font-weight: 500;
-        }
-
-        .chart-metrics {
-            position: absolute;
-            top: 8px;
-            right: 12px;
-            display: flex;
-            gap: 15px;
-            font-size: 0.7rem;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .chart-metric {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .chart-metric::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: currentColor;
         }
 
         @keyframes shimmer {
@@ -581,90 +531,140 @@
             line-height: 1.6;
         }
 
-        /* AI-Enhanced Tool Constellation */
+        /* Enhanced Solar System Tool Constellation */
         .tools-constellation {
             position: relative;
-            height: 600px;
-            max-width: 800px;
+            height: 700px;
+            max-width: 900px;
             margin: 0 auto 80px;
             display: flex;
             align-items: center;
             justify-content: center;
+            perspective: 1000px;
         }
 
-        .neural-network {
+        /* Central Sun - GTM Strategy Core */
+        .gtm-sun {
             position: absolute;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-
-        .neural-connection {
-            position: absolute;
-            height: 1px;
-            background: linear-gradient(90deg, 
-                transparent 0%, 
-                var(--neon-blue) 50%, 
-                transparent 100%);
-            opacity: 0.3;
-            animation: dataFlow 3s ease-in-out infinite;
-        }
-
-        @keyframes dataFlow {
-            0%, 100% { opacity: 0.3; transform: scaleX(0.5); }
-            50% { opacity: 0.8; transform: scaleX(1); }
-        }
-
-        .tool-orbit {
-            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle at 30% 30%, 
+                var(--neon-orange) 0%, 
+                var(--neon-pink) 50%, 
+                var(--neon-purple) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 2;
+            z-index: 10;
+            animation: sunPulse 4s ease-in-out infinite, sunRotate 20s linear infinite;
+            box-shadow: 
+                0 0 40px var(--neon-orange),
+                0 0 80px rgba(255, 107, 53, 0.5),
+                inset 0 0 40px rgba(255, 255, 255, 0.1);
+            border: 3px solid rgba(255, 255, 255, 0.2);
         }
 
-        .tool-orbit.center {
-            width: 150px;
-            height: 150px;
-            border: 2px dashed var(--glass-border);
-            animation: rotate-slow 60s linear infinite;
+        .gtm-sun::before {
+            content: '';
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            border: 2px dashed rgba(255, 107, 53, 0.3);
+            border-radius: 50%;
+            animation: sunRotate 15s linear infinite reverse;
         }
 
-        .tool-orbit.inner {
-            width: 300px;
-            height: 300px;
-            border: 1px dashed rgba(255, 255, 255, 0.05);
-            animation: rotate-slow 80s linear infinite reverse;
+        .gtm-sun::after {
+            content: '';
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            border-radius: 50%;
+            animation: sunRotate 25s linear infinite;
         }
 
-        .tool-orbit.outer {
-            width: 450px;
-            height: 450px;
-            border: 1px dashed rgba(255, 255, 255, 0.03);
-            animation: rotate-slow 100s linear infinite;
+        .sun-icon {
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, #ffffff, #ffe4b3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
         }
 
-        .tool-item {
+        /* Solar System Orbits */
+        .solar-orbit {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transform-style: preserve-3d;
+        }
+
+        /* Inner Planets - Core Tools */
+        .solar-orbit.mercury {
+            width: 200px;
+            height: 200px;
+            animation: orbitRotate 15s linear infinite;
+            border-color: rgba(0, 212, 255, 0.3);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
+        }
+
+        .solar-orbit.venus {
+            width: 280px;
+            height: 280px;
+            animation: orbitRotate 25s linear infinite reverse;
+            border-color: rgba(191, 64, 191, 0.3);
+            box-shadow: 0 0 20px rgba(191, 64, 191, 0.1);
+        }
+
+        .solar-orbit.earth {
+            width: 360px;
+            height: 360px;
+            animation: orbitRotate 35s linear infinite;
+            border-color: rgba(57, 255, 20, 0.3);
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.1);
+        }
+
+        /* Outer Planets - Supporting Tools */
+        .solar-orbit.mars {
+            width: 440px;
+            height: 440px;
+            animation: orbitRotate 45s linear infinite reverse;
+            border-color: rgba(245, 158, 11, 0.3);
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.1);
+        }
+
+        .solar-orbit.jupiter {
+            width: 520px;
+            height: 520px;
+            animation: orbitRotate 55s linear infinite;
+            border-color: rgba(255, 0, 128, 0.3);
+            box-shadow: 0 0 20px rgba(255, 0, 128, 0.1);
+        }
+
+        /* Tool Planets */
+        .tool-planet {
+            position: absolute;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 20px 15px;
+            padding: 15px 12px;
             background: var(--glass-bg);
             backdrop-filter: blur(30px);
-            border: 1px solid var(--glass-border);
+            border: 2px solid var(--glass-border);
             border-radius: 20px;
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             cursor: pointer;
-            position: relative;
-            overflow: hidden;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2),
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3),
                         inset 0 1px 0 var(--neumorphic-light);
-            min-width: 100px;
+            min-width: 80px;
+            transform-style: preserve-3d;
         }
 
-        .tool-item::before {
+        .tool-planet::before {
             content: '';
             position: absolute;
             top: 0;
@@ -679,58 +679,125 @@
             opacity: 0;
             transition: opacity 0.4s ease;
             z-index: -1;
+            border-radius: 18px;
         }
 
-        .tool-item:hover::before {
-            opacity: 0.1;
+        .tool-planet:hover::before {
+            opacity: 0.15;
         }
 
-        .tool-item:hover {
-            transform: translateY(-10px) scale(1.1);
+        .tool-planet:hover {
+            transform: translateY(-10px) scale(1.15);
             border-color: var(--neon-blue);
-            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.4);
-            z-index: 10;
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.5);
+            z-index: 15;
         }
 
-        .tool-item[data-level="expert"]:hover {
+        /* Planet positioning */
+        .mercury .tool-planet { top: -40px; left: calc(50% - 40px); }
+        .venus .tool-planet:nth-child(1) { top: -40px; left: calc(50% - 40px); }
+        .venus .tool-planet:nth-child(2) { top: calc(50% - 40px); left: -40px; }
+        
+        .earth .tool-planet:nth-child(1) { top: -40px; left: calc(50% - 40px); }
+        .earth .tool-planet:nth-child(2) { top: calc(50% - 40px); right: -40px; }
+        .earth .tool-planet:nth-child(3) { bottom: -40px; left: calc(50% - 40px); }
+        
+        .mars .tool-planet:nth-child(1) { top: -40px; left: calc(50% - 40px); }
+        .mars .tool-planet:nth-child(2) { top: calc(25% - 40px); right: -40px; }
+        .mars .tool-planet:nth-child(3) { bottom: calc(25% - 40px); right: -40px; }
+        .mars .tool-planet:nth-child(4) { bottom: -40px; left: calc(50% - 40px); }
+        .mars .tool-planet:nth-child(5) { top: calc(25% - 40px); left: -40px; }
+        
+        .jupiter .tool-planet:nth-child(1) { top: -40px; left: calc(50% - 40px); }
+        .jupiter .tool-planet:nth-child(2) { top: calc(20% - 40px); right: -40px; }
+        .jupiter .tool-planet:nth-child(3) { top: calc(50% - 40px); right: -40px; }
+        .jupiter .tool-planet:nth-child(4) { bottom: calc(20% - 40px); right: -40px; }
+        .jupiter .tool-planet:nth-child(5) { bottom: -40px; left: calc(50% - 40px); }
+        .jupiter .tool-planet:nth-child(6) { bottom: calc(20% - 40px); left: -40px; }
+        .jupiter .tool-planet:nth-child(7) { top: calc(50% - 40px); left: -40px; }
+        .jupiter .tool-planet:nth-child(8) { top: calc(20% - 40px); left: -40px; }
+
+        /* Planet-specific styling */
+        .tool-planet[data-level="expert"] {
             border-color: var(--neon-green);
-            box-shadow: 0 20px 60px rgba(57, 255, 20, 0.4);
+            box-shadow: 0 15px 40px rgba(57, 255, 20, 0.3);
         }
 
-        .tool-item[data-level="intermediate"]:hover {
+        .tool-planet[data-level="intermediate"] {
             border-color: var(--accent);
-            box-shadow: 0 20px 60px rgba(245, 158, 11, 0.4);
+            box-shadow: 0 15px 40px rgba(245, 158, 11, 0.3);
         }
 
-        .tool-item.featured {
+        .tool-planet.featured {
             background: rgba(0, 212, 255, 0.1);
             border-color: var(--neon-blue);
-            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.3);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.4);
+            transform: scale(1.1);
         }
 
         .tool-logo {
-            width: 36px;
-            height: 36px;
-            border-radius: 8px;
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
             object-fit: cover;
             transition: all 0.3s ease;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .tool-name {
             font-weight: 600;
             color: var(--text-primary);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             text-align: center;
             line-height: 1.2;
         }
 
-        .tool-item.highlighted {
-            opacity: 1;
-            transform: scale(1.2);
-            border-color: var(--neon-blue);
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
-            z-index: 15;
+        /* Asteroid Belt - Minor Tools */
+        .asteroid-belt {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border: 1px dashed rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: orbitRotate 65s linear infinite;
+        }
+
+        .asteroid {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: var(--neon-blue);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: asteroidFloat 3s ease-in-out infinite;
+        }
+
+        .asteroid:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+        .asteroid:nth-child(2) { top: 30%; right: 15%; animation-delay: 1s; }
+        .asteroid:nth-child(3) { bottom: 25%; right: 20%; animation-delay: 2s; }
+        .asteroid:nth-child(4) { bottom: 35%; left: 25%; animation-delay: 1.5s; }
+        .asteroid:nth-child(5) { top: 50%; left: 5%; animation-delay: 0.5s; }
+
+        /* Comet Trails */
+        .comet-trail {
+            position: absolute;
+            width: 2px;
+            height: 100px;
+            background: linear-gradient(180deg, var(--neon-blue), transparent);
+            opacity: 0.7;
+            animation: cometMove 8s ease-in-out infinite;
+        }
+
+        .comet-trail:nth-child(1) {
+            top: 10%;
+            left: 20%;
+            animation-delay: 0s;
+        }
+
+        .comet-trail:nth-child(2) {
+            top: 60%;
+            right: 10%;
+            animation-delay: 4s;
         }
 
         /* Enhanced Tool Categories */
@@ -895,9 +962,9 @@
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 40px;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
@@ -1522,7 +1589,7 @@
             color: var(--neon-blue);
         }
 
-        /* Animations */
+        /* Enhanced Animations */
         @keyframes fadeInUp {
             to {
                 opacity: 1;
@@ -1535,9 +1602,42 @@
             50% { background-position: 100% 50%; }
         }
 
-        @keyframes rotate-slow {
+        @keyframes sunPulse {
+            0%, 100% { 
+                box-shadow: 
+                    0 0 40px var(--neon-orange),
+                    0 0 80px rgba(255, 107, 53, 0.5),
+                    inset 0 0 40px rgba(255, 255, 255, 0.1);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 
+                    0 0 60px var(--neon-orange),
+                    0 0 120px rgba(255, 107, 53, 0.7),
+                    inset 0 0 60px rgba(255, 255, 255, 0.2);
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes sunRotate {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
+        }
+
+        @keyframes orbitRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes asteroidFloat {
+            0%, 100% { transform: translateY(0px) scale(1); opacity: 0.6; }
+            50% { transform: translateY(-10px) scale(1.2); opacity: 0.9; }
+        }
+
+        @keyframes cometMove {
+            0% { transform: translateX(-50px) translateY(-50px) rotate(45deg); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateX(50px) translateY(50px) rotate(45deg); opacity: 0; }
         }
 
         @keyframes countUp {
@@ -1556,6 +1656,13 @@
         }
 
         /* Responsive Design */
+        @media (max-width: 1200px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+        }
+
         @media (max-width: 768px) {
             .hero-dashboard {
                 grid-template-columns: 1fr;
@@ -1565,36 +1672,10 @@
 
             .live-stats-dashboard {
                 max-width: 100%;
-                padding: 25px 20px;
             }
 
             .stats-grid {
                 grid-template-columns: 1fr 1fr;
-                gap: 15px;
-            }
-
-            .stat-card {
-                padding: 15px 10px;
-            }
-
-            .stat-number {
-                font-size: clamp(1.2rem, 5vw, 1.8rem);
-                margin-bottom: 5px;
-            }
-
-            .stat-label {
-                font-size: 0.8rem;
-                line-height: 1.2;
-            }
-
-            .performance-chart {
-                height: 60px;
-                margin-top: 20px;
-            }
-
-            .chart-metrics {
-                font-size: 0.65rem;
-                gap: 10px;
             }
 
             .cta-container {
@@ -1608,22 +1689,32 @@
             }
 
             .tools-constellation {
+                height: 500px;
+            }
+
+            .gtm-sun {
+                width: 80px;
+                height: 80px;
+            }
+
+            .sun-icon {
+                font-size: 1.8rem;
+            }
+
+            .solar-orbit.mercury { width: 150px; height: 150px; }
+            .solar-orbit.venus { width: 200px; height: 200px; }
+            .solar-orbit.earth { width: 250px; height: 250px; }
+            .solar-orbit.mars { width: 300px; height: 300px; }
+            .solar-orbit.jupiter { width: 350px; height: 350px; }
+
+            .asteroid-belt {
+                width: 400px;
                 height: 400px;
             }
 
-            .tool-orbit.center {
-                width: 100px;
-                height: 100px;
-            }
-
-            .tool-orbit.inner {
-                width: 200px;
-                height: 200px;
-            }
-
-            .tool-orbit.outer {
-                width: 300px;
-                height: 300px;
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
             }
 
             .footer-grid {
@@ -1668,50 +1759,32 @@
                 padding: 100px 15px 30px;
             }
 
-            .live-stats-dashboard {
-                padding: 20px 15px;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 10px;
-            }
-
-            .stat-card {
-                padding: 12px 8px;
-            }
-
-            .stat-number {
-                font-size: clamp(1.1rem, 5vw, 1.6rem);
-            }
-
-            .stat-label {
-                font-size: 0.75rem;
-            }
-
-            .performance-chart {
-                height: 50px;
-            }
-
-            .performance-chart::after {
-                font-size: 0.65rem;
-                bottom: 6px;
-                left: 8px;
-            }
-
-            .chart-metrics {
-                font-size: 0.6rem;
-                gap: 8px;
-                top: 6px;
-                right: 8px;
-            }
-
             .section-title {
                 font-size: clamp(2rem, 8vw, 3rem);
             }
 
             .tools-constellation {
-                height: 300px;
+                height: 400px;
+            }
+
+            .gtm-sun {
+                width: 60px;
+                height: 60px;
+            }
+
+            .sun-icon {
+                font-size: 1.4rem;
+            }
+
+            .solar-orbit.mercury { width: 120px; height: 120px; }
+            .solar-orbit.venus { width: 160px; height: 160px; }
+            .solar-orbit.earth { width: 200px; height: 200px; }
+            .solar-orbit.mars { width: 240px; height: 240px; }
+            .solar-orbit.jupiter { width: 280px; height: 280px; }
+
+            .asteroid-belt {
+                width: 320px;
+                height: 320px;
             }
 
             .experience-grid,
@@ -1814,9 +1887,6 @@
                         <span class="status-indicator"></span>
                         Live Performance
                     </h3>
-                    <div class="dashboard-timestamp">
-                        <span id="last-updated">Just now</span>
-                    </div>
                 </div>
                 <div class="stats-grid">
                     <div class="stat-card">
@@ -1828,7 +1898,7 @@
                         <span class="stat-label">Leads Generated</span>
                     </div>
                     <div class="stat-card">
-                        <span class="stat-number">20+</span>
+                        <span class="stat-number">30+</span>
                         <span class="stat-label">Tools Mastered</span>
                     </div>
                     <div class="stat-card">
@@ -1836,12 +1906,7 @@
                         <span class="stat-label">Pipeline Growth</span>
                     </div>
                 </div>
-                <div class="performance-chart">
-                    <div class="chart-metrics">
-                        <div class="chart-metric">↗ 95%</div>
-                        <div class="chart-metric">⚡ Live</div>
-                    </div>
-                </div>
+                <div class="performance-chart"></div>
             </div>
         </div>
     </section>
@@ -1870,102 +1935,131 @@
         </div>
     </section>
 
-    <!-- Enhanced Tool Stack Section -->
+    <!-- Enhanced Solar System Tool Stack Section -->
     <section id="tools" class="tools-section">
         <div class="section-header">
             <h2 class="section-title">Tech Stack & Tools</h2>
             <p class="section-subtitle">
-                Master-level expertise across 30+ modern GTM and automation tools
+                Master-level expertise across 30+ modern GTM and automation tools in a cosmic ecosystem
             </p>
         </div>
         
-        <!-- AI-Enhanced Tool Constellation -->
+        <!-- Enhanced Solar System Tool Constellation -->
         <div class="tools-constellation">
-            <!-- Neural Network Connections -->
-            <div class="neural-network">
-                <div class="neural-connection" style="top: 50%; left: 20%; width: 60%; transform: rotate(45deg);"></div>
-                <div class="neural-connection" style="top: 30%; left: 30%; width: 40%; transform: rotate(-30deg);"></div>
-                <div class="neural-connection" style="top: 70%; left: 25%; width: 50%; transform: rotate(15deg);"></div>
+            <!-- Central Sun - GTM Strategy Core -->
+            <div class="gtm-sun">
+                <div class="sun-icon">
+                    <i class="fas fa-bullseye"></i>
+                </div>
             </div>
 
-            <!-- Core Automation Tools - Center -->
-            <div class="tool-orbit center">
-                <div class="tool-item featured" data-category="automation" data-level="expert">
+            <!-- Comet Trails -->
+            <div class="comet-trail"></div>
+            <div class="comet-trail"></div>
+
+            <!-- Mercury Orbit - Core Automation -->
+            <div class="solar-orbit mercury">
+                <div class="tool-planet featured" data-category="automation" data-level="expert">
                     <img src="https://logo.clearbit.com/clay.com" alt="Clay" class="tool-logo">
                     <span class="tool-name">Clay</span>
                 </div>
-                <div class="tool-item featured" data-category="automation" data-level="expert">
+            </div>
+
+            <!-- Venus Orbit - Essential CRM & Automation -->
+            <div class="solar-orbit venus">
+                <div class="tool-planet featured" data-category="automation" data-level="expert">
                     <img src="https://logo.clearbit.com/n8n.io" alt="n8n" class="tool-logo">
                     <span class="tool-name">n8n</span>
                 </div>
-                <div class="tool-item featured" data-category="crm" data-level="expert">
+                <div class="tool-planet featured" data-category="crm" data-level="expert">
                     <img src="https://logo.clearbit.com/hubspot.com" alt="HubSpot" class="tool-logo">
                     <span class="tool-name">HubSpot</span>
                 </div>
             </div>
 
-            <!-- Inner Ring - Primary Tools -->
-            <div class="tool-orbit inner">
-                <div class="tool-item" data-category="email" data-level="expert">
+            <!-- Earth Orbit - Primary Outreach & Data -->
+            <div class="solar-orbit earth">
+                <div class="tool-planet" data-category="email" data-level="expert">
                     <img src="https://logo.clearbit.com/smartlead.ai" alt="Smartlead" class="tool-logo">
                     <span class="tool-name">Smartlead</span>
                 </div>
-                <div class="tool-item" data-category="crm" data-level="expert">
+                <div class="tool-planet" data-category="crm" data-level="expert">
                     <img src="https://logo.clearbit.com/apollo.io" alt="Apollo" class="tool-logo">
                     <span class="tool-name">Apollo</span>
                 </div>
-                <div class="tool-item" data-category="data" data-level="expert">
+                <div class="tool-planet" data-category="data" data-level="expert">
                     <img src="https://logo.clearbit.com/zoominfo.com" alt="ZoomInfo" class="tool-logo">
                     <span class="tool-name">ZoomInfo</span>
                 </div>
-                <div class="tool-item" data-category="crm" data-level="expert">
+            </div>
+
+            <!-- Mars Orbit - Advanced Tools -->
+            <div class="solar-orbit mars">
+                <div class="tool-planet" data-category="crm" data-level="expert">
                     <img src="https://logo.clearbit.com/gohighlevel.com" alt="GoHighLevel" class="tool-logo">
                     <span class="tool-name">GHL</span>
                 </div>
-                <div class="tool-item" data-category="data" data-level="expert">
+                <div class="tool-planet" data-category="data" data-level="expert">
                     <img src="https://logo.clearbit.com/linkedin.com" alt="LinkedIn Sales Navigator" class="tool-logo">
                     <span class="tool-name">Sales Navigator</span>
                 </div>
-                <div class="tool-item" data-category="automation" data-level="advanced">
+                <div class="tool-planet" data-category="automation" data-level="advanced">
                     <img src="https://logo.clearbit.com/zapier.com" alt="Zapier" class="tool-logo">
                     <span class="tool-name">Zapier</span>
                 </div>
+                <div class="tool-planet" data-category="database" data-level="expert">
+                    <img src="https://logo.clearbit.com/supabase.com" alt="Supabase" class="tool-logo">
+                    <span class="tool-name">Supabase</span>
+                </div>
+                <div class="tool-planet" data-category="database" data-level="expert">
+                    <img src="https://logo.clearbit.com/mysql.com" alt="MySQL" class="tool-logo">
+                    <span class="tool-name">MySQL</span>
+                </div>
             </div>
 
-            <!-- Outer Ring - Supporting Tools -->
-            <div class="tool-orbit outer">
-                <div class="tool-item" data-category="email" data-level="advanced">
+            <!-- Jupiter Orbit - Supporting Ecosystem -->
+            <div class="solar-orbit jupiter">
+                <div class="tool-planet" data-category="email" data-level="advanced">
                     <img src="https://logo.clearbit.com/instantly.ai" alt="Instantly" class="tool-logo">
                     <span class="tool-name">Instantly</span>
                 </div>
-                <div class="tool-item" data-category="automation" data-level="advanced">
+                <div class="tool-planet" data-category="automation" data-level="advanced">
                     <img src="https://logo.clearbit.com/meetalfred.com" alt="MeetAlfred" class="tool-logo">
                     <span class="tool-name">MeetAlfred</span>
                 </div>
-                <div class="tool-item" data-category="automation" data-level="advanced">
+                <div class="tool-planet" data-category="automation" data-level="advanced">
                     <img src="https://logo.clearbit.com/apify.com" alt="Apify" class="tool-logo">
                     <span class="tool-name">Apify</span>
                 </div>
-                <div class="tool-item" data-category="crm" data-level="advanced">
+                <div class="tool-planet" data-category="crm" data-level="advanced">
                     <img src="https://logo.clearbit.com/salesforce.com" alt="Salesforce" class="tool-logo">
                     <span class="tool-name">Salesforce</span>
                 </div>
-                <div class="tool-item" data-category="data" data-level="advanced">
+                <div class="tool-planet" data-category="data" data-level="advanced">
                     <img src="https://logo.clearbit.com/airtable.com" alt="Airtable" class="tool-logo">
                     <span class="tool-name">Airtable</span>
                 </div>
-                <div class="tool-item" data-category="email" data-level="advanced">
+                <div class="tool-planet" data-category="email" data-level="advanced">
                     <img src="https://logo.clearbit.com/lemlist.com" alt="Lemlist" class="tool-logo">
                     <span class="tool-name">Lemlist</span>
                 </div>
-                <div class="tool-item" data-category="data" data-level="advanced">
+                <div class="tool-planet" data-category="data" data-level="advanced">
                     <img src="https://logo.clearbit.com/hunter.io" alt="Hunter.io" class="tool-logo">
                     <span class="tool-name">Hunter.io</span>
                 </div>
-                <div class="tool-item" data-category="analytics" data-level="advanced">
+                <div class="tool-planet" data-category="analytics" data-level="advanced">
                     <img src="https://logo.clearbit.com/posthog.com" alt="PostHog" class="tool-logo">
                     <span class="tool-name">PostHog</span>
                 </div>
+            </div>
+
+            <!-- Asteroid Belt - Minor Tools & Integrations -->
+            <div class="asteroid-belt">
+                <div class="asteroid"></div>
+                <div class="asteroid"></div>
+                <div class="asteroid"></div>
+                <div class="asteroid"></div>
+                <div class="asteroid"></div>
             </div>
         </div>
 
@@ -1977,8 +2071,8 @@
             <button class="category-btn" data-filter="crm">CRM</button>
             <button class="category-btn" data-filter="data">Data</button>
             <button class="category-btn" data-filter="analytics">Analytics</button>
+            <button class="category-btn" data-filter="database">Database</button>
             <button class="category-btn" data-filter="communication">Communication</button>
-            <button class="category-btn" data-filter="dev">Development</button>
         </div>
     </section>
 
@@ -2075,7 +2169,7 @@
         <div class="section-header">
             <h2 class="section-title">Featured Projects</h2>
             <p class="section-subtitle">
-                Real-world solutions that drive measurable results
+                6 real-world automation solutions that drive measurable results across revenue operations
             </p>
         </div>
         
@@ -2165,6 +2259,99 @@
                     <span class="tag">ZoomInfo</span>
                     <span class="tag">Apollo</span>
                     <span class="tag">n8n</span>
+                    <span class="tag">Supabase</span>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3 class="project-title">Real-Time Notification System</h3>
+                </div>
+                <p class="project-description">
+                    Developed an intelligent notification system that monitors prospect engagement and triggers real-time 
+                    alerts to sales teams through Slack, email, and SMS based on behavioral triggers and intent signals.
+                </p>
+                <div class="project-stats">
+                    <div class="stat">
+                        <span class="stat-value">70%</span>
+                        <span class="stat-label">Faster Response Time</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">35%</span>
+                        <span class="stat-label">Higher Conversion Rate</span>
+                    </div>
+                </div>
+                <div class="project-tags">
+                    <span class="tag clay">Clay</span>
+                    <span class="tag">n8n</span>
+                    <span class="tag">Slack API</span>
+                    <span class="tag">Webhooks</span>
+                    <span class="tag">Real-time Analytics</span>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3 class="project-title">Multi-Platform CRM Sync Engine</h3>
+                </div>
+                <p class="project-description">
+                    Built a comprehensive synchronization system using Clay and n8n that seamlessly integrates multiple CRMs, 
+                    ensuring real-time data consistency across HubSpot, Salesforce, and custom databases while eliminating data silos.
+                </p>
+                <div class="project-stats">
+                    <div class="stat">
+                        <span class="stat-value">99.8%</span>
+                        <span class="stat-label">Data Sync Accuracy</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">50hrs</span>
+                        <span class="stat-label">Monthly Admin Time Saved</span>
+                    </div>
+                </div>
+                <div class="project-tags">
+                    <span class="tag clay">Clay</span>
+                    <span class="tag">n8n</span>
+                    <span class="tag">HubSpot</span>
+                    <span class="tag">Salesforce</span>
+                    <span class="tag">Supabase</span>
+                    <span class="tag">API Integration</span>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="project-title">MPC Identification & Marketing Engine</h3>
+                </div>
+                <p class="project-description">
+                    Developed an automated Most Placeable Candidate (MPC) system using Clay and n8n that identifies top-tier candidates, 
+                    scores them based on 40+ placement criteria, and automatically markets them to potential clients through personalized outreach campaigns.
+                </p>
+                <div class="project-stats">
+                    <div class="stat">
+                        <span class="stat-value">90%</span>
+                        <span class="stat-label">MPC Identification Accuracy</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">65%</span>
+                        <span class="stat-label">Client Response Rate</span>
+                    </div>
+                </div>
+                <div class="project-tags">
+                    <span class="tag clay">Clay</span>
+                    <span class="tag">n8n</span>
+                    <span class="tag">Candidate Scoring</span>
+                    <span class="tag">Business Development</span>
+                    <span class="tag">Automated Marketing</span>
+                    <span class="tag">Recruiting CRM</span>
                 </div>
             </div>
         </div>
@@ -2349,6 +2536,8 @@
                         <span class="spec-tag">Lead Generation</span>
                         <span class="spec-tag">Revenue Ops</span>
                         <span class="spec-tag">AI Workflows</span>
+                        <span class="spec-tag">Supabase</span>
+                        <span class="spec-tag">MySQL</span>
                     </div>
                     <div class="footer-social">
                         <a href="https://linkedin.com/in/hariprasadss" target="_blank" class="social-link">
@@ -2519,67 +2708,77 @@
                 this.classList.add('active');
                 
                 const filter = this.getAttribute('data-filter');
-                // Filter tools in constellation
-                const tools = document.querySelectorAll('.tool-item');
+                // Filter tools in solar system
+                const planets = document.querySelectorAll('.tool-planet');
                 
-                tools.forEach(tool => {
-                    if (filter === 'all' || tool.getAttribute('data-category') === filter) {
-                        tool.classList.remove('hidden');
-                        tool.style.opacity = '1';
-                        tool.style.transform = 'scale(1)';
+                planets.forEach(planet => {
+                    if (filter === 'all' || planet.getAttribute('data-category') === filter) {
+                        planet.classList.remove('hidden');
+                        planet.style.opacity = '1';
+                        planet.style.transform = planet.style.transform.replace('scale(0.5)', 'scale(1)');
                     } else {
-                        tool.classList.add('hidden');
-                        tool.style.opacity = '0.3';
-                        tool.style.transform = 'scale(0.9)';
+                        planet.classList.add('hidden');
+                        planet.style.opacity = '0.3';
+                        planet.style.transform = planet.style.transform + ' scale(0.5)';
                     }
                 });
             });
         });
 
-        // Enhanced Tool constellation sequential highlight effect
-        function startToolHighlight() {
-            const constellationTools = document.querySelectorAll('.tools-constellation .tool-item');
-            if (constellationTools.length === 0) return;
+        // Enhanced Solar System Planet Highlighting
+        function startPlanetHighlight() {
+            const planets = document.querySelectorAll('.tool-planet');
+            if (planets.length === 0) return;
             
             let currentIndex = 0;
             
             function highlightNext() {
-                // Remove highlight from all tools
-                constellationTools.forEach(tool => {
-                    tool.classList.remove('highlighted');
+                // Remove highlight from all planets
+                planets.forEach(planet => {
+                    planet.classList.remove('highlighted');
                 });
                 
-                // Add highlight to current tool
-                if (constellationTools[currentIndex]) {
-                    constellationTools[currentIndex].classList.add('highlighted');
+                // Add highlight to current planet
+                if (planets[currentIndex]) {
+                    planets[currentIndex].classList.add('highlighted');
                 }
                 
-                // Move to next tool
-                currentIndex = (currentIndex + 1) % constellationTools.length;
+                // Move to next planet
+                currentIndex = (currentIndex + 1) % planets.length;
             }
             
             // Start immediately
             highlightNext();
             
-            // Continue every 3 seconds
-            setInterval(highlightNext, 3000);
+            // Continue every 4 seconds
+            setInterval(highlightNext, 4000);
         }
 
-        // Enhanced Tool constellation interactive effects
-        document.querySelectorAll('.tools-constellation .tool-item').forEach(item => {
-            item.addEventListener('mouseenter', function() {
-                // Pause animations on hover for better interaction
-                const orbit = this.closest('.tool-orbit');
+        // Enhanced Solar System Interactive Effects
+        document.querySelectorAll('.tool-planet').forEach(planet => {
+            planet.addEventListener('mouseenter', function() {
+                // Pause orbit animations on hover for better interaction
+                const orbit = this.closest('.solar-orbit');
                 if (orbit) {
                     orbit.style.animationPlayState = 'paused';
                 }
+                
+                // Add glow effect to orbit
+                if (orbit) {
+                    orbit.style.boxShadow = '0 0 40px rgba(0, 212, 255, 0.3)';
+                }
             });
             
-            item.addEventListener('mouseleave', function() {
-                // Resume animations
-                const orbit = this.closest('.tool-orbit');
+            planet.addEventListener('mouseleave', function() {
+                // Resume orbit animations
+                const orbit = this.closest('.solar-orbit');
                 if (orbit) {
                     orbit.style.animationPlayState = 'running';
+                    orbit.style.boxShadow = orbit.classList.contains('mercury') ? '0 0 20px rgba(0, 212, 255, 0.1)' :
+                                           orbit.classList.contains('venus') ? '0 0 20px rgba(191, 64, 191, 0.1)' :
+                                           orbit.classList.contains('earth') ? '0 0 20px rgba(57, 255, 20, 0.1)' :
+                                           orbit.classList.contains('mars') ? '0 0 20px rgba(245, 158, 11, 0.1)' :
+                                           '0 0 20px rgba(255, 0, 128, 0.1)';
                 }
             });
         });
@@ -2588,7 +2787,7 @@
         document.querySelectorAll('.tool-logo').forEach(img => {
             let fallbackAttempted = 0;
             const maxFallbacks = 3;
-            const toolName = img.closest('.tool-item').querySelector('.tool-name').textContent;
+            const toolName = img.closest('.tool-planet').querySelector('.tool-name').textContent;
             
             const tryFallback = () => {
                 fallbackAttempted++;
@@ -2603,21 +2802,21 @@
                     // Final fallback: create enhanced styled letter
                     const fallback = document.createElement('div');
                     const firstLetter = toolName.charAt(0).toUpperCase();
-                    const level = img.closest('.tool-item').getAttribute('data-level');
+                    const level = img.closest('.tool-planet').getAttribute('data-level');
                     
                     let bgGradient = 'var(--gradient-primary)';
                     if (level === 'expert') bgGradient = 'var(--gradient-secondary)';
                     else if (level === 'intermediate') bgGradient = 'var(--gradient-accent)';
                     
                     fallback.style.cssText = `
-                        width: 36px;
-                        height: 36px;
+                        width: 32px;
+                        height: 32px;
                         background: ${bgGradient};
-                        border-radius: 8px;
+                        border-radius: 6px;
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        font-size: 16px;
+                        font-size: 14px;
                         font-weight: 900;
                         color: white;
                         text-shadow: 0 2px 4px rgba(0,0,0,0.3);
@@ -2650,35 +2849,18 @@
             img.addEventListener('error', tryFallback);
         });
 
-        // Enhanced Live Dashboard Updates
-        function updateDashboardTimestamp() {
-            const timestamp = document.getElementById('last-updated');
-            if (timestamp) {
-                const now = new Date();
-                const timeString = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-                const timeAgo = ['Just now', '30s ago', '1m ago', '2m ago'];
-                const randomTime = timeAgo[Math.floor(Math.random() * timeAgo.length)];
-                timestamp.textContent = randomTime;
-            }
-        }
-
-        // Update timestamp every 10 seconds
-        setInterval(updateDashboardTimestamp, 10000);
-
         // Enhanced Live Stats Animation
         function animateStats() {
             const statNumbers = document.querySelectorAll('.stat-number');
-            const targets = ['9+', '1M+', '20+', '400%'];
-            
-            statNumbers.forEach((stat, index) => {
-                const target = targets[index];
-                const isNumeric = /^\d+/.test(target);
+            statNumbers.forEach(stat => {
+                const finalValue = stat.textContent;
+                const isNumeric = /^\d+/.test(finalValue);
                 
                 if (isNumeric) {
-                    const numValue = parseInt(target.replace(/\D/g, ''));
-                    const suffix = target.replace(/\d+/, '');
+                    const numValue = parseInt(finalValue.replace(/\D/g, ''));
+                    const suffix = finalValue.replace(/\d+/, '');
                     let current = 0;
-                    const increment = Math.ceil(numValue / 30);
+                    const increment = Math.ceil(numValue / 50);
                     
                     const timer = setInterval(() => {
                         current += increment;
@@ -2688,32 +2870,50 @@
                         }
                         stat.textContent = current + suffix;
                     }, 50);
-                } else {
-                    // For non-numeric values like "1M+", "400%"
-                    stat.textContent = target;
                 }
             });
         }
 
-        // Enhanced Neural Network Connections
-        function createNeuralConnections() {
-            const neuralNetwork = document.querySelector('.neural-network');
-            const toolItems = document.querySelectorAll('.tool-item');
+        // Enhanced Solar System Dynamics
+        function createSolarSystemDynamics() {
+            const constellation = document.querySelector('.tools-constellation');
             
-            toolItems.forEach((item, index) => {
-                if (index < 5) { // Limit connections to prevent clutter
-                    const connection = document.createElement('div');
-                    connection.className = 'neural-connection';
-                    connection.style.cssText = `
-                        top: ${Math.random() * 80 + 10}%;
-                        left: ${Math.random() * 60 + 20}%;
-                        width: ${Math.random() * 100 + 50}px;
-                        transform: rotate(${Math.random() * 360}deg);
-                        animation-delay: ${Math.random() * 3}s;
-                    `;
-                    neuralNetwork.appendChild(connection);
+            // Add dynamic cosmic dust
+            for (let i = 0; i < 15; i++) {
+                const dust = document.createElement('div');
+                dust.style.cssText = `
+                    position: absolute;
+                    width: 1px;
+                    height: 1px;
+                    background: rgba(0, 212, 255, 0.4);
+                    border-radius: 50%;
+                    top: ${Math.random() * 100}%;
+                    left: ${Math.random() * 100}%;
+                    animation: cosmicFloat ${5 + Math.random() * 10}s ease-in-out infinite;
+                    animation-delay: ${Math.random() * 5}s;
+                `;
+                constellation.appendChild(dust);
+            }
+            
+            // Add CSS for cosmic dust animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes cosmicFloat {
+                    0%, 100% { 
+                        transform: translateY(0px) translateX(0px) scale(1); 
+                        opacity: 0.4; 
+                    }
+                    33% { 
+                        transform: translateY(-30px) translateX(20px) scale(1.5); 
+                        opacity: 0.8; 
+                    }
+                    66% { 
+                        transform: translateY(20px) translateX(-15px) scale(0.8); 
+                        opacity: 0.6; 
+                    }
                 }
-            });
+            `;
+            document.head.appendChild(style);
         }
 
         // Enhanced Performance Chart Animation
@@ -2721,43 +2921,43 @@
             const chart = document.querySelector('.performance-chart');
             if (chart) {
                 // Add data points
-                for (let i = 0; i < 10; i++) {
+                for (let i = 0; i < 12; i++) {
                     const point = document.createElement('div');
                     point.style.cssText = `
                         position: absolute;
                         top: ${Math.random() * 40 + 10}%;
-                        left: ${i * 10}%;
-                        width: 4px;
-                        height: 4px;
-                        background: white;
+                        left: ${i * 8.33}%;
+                        width: 3px;
+                        height: 3px;
+                        background: rgba(255, 255, 255, 0.8);
                         border-radius: 50%;
-                        animation: pulse 2s ease-in-out infinite;
-                        animation-delay: ${i * 0.2}s;
+                        animation: dataPointPulse 2s ease-in-out infinite;
+                        animation-delay: ${i * 0.15}s;
+                        box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
                     `;
                     chart.appendChild(point);
                 }
+                
+                // Add CSS for data point animation
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes dataPointPulse {
+                        0%, 100% { 
+                            opacity: 0.6; 
+                            transform: scale(1); 
+                        }
+                        50% { 
+                            opacity: 1; 
+                            transform: scale(1.5); 
+                        }
+                    }
+                `;
+                document.head.appendChild(style);
             }
-        }
-
-        // Enhanced Typing Effect for Hero Title
-        function typeWriter(element, text, speed = 100) {
-            let i = 0;
-            element.textContent = '';
-            element.style.opacity = '1';
-            
-            function type() {
-                if (i < text.length) {
-                    element.textContent += text.charAt(i);
-                    i++;
-                    setTimeout(type, speed);
-                }
-            }
-            
-            type();
         }
 
         // Enhanced CTA Button Ripple Effect
-        document.querySelectorAll('.cta-btn').forEach(btn => {
+        document.querySelectorAll('.cta-btn, .contact-link, .footer-cta-btn').forEach(btn => {
             btn.addEventListener('click', function(e) {
                 const ripple = document.createElement('span');
                 const rect = this.getBoundingClientRect();
@@ -2774,7 +2974,7 @@
                     background: rgba(255, 255, 255, 0.3);
                     border-radius: 50%;
                     transform: scale(0);
-                    animation: ripple 0.6s ease-out;
+                    animation: rippleEffect 0.6s ease-out;
                     pointer-events: none;
                 `;
                 
@@ -2786,38 +2986,24 @@
             });
         });
 
-        // Enhanced Parallax Effect
-        function handleParallax() {
-            const scrolled = window.pageYOffset;
-            const parallaxElements = document.querySelectorAll('.parallax');
-            
-            parallaxElements.forEach(element => {
-                const speed = element.dataset.speed || 0.5;
-                const yPos = -(scrolled * speed);
-                element.style.transform = `translateY(${yPos}px)`;
-            });
-        }
-
-        // Enhanced Scroll Progress Indicator
-        function updateScrollProgress() {
-            const scrollProgress = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-            document.documentElement.style.setProperty('--scroll-progress', `${scrollProgress}%`);
-        }
-
-        // Enhanced Theme Transitions
-        function smoothThemeTransition() {
-            document.documentElement.style.setProperty('--transition-duration', '0.3s');
-            setTimeout(() => {
-                document.documentElement.style.setProperty('--transition-duration', '0s');
-            }, 300);
-        }
+        // Add ripple effect CSS
+        const rippleStyle = document.createElement('style');
+        rippleStyle.textContent = `
+            @keyframes rippleEffect {
+                to {
+                    transform: scale(2);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(rippleStyle);
 
         // Enhanced Mobile Touch Interactions
         let isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
         
         if (isTouch) {
             // Enhanced touch feedback for interactive elements
-            document.querySelectorAll('.tool-item, .experience-card, .project-card, .service-card, .result-card, .contact-card').forEach(item => {
+            document.querySelectorAll('.tool-planet, .experience-card, .project-card, .service-card, .result-card, .contact-card').forEach(item => {
                 item.addEventListener('touchstart', function(e) {
                     this.style.transform = 'scale(0.95)';
                     this.style.transition = 'transform 0.1s ease';
@@ -2830,93 +3016,19 @@
             });
         }
 
-        // Enhanced Loading States
-        function showLoadingState(element) {
-            element.style.opacity = '0.7';
-            element.style.pointerEvents = 'none';
-            
-            // Add loading spinner
-            const spinner = document.createElement('div');
-            spinner.className = 'loading-spinner';
-            spinner.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
-            element.appendChild(spinner);
-        }
-
-        function hideLoadingState(element) {
-            element.style.opacity = '1';
-            element.style.pointerEvents = 'auto';
-            
-            const spinner = element.querySelector('.loading-spinner');
-            if (spinner) {
-                spinner.remove();
-            }
-        }
-
-        // Enhanced Error Handling
-        window.addEventListener('error', function(e) {
-            console.error('Portfolio Error:', e.error);
-            // Graceful degradation for critical errors
-        });
-
-        // Enhanced Performance Monitoring
-        function monitorPerformance() {
-            if ('PerformanceObserver' in window) {
-                const observer = new PerformanceObserver((list) => {
-                    list.getEntries().forEach((entry) => {
-                        if (entry.entryType === 'navigation') {
-                            console.log('Page Load Time:', entry.loadEventEnd - entry.loadEventStart);
-                        }
-                    });
-                });
-                observer.observe({ entryTypes: ['navigation'] });
-            }
-        }
-
-        // Enhanced Analytics Tracking
-        function trackUserInteraction(action, category, label) {
-            if (typeof gtag !== 'undefined') {
-                gtag('event', action, {
-                    event_category: category,
-                    event_label: label
-                });
-            }
-        }
-
-        // Enhanced SEO Optimization
-        function updateMetaDescription() {
-            const metaDesc = document.querySelector('meta[name="description"]');
-            if (!metaDesc) {
-                const meta = document.createElement('meta');
-                meta.name = 'description';
-                meta.content = 'Hariprasad Sivakumar - GTM Engineer & Revenue Automation Expert. 9+ years building scalable revenue systems using Clay, n8n, and AI-powered solutions. 1M+ leads generated.';
-                document.head.appendChild(meta);
-            }
-        }
-
         // Enhanced Initialization
         function initializePortfolio() {
-            // Initialize dashboard
-            updateDashboardTimestamp();
-            
-            // Start animations with proper timing
+            // Start animations
             setTimeout(() => {
+                startPlanetHighlight();
                 animateStats();
-                startToolHighlight();
-                createNeuralConnections();
+                createSolarSystemDynamics();
                 animatePerformanceChart();
             }, 1000);
-            
-            // Performance monitoring
-            monitorPerformance();
-            
-            // SEO optimization
-            updateMetaDescription();
             
             // Add scroll listeners
             window.addEventListener('scroll', () => {
                 updateActiveNavLink();
-                handleParallax();
-                updateScrollProgress();
             }, { passive: true });
         }
 
@@ -2930,7 +3042,8 @@
         📊 1M+ Leads Generated | 400% Pipeline Growth
         🤖 AI-Powered GTM Systems | Clay & n8n Specialist
         
-        ⚡ CAPABILITIES:
+        ⚡ TECH STACK MASTERY:
+        → Clay & n8n Expert | Supabase Integration
         → Multi-Channel Outreach Automation
         → Advanced Lead Scoring Systems  
         → Data Enrichment Pipelines
@@ -2946,29 +3059,20 @@
         ═══════════════════════════════════════════════════════════
         `);
 
-        // Enhanced Service Worker Registration
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/sw.js')
-                .then(registration => {
-                    console.log('Service Worker registered:', registration);
-                })
-                .catch(error => {
-                    console.log('Service Worker registration failed:', error);
-                });
-        }
-
         // Enhanced Page Visibility API
         document.addEventListener('visibilitychange', function() {
             if (document.hidden) {
                 // Pause animations when page is hidden
-                document.querySelectorAll('.tool-orbit').forEach(orbit => {
+                document.querySelectorAll('.solar-orbit').forEach(orbit => {
                     orbit.style.animationPlayState = 'paused';
                 });
+                document.querySelector('.gtm-sun').style.animationPlayState = 'paused';
             } else {
                 // Resume animations when page is visible
-                document.querySelectorAll('.tool-orbit').forEach(orbit => {
+                document.querySelectorAll('.solar-orbit').forEach(orbit => {
                     orbit.style.animationPlayState = 'running';
                 });
+                document.querySelector('.gtm-sun').style.animationPlayState = 'running';
             }
         });
 
@@ -2983,34 +3087,13 @@
             document.body.classList.remove('keyboard-navigation');
         });
 
-        // Enhanced Dark Mode Toggle (Optional)
-        function toggleDarkMode() {
-            document.body.classList.toggle('light-mode');
-            localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
-        }
-
         // Enhanced Initialization on Page Load
         document.addEventListener('DOMContentLoaded', function() {
             initializePortfolio();
-            
-            // Add any saved theme preference
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'light') {
-                document.body.classList.add('light-mode');
-            }
         });
 
         // Enhanced Window Load Event
         window.addEventListener('load', function() {
-            // Hide loading screen if present
-            const loadingScreen = document.querySelector('.loading-screen');
-            if (loadingScreen) {
-                loadingScreen.style.opacity = '0';
-                setTimeout(() => {
-                    loadingScreen.remove();
-                }, 500);
-            }
-            
             // Start advanced animations
             document.body.classList.add('loaded');
         });
