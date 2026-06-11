@@ -1,0 +1,3111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Hariprasad Sivakumar - GTM Engineer | Revenue Automation Expert</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #00d4ff;
+            --secondary: #6366f1;
+            --accent: #f59e0b;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --neon-blue: #00d4ff;
+            --neon-pink: #ff0080;
+            --neon-green: #39ff14;
+            --neon-purple: #bf40bf;
+            --neon-orange: #ff6b35;
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-muted: #94a3b8;
+            --bg-primary: #0f0f23;
+            --bg-secondary: #1a1a2e;
+            --bg-tertiary: #16213e;
+            --bg-quaternary: #0a0a0f;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --neumorphic-light: rgba(255, 255, 255, 0.1);
+            --neumorphic-shadow: rgba(0, 0, 0, 0.3);
+            --shadow: rgba(0, 212, 255, 0.3);
+            --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #6366f1 50%, #bf40bf 100%);
+            --gradient-secondary: linear-gradient(135deg, #39ff14 0%, #00d4ff 50%, #6366f1 100%);
+            --gradient-accent: linear-gradient(135deg, #f59e0b 0%, #ff0080 50%, #bf40bf 100%);
+            --dashboard-grid: #1e293b;
+            --dashboard-accent: #334155;
+            --vh: 1vh;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Enhanced Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(191, 64, 191, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, rgba(57, 255, 20, 0.05) 0%, transparent 50%),
+                        var(--bg-primary);
+            animation: backgroundShift 20s ease-in-out infinite;
+        }
+
+        @keyframes backgroundShift {
+            0%, 100% { filter: hue-rotate(0deg); }
+            50% { filter: hue-rotate(30deg); }
+        }
+
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: 
+                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 30s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .floating-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--neon-blue);
+            border-radius: 50%;
+            animation: float 15s ease-in-out infinite;
+        }
+
+        .particle:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; background: var(--neon-blue); }
+        .particle:nth-child(2) { top: 60%; left: 20%; animation-delay: 5s; background: var(--neon-pink); }
+        .particle:nth-child(3) { top: 30%; right: 30%; animation-delay: 10s; background: var(--neon-green); }
+        .particle:nth-child(4) { bottom: 40%; left: 40%; animation-delay: 2s; background: var(--neon-purple); }
+        .particle:nth-child(5) { top: 80%; right: 10%; animation-delay: 7s; background: var(--neon-blue); }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(0px) scale(1); opacity: 0.4; }
+            25% { transform: translateY(-20px) translateX(10px) scale(1.2); opacity: 0.8; }
+            50% { transform: translateY(-10px) translateX(-15px) scale(0.8); opacity: 0.6; }
+            75% { transform: translateY(15px) translateX(5px) scale(1.1); opacity: 0.7; }
+        }
+
+        /* Enhanced Navigation */
+        .nav-container {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            background: var(--glass-bg);
+            backdrop-filter: blur(30px);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            padding: 5px;
+            box-shadow: 0 8px 32px var(--shadow), 
+                        inset 0 1px 0 var(--neumorphic-light);
+            max-width: calc(100vw - 40px);
+            width: auto;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 3px;
+            margin: 0;
+            padding: 0;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .nav-menu::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 12px 20px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-weight: 600;
+            font-size: 0.9rem;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+            min-width: fit-content;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: -1;
+        }
+
+        .nav-link:hover::before,
+        .nav-link.active::before {
+            left: 0;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Dashboard Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 120px 20px 40px;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+        }
+
+        .hero-dashboard {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 40px;
+            max-width: 1400px;
+            width: 100%;
+            align-items: center;
+        }
+
+        .hero-content {
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: var(--gradient-primary);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease-out forwards, gradientMove 4s ease-in-out infinite 1s;
+            opacity: 0;
+            transform: translateY(30px);
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 4vw, 2.2rem);
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.3s forwards;
+            font-weight: 600;
+        }
+
+        .hero-description {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            line-height: 1.7;
+            margin-bottom: 40px;
+            color: var(--text-muted);
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.6s forwards;
+        }
+
+        /* Live Stats Dashboard */
+        .live-stats-dashboard {
+            background: var(--glass-bg);
+            backdrop-filter: blur(30px);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 20px 60px var(--shadow),
+                        inset 0 1px 0 var(--neumorphic-light),
+                        inset 0 -1px 0 var(--neumorphic-shadow);
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.9s forwards;
+        }
+
+        .dashboard-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 25px;
+        }
+
+        .dashboard-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .status-indicator {
+            width: 8px;
+            height: 8px;
+            background: var(--neon-green);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+
+        .stat-number {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 900;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin-bottom: 8px;
+            animation: countUp 2s ease-out forwards;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .performance-chart {
+            height: 60px;
+            background: linear-gradient(90deg, 
+                var(--neon-green) 0%, 
+                var(--neon-blue) 50%, 
+                var(--neon-purple) 100%);
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .performance-chart::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.3) 50%, 
+                transparent 100%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        /* Enhanced CTA Buttons */
+        .cta-container {
+            display: flex;
+            gap: 20px;
+            margin-top: 40px;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 1.2s forwards;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
+            backdrop-filter: blur(20px);
+        }
+
+        .cta-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+
+        .cta-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.3) 50%, 
+                transparent 100%);
+            transition: left 0.6s ease;
+        }
+
+        .cta-primary:hover::before {
+            left: 100%;
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px var(--shadow);
+        }
+
+        .cta-secondary {
+            background: var(--glass-bg);
+            color: var(--neon-blue);
+            border: 2px solid var(--neon-blue);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+        }
+
+        .cta-secondary:hover {
+            background: rgba(0, 212, 255, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Trusted Companies with Enhanced Marquee */
+        .trusted-section {
+            padding: 80px 20px;
+            background: var(--bg-secondary);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .trusted-title {
+            text-align: center;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            color: var(--text-muted);
+            margin-bottom: 50px;
+            font-weight: 600;
+        }
+
+        .companies-marquee {
+            position: relative;
+            overflow: hidden;
+            height: 80px;
+            mask: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
+            -webkit-mask: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
+        }
+
+        .companies-track {
+            display: flex;
+            align-items: center;
+            gap: 80px;
+            animation: marquee 30s linear infinite;
+            height: 100%;
+        }
+
+        .company-logo {
+            height: 40px;
+            width: auto;
+            filter: grayscale(100%) brightness(0.6);
+            transition: all 0.4s ease;
+            flex-shrink: 0;
+        }
+
+        .company-logo:hover {
+            filter: grayscale(0%) brightness(1);
+            transform: scale(1.1);
+        }
+
+        /* Enhanced Tools Section */
+        .tools-section {
+            padding: 100px 20px;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Enhanced Solar System Tool Constellation */
+        .tools-constellation {
+            position: relative;
+            height: 700px;
+            max-width: 900px;
+            margin: 0 auto 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1000px;
+        }
+
+        /* Central Sun - GTM Strategy Core */
+        .gtm-sun {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle at 30% 30%, 
+                var(--neon-orange) 0%, 
+                var(--neon-pink) 50%, 
+                var(--neon-purple) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            animation: sunPulse 4s ease-in-out infinite, sunRotate 20s linear infinite;
+            box-shadow: 
+                0 0 40px var(--neon-orange),
+                0 0 80px rgba(255, 107, 53, 0.5),
+                inset 0 0 40px rgba(255, 255, 255, 0.1);
+            border: 3px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .gtm-sun::before {
+            content: '';
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            border: 2px dashed rgba(255, 107, 53, 0.3);
+            border-radius: 50%;
+            animation: sunRotate 15s linear infinite reverse;
+        }
+
+        .gtm-sun::after {
+            content: '';
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            border-radius: 50%;
+            animation: sunRotate 25s linear infinite;
+        }
+
+        .sun-icon {
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, #ffffff, #ffe4b3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+        }
+
+        /* Solar System Orbits */
+        .solar-orbit {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transform-style: preserve-3d;
+        }
+
+        /* Inner Planets - Core Tools */
+        .solar-orbit.mercury {
+            width: 200px;
+            height: 200px;
+            animation: orbitRotate 15s linear infinite;
+            border-color: rgba(0, 212, 255, 0.3);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
+        }
+
+        .solar-orbit.venus {
+            width: 280px;
+            height: 280px;
+            animation: orbitRotate 25s linear infinite reverse;
+            border-color: rgba(191, 64, 191, 0.3);
+            box-shadow: 0 0 20px rgba(191, 64, 191, 0.1);
+        }
+
+        .solar-orbit.earth {
+            width: 360px;
+            height: 360px;
+            animation: orbitRotate 35s linear infinite;
+            border-color: rgba(57, 255, 20, 0.3);
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.1);
+        }
+
+        /* Outer Planets - Supporting Tools */
+        .solar-orbit.mars {
+            width: 440px;
+            height: 440px;
+            animation: orbitRotate 45s linear infinite reverse;
+            border-color: rgba(245, 158, 11, 0.3);
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.1);
+        }
+
+        .solar-orbit.jupiter {
+            width: 520px;
+            height: 520px;
+            animation: orbitRotate 55s linear infinite;
+            border-color: rgba(255, 0, 128, 0.3);
+            box-shadow: 0 0 20px rgba(255, 0, 128, 0.1);
+        }
+
+        /* Tool Planets */
+        .tool-planet {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px 12px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(30px);
+            border: 2px solid var(--glass-border);
+            border-radius: 20px;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3),
+                        inset 0 1px 0 var(--neumorphic-light);
+            min-width: 80px;
+            transform-style: preserve-3d;
+        }
+
+        .tool-planet::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: conic-gradient(from 0deg, 
+                var(--neon-blue), 
+                var(--neon-purple), 
+                var(--neon-green), 
+                var(--neon-blue));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+            border-radius: 18px;
+        }
+
+        .tool-planet:hover::before {
+            opacity: 0.15;
+        }
+
+        .tool-planet:hover {
+            transform: translateY(-10px) scale(1.15);
+            border-color: var(--neon-blue);
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.5);
+            z-index: 15;
+        }
+
+        /* Planet positioning */
+        .mercury .tool-planet { top: -40px; left: calc(50% - 40px); }
+        .venus .tool-planet:nth-child(1) { top: -40px; left: calc(50% - 40px); }
+        .venus .tool-planet:nth-child(2) { top: calc(50% - 40px); left: -40px; }
+        
+        .earth .tool-planet:nth-child(1) { top: -40px; left: calc(50% - 40px); }
+        .earth .tool-planet:nth-child(2) { top: calc(50% - 40px); right: -40px; }
+        .earth .tool-planet:nth-child(3) { bottom: -40px; left: calc(50% - 40px); }
+        
+        .mars .tool-planet:nth-child(1) { top: -40px; left: calc(50% - 40px); }
+        .mars .tool-planet:nth-child(2) { top: calc(25% - 40px); right: -40px; }
+        .mars .tool-planet:nth-child(3) { bottom: calc(25% - 40px); right: -40px; }
+        .mars .tool-planet:nth-child(4) { bottom: -40px; left: calc(50% - 40px); }
+        .mars .tool-planet:nth-child(5) { top: calc(25% - 40px); left: -40px; }
+        
+        .jupiter .tool-planet:nth-child(1) { top: -40px; left: calc(50% - 40px); }
+        .jupiter .tool-planet:nth-child(2) { top: calc(20% - 40px); right: -40px; }
+        .jupiter .tool-planet:nth-child(3) { top: calc(50% - 40px); right: -40px; }
+        .jupiter .tool-planet:nth-child(4) { bottom: calc(20% - 40px); right: -40px; }
+        .jupiter .tool-planet:nth-child(5) { bottom: -40px; left: calc(50% - 40px); }
+        .jupiter .tool-planet:nth-child(6) { bottom: calc(20% - 40px); left: -40px; }
+        .jupiter .tool-planet:nth-child(7) { top: calc(50% - 40px); left: -40px; }
+        .jupiter .tool-planet:nth-child(8) { top: calc(20% - 40px); left: -40px; }
+
+        /* Planet-specific styling */
+        .tool-planet[data-level="expert"] {
+            border-color: var(--neon-green);
+            box-shadow: 0 15px 40px rgba(57, 255, 20, 0.3);
+        }
+
+        .tool-planet[data-level="intermediate"] {
+            border-color: var(--accent);
+            box-shadow: 0 15px 40px rgba(245, 158, 11, 0.3);
+        }
+
+        .tool-planet.featured {
+            background: rgba(0, 212, 255, 0.1);
+            border-color: var(--neon-blue);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.4);
+            transform: scale(1.1);
+        }
+
+        .tool-logo {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            object-fit: cover;
+            transition: all 0.3s ease;
+            margin-bottom: 8px;
+        }
+
+        .tool-name {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.8rem;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        /* Asteroid Belt - Minor Tools */
+        .asteroid-belt {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border: 1px dashed rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: orbitRotate 65s linear infinite;
+        }
+
+        .asteroid {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: var(--neon-blue);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: asteroidFloat 3s ease-in-out infinite;
+        }
+
+        .asteroid:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+        .asteroid:nth-child(2) { top: 30%; right: 15%; animation-delay: 1s; }
+        .asteroid:nth-child(3) { bottom: 25%; right: 20%; animation-delay: 2s; }
+        .asteroid:nth-child(4) { bottom: 35%; left: 25%; animation-delay: 1.5s; }
+        .asteroid:nth-child(5) { top: 50%; left: 5%; animation-delay: 0.5s; }
+
+        /* Comet Trails */
+        .comet-trail {
+            position: absolute;
+            width: 2px;
+            height: 100px;
+            background: linear-gradient(180deg, var(--neon-blue), transparent);
+            opacity: 0.7;
+            animation: cometMove 8s ease-in-out infinite;
+        }
+
+        .comet-trail:nth-child(1) {
+            top: 10%;
+            left: 20%;
+            animation-delay: 0s;
+        }
+
+        .comet-trail:nth-child(2) {
+            top: 60%;
+            right: 10%;
+            animation-delay: 4s;
+        }
+
+        /* Enhanced Tool Categories */
+        .tool-categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 40px;
+        }
+
+        .category-btn {
+            padding: 12px 24px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .category-btn:hover::before,
+        .category-btn.active::before {
+            left: 0;
+        }
+
+        .category-btn:hover,
+        .category-btn.active {
+            color: white;
+            border-color: var(--neon-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Enhanced Experience Section */
+        .experience-section {
+            padding: 100px 20px;
+            background: var(--bg-secondary);
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .experience-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(30px);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            padding: 35px;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2),
+                        inset 0 1px 0 var(--neumorphic-light);
+        }
+
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        .experience-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px var(--shadow);
+        }
+
+        .experience-header {
+            margin-bottom: 20px;
+        }
+
+        .experience-title {
+            font-size: clamp(1.3rem, 4vw, 1.5rem);
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .experience-company {
+            font-size: clamp(1.1rem, 3.5vw, 1.3rem);
+            color: var(--neon-blue);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .experience-period {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .experience-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-size: clamp(0.95rem, 3vw, 1.05rem);
+        }
+
+        .experience-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: var(--glass-bg);
+            color: var(--text-secondary);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(20px);
+        }
+
+        .tag:hover {
+            background: var(--neon-blue);
+            color: var(--bg-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3);
+        }
+
+        .tag.clay {
+            background: var(--gradient-secondary);
+            color: white;
+            border: none;
+        }
+
+        /* Enhanced Projects Section */
+        .projects-section {
+            padding: 100px 20px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(30px);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            padding: 35px;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2),
+                        inset 0 1px 0 var(--neumorphic-light);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-accent);
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px var(--shadow);
+        }
+
+        .project-header {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .project-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .project-title {
+            font-size: clamp(1.3rem, 4vw, 1.5rem);
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1.3;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 25px;
+            font-size: clamp(0.95rem, 3vw, 1.05rem);
+        }
+
+        .project-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .stat {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .stat:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.2);
+        }
+
+        .stat-value {
+            display: block;
+            font-size: clamp(1.4rem, 4vw, 1.8rem);
+            font-weight: 900;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        /* Enhanced Services Section */
+        .services-section {
+            padding: 100px 20px;
+            background: var(--bg-secondary);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(30px);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            padding: 35px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2),
+                        inset 0 1px 0 var(--neumorphic-light);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px var(--shadow);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .service-title {
+            font-size: clamp(1.3rem, 4vw, 1.5rem);
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+
+        .service-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: clamp(0.95rem, 3vw, 1.05rem);
+        }
+
+        /* Enhanced Results Section */
+        .results-section {
+            padding: 100px 20px;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .result-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(30px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2),
+                        inset 0 1px 0 var(--neumorphic-light);
+        }
+
+        .result-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px var(--shadow);
+        }
+
+        .result-value {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 900;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+
+        .result-label {
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: clamp(0.85rem, 2.5vw, 1rem);
+            line-height: 1.3;
+        }
+
+        /* Enhanced Contact Section */
+        .contact-section {
+            padding: 100px 20px;
+            background: var(--bg-secondary);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(30px);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2),
+                        inset 0 1px 0 var(--neumorphic-light);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px var(--shadow);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .contact-title {
+            font-size: clamp(1.3rem, 4vw, 1.5rem);
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+
+        .contact-description {
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+            line-height: 1.6;
+            font-size: clamp(0.95rem, 3vw, 1.05rem);
+        }
+
+        .contact-link {
+            display: inline-block;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px var(--shadow);
+        }
+
+        .contact-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px var(--shadow);
+        }
+
+        /* Enhanced Footer */
+        .enhanced-footer {
+            position: relative;
+            background: var(--bg-primary);
+            overflow: hidden;
+        }
+
+        .footer-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                45deg,
+                rgba(0, 212, 255, 0.1) 0%,
+                rgba(99, 102, 241, 0.05) 30%,
+                rgba(191, 64, 191, 0.1) 60%,
+                rgba(57, 255, 20, 0.05) 100%
+            );
+            background-size: 400% 400%;
+            animation: gradientShift 10s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 3;
+            padding: 80px 20px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-cta {
+            text-align: center;
+            margin-bottom: 80px;
+            padding: 50px 30px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(30px);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2),
+                        inset 0 1px 0 var(--neumorphic-light);
+        }
+
+        .footer-cta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 80px var(--shadow);
+        }
+
+        .footer-cta-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 15px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .footer-cta-text {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .footer-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 36px;
+            background: var(--gradient-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+
+        .footer-cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px var(--shadow);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-tagline {
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .footer-specializations {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .spec-tag {
+            background: var(--glass-bg);
+            color: var(--text-secondary);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+
+        .spec-tag:hover {
+            background: var(--neon-blue);
+            color: var(--bg-primary);
+            transform: translateY(-2px);
+        }
+
+        .footer-column h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.1rem, 4vw, 1.3rem);
+            font-weight: 800;
+            margin-bottom: 25px;
+            color: var(--text-primary);
+            position: relative;
+        }
+
+        .footer-column h4::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--gradient-primary);
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 5px 0;
+            font-size: clamp(0.9rem, 3vw, 1rem);
+        }
+
+        .footer-links a:hover {
+            color: var(--neon-blue);
+            transform: translateX(5px);
+        }
+
+        .footer-links a i {
+            font-size: 0.9rem;
+            width: 18px;
+        }
+
+        .footer-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .footer-stat {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 20px 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(20px);
+        }
+
+        .footer-stat:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px var(--shadow);
+        }
+
+        .footer-stat-number {
+            display: block;
+            font-size: clamp(1.4rem, 4vw, 1.8rem);
+            font-weight: 900;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+            line-height: 1.1;
+        }
+
+        .footer-stat-label {
+            font-size: clamp(0.75rem, 2.5vw, 0.9rem);
+            color: var(--text-muted);
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .social-link:hover::before {
+            opacity: 1;
+        }
+
+        .social-link:hover {
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px var(--shadow);
+        }
+
+        .social-link i {
+            position: relative;
+            z-index: 2;
+            font-size: 1.1rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--glass-border);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-copyright {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-links-bottom {
+            display: flex;
+            gap: 30px;
+        }
+
+        .footer-links-bottom a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links-bottom a:hover {
+            color: var(--neon-blue);
+        }
+
+        /* Enhanced Animations */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes gradientMove {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes sunPulse {
+            0%, 100% { 
+                box-shadow: 
+                    0 0 40px var(--neon-orange),
+                    0 0 80px rgba(255, 107, 53, 0.5),
+                    inset 0 0 40px rgba(255, 255, 255, 0.1);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 
+                    0 0 60px var(--neon-orange),
+                    0 0 120px rgba(255, 107, 53, 0.7),
+                    inset 0 0 60px rgba(255, 255, 255, 0.2);
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes sunRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes orbitRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes asteroidFloat {
+            0%, 100% { transform: translateY(0px) scale(1); opacity: 0.6; }
+            50% { transform: translateY(-10px) scale(1.2); opacity: 0.9; }
+        }
+
+        @keyframes cometMove {
+            0% { transform: translateX(-50px) translateY(-50px) rotate(45deg); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateX(50px) translateY(50px) rotate(45deg); opacity: 0; }
+        }
+
+        @keyframes countUp {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-dashboard {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+            }
+
+            .live-stats-dashboard {
+                max-width: 100%;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .cta-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .tools-constellation {
+                height: 500px;
+            }
+
+            .gtm-sun {
+                width: 80px;
+                height: 80px;
+            }
+
+            .sun-icon {
+                font-size: 1.8rem;
+            }
+
+            .solar-orbit.mercury { width: 150px; height: 150px; }
+            .solar-orbit.venus { width: 200px; height: 200px; }
+            .solar-orbit.earth { width: 250px; height: 250px; }
+            .solar-orbit.mars { width: 300px; height: 300px; }
+            .solar-orbit.jupiter { width: 350px; height: 350px; }
+
+            .asteroid-belt {
+                width: 400px;
+                height: 400px;
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-brand {
+                text-align: center;
+            }
+
+            .footer-logo {
+                justify-content: center;
+            }
+
+            .footer-specializations {
+                justify-content: center;
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                top: 10px;
+                max-width: calc(100vw - 20px);
+            }
+
+            .nav-link {
+                padding: 10px 16px;
+                font-size: 0.8rem;
+            }
+
+            .hero-section {
+                padding: 100px 15px 30px;
+            }
+
+            .section-title {
+                font-size: clamp(2rem, 8vw, 3rem);
+            }
+
+            .tools-constellation {
+                height: 400px;
+            }
+
+            .gtm-sun {
+                width: 60px;
+                height: 60px;
+            }
+
+            .sun-icon {
+                font-size: 1.4rem;
+            }
+
+            .solar-orbit.mercury { width: 120px; height: 120px; }
+            .solar-orbit.venus { width: 160px; height: 160px; }
+            .solar-orbit.earth { width: 200px; height: 200px; }
+            .solar-orbit.mars { width: 240px; height: 240px; }
+            .solar-orbit.jupiter { width: 280px; height: 280px; }
+
+            .asteroid-belt {
+                width: 320px;
+                height: 320px;
+            }
+
+            .experience-grid,
+            .projects-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .results-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Fade-in Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Focus styles for accessibility */
+        .nav-link:focus,
+        .cta-btn:focus,
+        .category-btn:focus,
+        .contact-link:focus,
+        .social-link:focus {
+            outline: 2px solid var(--neon-blue);
+            outline-offset: 2px;
+        }
+
+        /* Reduce motion for users who prefer it */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Enhanced Animated Background -->
+    <div class="animated-bg"></div>
+    <div class="grid-overlay"></div>
+    <div class="floating-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Enhanced Navigation -->
+    <nav class="nav-container">
+        <ul class="nav-menu">
+            <li><a href="#hero" class="nav-link active">Home</a></li>
+            <li><a href="#experience" class="nav-link">Experience</a></li>
+            <li><a href="#tools" class="nav-link">Tools</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#services" class="nav-link">Services</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Dashboard Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-dashboard">
+            <div class="hero-content">
+                <h1 class="hero-title">Hariprasad Sivakumar</h1>
+                <h2 class="hero-subtitle">GTM Engineer & Revenue Automation Expert</h2>
+                <p class="hero-description">
+                    I architect and build scalable revenue systems that transform how businesses generate leads, 
+                    nurture prospects, and accelerate growth. With 9+ years of experience in automation and 
+                    AI-powered solutions, I've helped companies generate 1M+ leads while saving thousands of operational hours.
+                </p>
+                <div class="cta-container">
+                    <a href="https://calendly.com/harigtm/30min" target="_blank" class="cta-btn cta-primary">
+                        <i class="fas fa-calendar-alt"></i> Schedule Strategy Call
+                    </a>
+                    <a href="#projects" class="cta-btn cta-secondary">
+                        <i class="fas fa-eye"></i> View My Work
+                    </a>
+                </div>
+            </div>
+            
+            <div class="live-stats-dashboard">
+                <div class="dashboard-header">
+                    <h3 class="dashboard-title">
+                        <span class="status-indicator"></span>
+                        Live Performance
+                    </h3>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">9+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">1M+</span>
+                        <span class="stat-label">Leads Generated</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">30+</span>
+                        <span class="stat-label">Tools Mastered</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">400%</span>
+                        <span class="stat-label">Pipeline Growth</span>
+                    </div>
+                </div>
+                <div class="performance-chart"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Trusted Companies Section -->
+    <section class="trusted-section">
+        <div class="section-header">
+            <h3 class="trusted-title">Trusted by innovative companies worldwide</h3>
+        </div>
+        <div class="companies-marquee">
+            <div class="companies-track">
+                <img src="https://logo.clearbit.com/endflow.com" alt="Endflow" class="company-logo">
+                <img src="https://logo.clearbit.com/recruitramp.com" alt="RecruitRamp" class="company-logo">
+                <img src="https://logo.clearbit.com/scienaptic.com" alt="Scienaptic" class="company-logo">
+                <img src="https://logo.clearbit.com/taskdrive.com" alt="TaskDrive" class="company-logo">
+                <img src="https://logo.clearbit.com/tracxn.com" alt="Tracxn" class="company-logo">
+                <img src="https://logo.clearbit.com/instawork.com" alt="Instawork" class="company-logo">
+                <!-- Duplicate for seamless loop -->
+                <img src="https://logo.clearbit.com/endflow.com" alt="Endflow" class="company-logo">
+                <img src="https://logo.clearbit.com/recruitramp.com" alt="RecruitRamp" class="company-logo">
+                <img src="https://logo.clearbit.com/scienaptic.com" alt="Scienaptic" class="company-logo">
+                <img src="https://logo.clearbit.com/taskdrive.com" alt="TaskDrive" class="company-logo">
+                <img src="https://logo.clearbit.com/tracxn.com" alt="Tracxn" class="company-logo">
+                <img src="https://logo.clearbit.com/instawork.com" alt="Instawork" class="company-logo">
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Solar System Tool Stack Section -->
+    <section id="tools" class="tools-section">
+        <div class="section-header">
+            <h2 class="section-title">Tech Stack & Tools</h2>
+            <p class="section-subtitle">
+                Master-level expertise across 30+ modern GTM and automation tools in a cosmic ecosystem
+            </p>
+        </div>
+        
+        <!-- Enhanced Solar System Tool Constellation -->
+        <div class="tools-constellation">
+            <!-- Central Sun - GTM Strategy Core -->
+            <div class="gtm-sun">
+                <div class="sun-icon">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+            </div>
+
+            <!-- Comet Trails -->
+            <div class="comet-trail"></div>
+            <div class="comet-trail"></div>
+
+            <!-- Mercury Orbit - Core Automation -->
+            <div class="solar-orbit mercury">
+                <div class="tool-planet featured" data-category="automation" data-level="expert">
+                    <img src="https://logo.clearbit.com/clay.com" alt="Clay" class="tool-logo">
+                    <span class="tool-name">Clay</span>
+                </div>
+            </div>
+
+            <!-- Venus Orbit - Essential CRM & Automation -->
+            <div class="solar-orbit venus">
+                <div class="tool-planet featured" data-category="automation" data-level="expert">
+                    <img src="https://logo.clearbit.com/n8n.io" alt="n8n" class="tool-logo">
+                    <span class="tool-name">n8n</span>
+                </div>
+                <div class="tool-planet featured" data-category="crm" data-level="expert">
+                    <img src="https://logo.clearbit.com/hubspot.com" alt="HubSpot" class="tool-logo">
+                    <span class="tool-name">HubSpot</span>
+                </div>
+            </div>
+
+            <!-- Earth Orbit - Primary Outreach & Data -->
+            <div class="solar-orbit earth">
+                <div class="tool-planet" data-category="email" data-level="expert">
+                    <img src="https://logo.clearbit.com/smartlead.ai" alt="Smartlead" class="tool-logo">
+                    <span class="tool-name">Smartlead</span>
+                </div>
+                <div class="tool-planet" data-category="crm" data-level="expert">
+                    <img src="https://logo.clearbit.com/apollo.io" alt="Apollo" class="tool-logo">
+                    <span class="tool-name">Apollo</span>
+                </div>
+                <div class="tool-planet" data-category="data" data-level="expert">
+                    <img src="https://logo.clearbit.com/zoominfo.com" alt="ZoomInfo" class="tool-logo">
+                    <span class="tool-name">ZoomInfo</span>
+                </div>
+            </div>
+
+            <!-- Mars Orbit - Advanced Tools -->
+            <div class="solar-orbit mars">
+                <div class="tool-planet" data-category="crm" data-level="expert">
+                    <img src="https://logo.clearbit.com/gohighlevel.com" alt="GoHighLevel" class="tool-logo">
+                    <span class="tool-name">GHL</span>
+                </div>
+                <div class="tool-planet" data-category="data" data-level="expert">
+                    <img src="https://logo.clearbit.com/linkedin.com" alt="LinkedIn Sales Navigator" class="tool-logo">
+                    <span class="tool-name">Sales Navigator</span>
+                </div>
+                <div class="tool-planet" data-category="automation" data-level="advanced">
+                    <img src="https://logo.clearbit.com/zapier.com" alt="Zapier" class="tool-logo">
+                    <span class="tool-name">Zapier</span>
+                </div>
+                <div class="tool-planet" data-category="database" data-level="expert">
+                    <img src="https://logo.clearbit.com/supabase.com" alt="Supabase" class="tool-logo">
+                    <span class="tool-name">Supabase</span>
+                </div>
+                <div class="tool-planet" data-category="database" data-level="expert">
+                    <img src="https://logo.clearbit.com/mysql.com" alt="MySQL" class="tool-logo">
+                    <span class="tool-name">MySQL</span>
+                </div>
+            </div>
+
+            <!-- Jupiter Orbit - Supporting Ecosystem -->
+            <div class="solar-orbit jupiter">
+                <div class="tool-planet" data-category="email" data-level="advanced">
+                    <img src="https://logo.clearbit.com/instantly.ai" alt="Instantly" class="tool-logo">
+                    <span class="tool-name">Instantly</span>
+                </div>
+                <div class="tool-planet" data-category="automation" data-level="advanced">
+                    <img src="https://logo.clearbit.com/meetalfred.com" alt="MeetAlfred" class="tool-logo">
+                    <span class="tool-name">MeetAlfred</span>
+                </div>
+                <div class="tool-planet" data-category="automation" data-level="advanced">
+                    <img src="https://logo.clearbit.com/apify.com" alt="Apify" class="tool-logo">
+                    <span class="tool-name">Apify</span>
+                </div>
+                <div class="tool-planet" data-category="crm" data-level="advanced">
+                    <img src="https://logo.clearbit.com/salesforce.com" alt="Salesforce" class="tool-logo">
+                    <span class="tool-name">Salesforce</span>
+                </div>
+                <div class="tool-planet" data-category="data" data-level="advanced">
+                    <img src="https://logo.clearbit.com/airtable.com" alt="Airtable" class="tool-logo">
+                    <span class="tool-name">Airtable</span>
+                </div>
+                <div class="tool-planet" data-category="email" data-level="advanced">
+                    <img src="https://logo.clearbit.com/lemlist.com" alt="Lemlist" class="tool-logo">
+                    <span class="tool-name">Lemlist</span>
+                </div>
+                <div class="tool-planet" data-category="data" data-level="advanced">
+                    <img src="https://logo.clearbit.com/hunter.io" alt="Hunter.io" class="tool-logo">
+                    <span class="tool-name">Hunter.io</span>
+                </div>
+                <div class="tool-planet" data-category="analytics" data-level="advanced">
+                    <img src="https://logo.clearbit.com/posthog.com" alt="PostHog" class="tool-logo">
+                    <span class="tool-name">PostHog</span>
+                </div>
+            </div>
+
+            <!-- Asteroid Belt - Minor Tools & Integrations -->
+            <div class="asteroid-belt">
+                <div class="asteroid"></div>
+                <div class="asteroid"></div>
+                <div class="asteroid"></div>
+                <div class="asteroid"></div>
+                <div class="asteroid"></div>
+            </div>
+        </div>
+
+        <!-- Enhanced Tool Categories -->
+        <div class="tool-categories">
+            <button class="category-btn active" data-filter="all">All Tools</button>
+            <button class="category-btn" data-filter="automation">Automation</button>
+            <button class="category-btn" data-filter="email">Email</button>
+            <button class="category-btn" data-filter="crm">CRM</button>
+            <button class="category-btn" data-filter="data">Data</button>
+            <button class="category-btn" data-filter="analytics">Analytics</button>
+            <button class="category-btn" data-filter="database">Database</button>
+            <button class="category-btn" data-filter="communication">Communication</button>
+        </div>
+    </section>
+
+    <!-- Enhanced Experience Section -->
+    <section id="experience" class="experience-section">
+        <div class="section-header">
+            <h2 class="section-title">Professional Experience</h2>
+            <p class="section-subtitle">
+                Building revenue systems across industries and verticals
+            </p>
+        </div>
+        
+        <div class="experience-grid">
+            <div class="experience-card fade-in">
+                <div class="experience-header">
+                    <h3 class="experience-title">Lead Research Manager</h3>
+                    <div class="experience-company">TaskDrive</div>
+                    <div class="experience-period">2023 - Present</div>
+                </div>
+                <p class="experience-description">
+                    Leading data intelligence and lead research initiatives at TaskDrive, building sophisticated 
+                    automation systems using Clay, n8n, and API integrations. Scaling lead generation operations 
+                    that process 50K+ leads monthly while maintaining 95%+ data accuracy through advanced enrichment workflows.
+                </p>
+                <div class="experience-tags">
+                    <span class="tag clay">Clay</span>
+                    <span class="tag">n8n</span>
+                    <span class="tag">API Integration</span>
+                    <span class="tag">Lead Generation</span>
+                </div>
+            </div>
+
+            <div class="experience-card fade-in">
+                <div class="experience-header">
+                    <h3 class="experience-title">Lead Generation Expert</h3>
+                    <div class="experience-company">Scienaptic AI</div>
+                    <div class="experience-period">2022 - 2023</div>
+                </div>
+                <p class="experience-description">
+                    Architected and deployed comprehensive lead generation systems at Scienaptic AI, combining 
+                    multiple data sources and automation tools to increase qualified pipeline by 400%. Specialized 
+                    in multi-channel outreach sequences using Smartlead and custom data enrichment workflows.
+                </p>
+                <div class="experience-tags">
+                    <span class="tag">Smartlead</span>
+                    <span class="tag">Data Enrichment</span>
+                    <span class="tag">Multi-Channel Outreach</span>
+                    <span class="tag clay">Clay</span>
+                </div>
+            </div>
+
+            <div class="experience-card fade-in">
+                <div class="experience-header">
+                    <h3 class="experience-title">Research Manager</h3>
+                    <div class="experience-company">Instawork</div>
+                    <div class="experience-period">2021 - 2022</div>
+                </div>
+                <p class="experience-description">
+                    Managed data operations and research initiatives at Instawork, developing automated data 
+                    collection and analysis systems. Built scalable processes that reduced manual research time 
+                    by 60% while improving data quality and lead conversion rates.
+                </p>
+                <div class="experience-tags">
+                    <span class="tag">Data Operations</span>
+                    <span class="tag">Process Automation</span>
+                    <span class="tag clay">Clay</span>
+                    <span class="tag">Research</span>
+                </div>
+            </div>
+
+            <div class="experience-card fade-in">
+                <div class="experience-header">
+                    <h3 class="experience-title">Data Operations Manager</h3>
+                    <div class="experience-company">Tracxn Technologies</div>
+                    <div class="experience-period">2019 - 2021</div>
+                </div>
+                <p class="experience-description">
+                    Spearheaded data operations at Tracxn Technologies, managing large-scale data collection 
+                    and enrichment processes. Implemented automated workflows that processed 1M+ data points 
+                    monthly, laying the foundation for revenue operations expertise.
+                </p>
+                <div class="experience-tags">
+                    <span class="tag">Data Analysis</span>
+                    <span class="tag">Automation</span>
+                    <span class="tag">Workflows</span>
+                    <span class="tag">Revenue Operations</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="section-header">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">
+                6 real-world automation solutions that drive measurable results across revenue operations
+            </p>
+        </div>
+        
+        <div class="projects-grid">
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="project-title">Automated Lead Scoring & Routing</h3>
+                </div>
+                <p class="project-description">
+                    Built an intelligent lead scoring system using Clay and n8n that automatically qualifies, 
+                    scores, and routes leads to the right sales reps based on 50+ data points and behavioral triggers.
+                </p>
+                <div class="project-stats">
+                    <div class="stat">
+                        <span class="stat-value">85%</span>
+                        <span class="stat-label">Lead Quality Increase</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">40hrs</span>
+                        <span class="stat-label">Weekly Time Saved</span>
+                    </div>
+                </div>
+                <div class="project-tags">
+                    <span class="tag clay">Clay</span>
+                    <span class="tag">n8n</span>
+                    <span class="tag">HubSpot</span>
+                    <span class="tag">Apollo</span>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="project-title">Multi-Channel Outreach Engine</h3>
+                </div>
+                <p class="project-description">
+                    Designed and deployed a comprehensive outreach system using Clay and Smartlead that coordinates 
+                    email, LinkedIn, and phone touchpoints across multiple sequences, resulting in 4x higher response rates.
+                </p>
+                <div class="project-stats">
+                    <div class="stat">
+                        <span class="stat-value">400%</span>
+                        <span class="stat-label">Response Rate Increase</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">50K+</span>
+                        <span class="stat-label">Monthly Touchpoints</span>
+                    </div>
+                </div>
+                <div class="project-tags">
+                    <span class="tag clay">Clay</span>
+                    <span class="tag">Smartlead</span>
+                    <span class="tag">Apollo</span>
+                    <span class="tag">LinkedIn Sales Navigator</span>
+                    <span class="tag">n8n</span>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="project-title">Custom Data Enrichment Pipeline</h3>
+                </div>
+                <p class="project-description">
+                    Created a sophisticated data enrichment system that automatically scrapes, validates, and enriches 
+                    prospect data from multiple sources, providing sales teams with 99.5% accurate contact information.
+                </p>
+                <div class="project-stats">
+                    <div class="stat">
+                        <span class="stat-value">99.5%</span>
+                        <span class="stat-label">Data Accuracy</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">25hrs</span>
+                        <span class="stat-label">Weekly Research Time Saved</span>
+                    </div>
+                </div>
+                <div class="project-tags">
+                    <span class="tag clay">Clay</span>
+                    <span class="tag">ZoomInfo</span>
+                    <span class="tag">Apollo</span>
+                    <span class="tag">n8n</span>
+                    <span class="tag">Supabase</span>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3 class="project-title">Real-Time Notification System</h3>
+                </div>
+                <p class="project-description">
+                    Developed an intelligent notification system that monitors prospect engagement and triggers real-time 
+                    alerts to sales teams through Slack, email, and SMS based on behavioral triggers and intent signals.
+                </p>
+                <div class="project-stats">
+                    <div class="stat">
+                        <span class="stat-value">70%</span>
+                        <span class="stat-label">Faster Response Time</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">35%</span>
+                        <span class="stat-label">Higher Conversion Rate</span>
+                    </div>
+                </div>
+                <div class="project-tags">
+                    <span class="tag clay">Clay</span>
+                    <span class="tag">n8n</span>
+                    <span class="tag">Slack API</span>
+                    <span class="tag">Webhooks</span>
+                    <span class="tag">Real-time Analytics</span>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3 class="project-title">Multi-Platform CRM Sync Engine</h3>
+                </div>
+                <p class="project-description">
+                    Built a comprehensive synchronization system using Clay and n8n that seamlessly integrates multiple CRMs, 
+                    ensuring real-time data consistency across HubSpot, Salesforce, and custom databases while eliminating data silos.
+                </p>
+                <div class="project-stats">
+                    <div class="stat">
+                        <span class="stat-value">99.8%</span>
+                        <span class="stat-label">Data Sync Accuracy</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">50hrs</span>
+                        <span class="stat-label">Monthly Admin Time Saved</span>
+                    </div>
+                </div>
+                <div class="project-tags">
+                    <span class="tag clay">Clay</span>
+                    <span class="tag">n8n</span>
+                    <span class="tag">HubSpot</span>
+                    <span class="tag">Salesforce</span>
+                    <span class="tag">Supabase</span>
+                    <span class="tag">API Integration</span>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="project-title">MPC Identification & Marketing Engine</h3>
+                </div>
+                <p class="project-description">
+                    Developed an automated Most Placeable Candidate (MPC) system using Clay and n8n that identifies top-tier candidates, 
+                    scores them based on 40+ placement criteria, and automatically markets them to potential clients through personalized outreach campaigns.
+                </p>
+                <div class="project-stats">
+                    <div class="stat">
+                        <span class="stat-value">90%</span>
+                        <span class="stat-label">MPC Identification Accuracy</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">65%</span>
+                        <span class="stat-label">Client Response Rate</span>
+                    </div>
+                </div>
+                <div class="project-tags">
+                    <span class="tag clay">Clay</span>
+                    <span class="tag">n8n</span>
+                    <span class="tag">Candidate Scoring</span>
+                    <span class="tag">Business Development</span>
+                    <span class="tag">Automated Marketing</span>
+                    <span class="tag">Recruiting CRM</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Services Section -->
+    <section id="services" class="services-section">
+        <div class="section-header">
+            <h2 class="section-title">Revenue Automation Solutions</h2>
+            <p class="section-subtitle">
+                End-to-end automation systems that scale your business while you focus on strategy
+            </p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <i class="fas fa-robot service-icon"></i>
+                <h3 class="service-title">Lead Generation Systems</h3>
+                <p class="service-description">
+                    Build intelligent lead scoring systems using Clay and n8n that automatically qualify, 
+                    score, and route leads based on 50+ data points and behavioral triggers.
+                </p>
+            </div>
+
+            <div class="service-card fade-in">
+                <i class="fas fa-paper-plane service-icon"></i>
+                <h3 class="service-title">Multi-Channel Outreach</h3>
+                <p class="service-description">
+                    Deploy comprehensive outreach systems that coordinate email, LinkedIn, and phone 
+                    touchpoints with intelligent sequencing, resulting in 4x higher response rates.
+                </p>
+            </div>
+
+            <div class="service-card fade-in">
+                <i class="fas fa-database service-icon"></i>
+                <h3 class="service-title">Data Enrichment Engine</h3>
+                <p class="service-description">
+                    Create sophisticated data enrichment systems that automatically scrape, validate, 
+                    and enrich prospect data, providing 99.5% accurate contact information instantly.
+                </p>
+            </div>
+
+            <div class="service-card fade-in">
+                <i class="fas fa-brain service-icon"></i>
+                <h3 class="service-title">AI-Powered Workflows</h3>
+                <p class="service-description">
+                    Leverage advanced AI and prompt engineering to create intelligent workflows that 
+                    adapt and optimize based on real-time performance data and market changes.
+                </p>
+            </div>
+
+            <div class="service-card fade-in">
+                <i class="fas fa-chart-line service-icon"></i>
+                <h3 class="service-title">Revenue Operations</h3>
+                <p class="service-description">
+                    Design and implement comprehensive revenue operations systems that process 50K+ 
+                    leads monthly while maintaining 95%+ data accuracy through advanced automation.
+                </p>
+            </div>
+
+            <div class="service-card fade-in">
+                <i class="fas fa-cogs service-icon"></i>
+                <h3 class="service-title">Process Optimization</h3>
+                <p class="service-description">
+                    Streamline your entire sales process with automated workflows that reduce manual 
+                    research time by 60% while improving lead quality and conversion rates.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Results Section -->
+    <section id="results" class="results-section">
+        <div class="section-header">
+            <h2 class="section-title">Proven Results</h2>
+            <p class="section-subtitle">
+                Real impact across multiple organizations and industries
+            </p>
+        </div>
+        
+        <div class="results-grid">
+            <div class="result-card fade-in">
+                <span class="result-value">1M+</span>
+                <div class="result-label">Total Leads Generated</div>
+            </div>
+            <div class="result-card fade-in">
+                <span class="result-value">50K+</span>
+                <div class="result-label">Monthly Lead Processing</div>
+            </div>
+            <div class="result-card fade-in">
+                <span class="result-value">400%</span>
+                <div class="result-label">Pipeline Increase</div>
+            </div>
+            <div class="result-card fade-in">
+                <span class="result-value">95%</span>
+                <div class="result-label">Data Accuracy</div>
+            </div>
+            <div class="result-card fade-in">
+                <span class="result-value">60%</span>
+                <div class="result-label">Time Saved</div>
+            </div>
+            <div class="result-card fade-in">
+                <span class="result-value">4X</span>
+                <div class="result-label">Response Rates</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="section-header">
+            <h2 class="section-title">Ready to Transform Your Revenue?</h2>
+            <p class="section-subtitle">
+                Let's discuss your automation needs and build systems that drive growth
+            </p>
+        </div>
+        
+        <div class="contact-grid">
+            <div class="contact-card fade-in">
+                <i class="fas fa-calendar-alt contact-icon"></i>
+                <h3 class="contact-title">Schedule a Call</h3>
+                <p class="contact-description">
+                    Book a 30-minute strategy session to discuss your revenue automation goals
+                </p>
+                <a href="https://calendly.com/harigtm/30min" target="_blank" class="contact-link">Schedule Now</a>
+            </div>
+            
+            <div class="contact-card fade-in">
+                <i class="fas fa-envelope contact-icon"></i>
+                <h3 class="contact-title">Email Direct</h3>
+                <p class="contact-description">
+                    Send me details about your project and automation challenges
+                </p>
+                <a href="mailto:hello@hariprasadss.com" class="contact-link">Send Email</a>
+            </div>
+            
+            <div class="contact-card fade-in">
+                <i class="fab fa-linkedin contact-icon"></i>
+                <h3 class="contact-title">Connect on LinkedIn</h3>
+                <p class="contact-description">
+                    Let's connect and explore how automation can transform your business
+                </p>
+                <a href="https://linkedin.com/in/hariprasadss" target="_blank" class="contact-link">Connect</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Footer -->
+    <footer class="enhanced-footer">
+        <div class="footer-bg"></div>
+
+        <div class="footer-content">
+            <!-- Enhanced Call to Action Section -->
+            <div class="footer-cta">
+                <h3 class="footer-cta-title">Let's Build Your Growth Engine</h3>
+                <p class="footer-cta-text">
+                    Partner with me to create intelligent automation systems that generate qualified leads while you focus on closing deals.
+                </p>
+                <a href="https://calendly.com/harigtm/30min" target="_blank" class="footer-cta-btn">
+                    <i class="fas fa-calendar-alt"></i>
+                    Schedule Strategy Call
+                </a>
+            </div>
+
+            <!-- Enhanced Footer Grid -->
+            <div class="footer-grid">
+                <!-- Brand Section -->
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="logo-text">Hariprasad</div>
+                    </div>
+                    <p class="footer-tagline">
+                        GTM Engineer specializing in revenue automation, lead generation, and AI-powered growth systems. 
+                        Transforming how businesses scale with intelligent automation.
+                    </p>
+                    <div class="footer-specializations">
+                        <span class="spec-tag">Clay Expert</span>
+                        <span class="spec-tag">n8n Automation</span>
+                        <span class="spec-tag">Lead Generation</span>
+                        <span class="spec-tag">Revenue Ops</span>
+                        <span class="spec-tag">AI Workflows</span>
+                        <span class="spec-tag">Supabase</span>
+                        <span class="spec-tag">MySQL</span>
+                    </div>
+                    <div class="footer-social">
+                        <a href="https://linkedin.com/in/hariprasadss" target="_blank" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="mailto:hello@hariprasadss.com" class="social-link">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://github.com/hariprasadss" target="_blank" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://calendly.com/harigtm/30min" target="_blank" class="social-link">
+                            <i class="fas fa-calendar-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Services Column -->
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services"><i class="fas fa-robot"></i> Lead Generation Systems</a></li>
+                        <li><a href="#services"><i class="fas fa-paper-plane"></i> Multi-Channel Outreach</a></li>
+                        <li><a href="#services"><i class="fas fa-database"></i> Data Enrichment</a></li>
+                        <li><a href="#services"><i class="fas fa-brain"></i> AI-Powered Workflows</a></li>
+                        <li><a href="#services"><i class="fas fa-chart-line"></i> Revenue Operations</a></li>
+                        <li><a href="#services"><i class="fas fa-cogs"></i> Process Optimization</a></li>
+                    </ul>
+                </div>
+
+                <!-- Industries Column -->
+                <div class="footer-column">
+                    <h4>Industries</h4>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-cloud"></i> SaaS</a></li>
+                        <li><a href="#"><i class="fas fa-chart-bar"></i> FinTech</a></li>
+                        <li><a href="#"><i class="fas fa-shopping-cart"></i> E-commerce</a></li>
+                        <li><a href="#"><i class="fas fa-users"></i> Staffing & Recruitment</a></li>
+                        <li><a href="#"><i class="fas fa-search"></i> Market Research</a></li>
+                        <li><a href="#"><i class="fas fa-briefcase"></i> B2B Services</a></li>
+                    </ul>
+                </div>
+
+                <!-- Results & Contact Column -->
+                <div class="footer-column">
+                    <h4>Results Delivered</h4>
+                    <div class="footer-stats">
+                        <div class="footer-stat">
+                            <span class="footer-stat-number">1M+</span>
+                            <span class="footer-stat-label">Leads Generated</span>
+                        </div>
+                        <div class="footer-stat">
+                            <span class="footer-stat-number">400%</span>
+                            <span class="footer-stat-label">Pipeline Growth</span>
+                        </div>
+                        <div class="footer-stat">
+                            <span class="footer-stat-number">95%</span>
+                            <span class="footer-stat-label">Data Accuracy</span>
+                        </div>
+                        <div class="footer-stat">
+                            <span class="footer-stat-number">9+</span>
+                            <span class="footer-stat-label">Years Experience</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    © 2025 Hariprasad Sivakumar. All rights reserved.
+                </div>
+                <div class="footer-links-bottom">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Viewport height fix for mobile browsers
+        function setVH() {
+            const vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+
+        setVH();
+        window.addEventListener('resize', setVH);
+        window.addEventListener('orientationchange', () => {
+            setTimeout(setVH, 500);
+        });
+
+        // Enhanced Smooth Scrolling Navigation
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Add smooth highlight effect
+                    targetSection.style.boxShadow = '0 0 50px rgba(0, 212, 255, 0.3)';
+                    setTimeout(() => {
+                        targetSection.style.boxShadow = 'none';
+                    }, 2000);
+                }
+            });
+        });
+
+        // Enhanced Navigation Active State
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section[id]');
+
+        function updateActiveNavLink() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNavLink);
+
+        // Enhanced Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Enhanced Tool filtering functionality
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                const filter = this.getAttribute('data-filter');
+                // Filter tools in solar system
+                const planets = document.querySelectorAll('.tool-planet');
+                
+                planets.forEach(planet => {
+                    if (filter === 'all' || planet.getAttribute('data-category') === filter) {
+                        planet.classList.remove('hidden');
+                        planet.style.opacity = '1';
+                        planet.style.transform = planet.style.transform.replace('scale(0.5)', 'scale(1)');
+                    } else {
+                        planet.classList.add('hidden');
+                        planet.style.opacity = '0.3';
+                        planet.style.transform = planet.style.transform + ' scale(0.5)';
+                    }
+                });
+            });
+        });
+
+        // Enhanced Solar System Planet Highlighting
+        function startPlanetHighlight() {
+            const planets = document.querySelectorAll('.tool-planet');
+            if (planets.length === 0) return;
+            
+            let currentIndex = 0;
+            
+            function highlightNext() {
+                // Remove highlight from all planets
+                planets.forEach(planet => {
+                    planet.classList.remove('highlighted');
+                });
+                
+                // Add highlight to current planet
+                if (planets[currentIndex]) {
+                    planets[currentIndex].classList.add('highlighted');
+                }
+                
+                // Move to next planet
+                currentIndex = (currentIndex + 1) % planets.length;
+            }
+            
+            // Start immediately
+            highlightNext();
+            
+            // Continue every 4 seconds
+            setInterval(highlightNext, 4000);
+        }
+
+        // Enhanced Solar System Interactive Effects
+        document.querySelectorAll('.tool-planet').forEach(planet => {
+            planet.addEventListener('mouseenter', function() {
+                // Pause orbit animations on hover for better interaction
+                const orbit = this.closest('.solar-orbit');
+                if (orbit) {
+                    orbit.style.animationPlayState = 'paused';
+                }
+                
+                // Add glow effect to orbit
+                if (orbit) {
+                    orbit.style.boxShadow = '0 0 40px rgba(0, 212, 255, 0.3)';
+                }
+            });
+            
+            planet.addEventListener('mouseleave', function() {
+                // Resume orbit animations
+                const orbit = this.closest('.solar-orbit');
+                if (orbit) {
+                    orbit.style.animationPlayState = 'running';
+                    orbit.style.boxShadow = orbit.classList.contains('mercury') ? '0 0 20px rgba(0, 212, 255, 0.1)' :
+                                           orbit.classList.contains('venus') ? '0 0 20px rgba(191, 64, 191, 0.1)' :
+                                           orbit.classList.contains('earth') ? '0 0 20px rgba(57, 255, 20, 0.1)' :
+                                           orbit.classList.contains('mars') ? '0 0 20px rgba(245, 158, 11, 0.1)' :
+                                           '0 0 20px rgba(255, 0, 128, 0.1)';
+                }
+            });
+        });
+
+        // Enhanced error handling for tool logos with AI-powered fallbacks
+        document.querySelectorAll('.tool-logo').forEach(img => {
+            let fallbackAttempted = 0;
+            const maxFallbacks = 3;
+            const toolName = img.closest('.tool-planet').querySelector('.tool-name').textContent;
+            
+            const tryFallback = () => {
+                fallbackAttempted++;
+                
+                if (fallbackAttempted === 1) {
+                    // Try alternative source
+                    img.src = `https://img.logo.dev/${img.alt.toLowerCase().replace(/\s+/g, '')}.com`;
+                } else if (fallbackAttempted === 2) {
+                    // Try another alternative
+                    img.src = `https://logo.clearbit.com/${img.alt.toLowerCase().replace(/\s+/g, '')}.ai`;
+                } else {
+                    // Final fallback: create enhanced styled letter
+                    const fallback = document.createElement('div');
+                    const firstLetter = toolName.charAt(0).toUpperCase();
+                    const level = img.closest('.tool-planet').getAttribute('data-level');
+                    
+                    let bgGradient = 'var(--gradient-primary)';
+                    if (level === 'expert') bgGradient = 'var(--gradient-secondary)';
+                    else if (level === 'intermediate') bgGradient = 'var(--gradient-accent)';
+                    
+                    fallback.style.cssText = `
+                        width: 32px;
+                        height: 32px;
+                        background: ${bgGradient};
+                        border-radius: 6px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 14px;
+                        font-weight: 900;
+                        color: white;
+                        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+                        transition: all 0.3s ease;
+                        border: 2px solid rgba(255,255,255,0.2);
+                        font-family: 'Space Grotesk', sans-serif;
+                        position: relative;
+                        overflow: hidden;
+                    `;
+                    
+                    // Add shimmer effect
+                    const shimmer = document.createElement('div');
+                    shimmer.style.cssText = `
+                        position: absolute;
+                        top: 0;
+                        left: -100%;
+                        width: 100%;
+                        height: 100%;
+                        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+                        animation: shimmer 2s infinite;
+                    `;
+                    
+                    fallback.appendChild(shimmer);
+                    fallback.appendChild(document.createTextNode(firstLetter));
+                    fallback.classList.add('tool-logo-fallback');
+                    img.parentNode.replaceChild(fallback, img);
+                }
+            };
+            
+            img.addEventListener('error', tryFallback);
+        });
+
+        // Enhanced Live Stats Animation
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(stat => {
+                const finalValue = stat.textContent;
+                const isNumeric = /^\d+/.test(finalValue);
+                
+                if (isNumeric) {
+                    const numValue = parseInt(finalValue.replace(/\D/g, ''));
+                    const suffix = finalValue.replace(/\d+/, '');
+                    let current = 0;
+                    const increment = Math.ceil(numValue / 50);
+                    
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= numValue) {
+                            current = numValue;
+                            clearInterval(timer);
+                        }
+                        stat.textContent = current + suffix;
+                    }, 50);
+                }
+            });
+        }
+
+        // Enhanced Solar System Dynamics
+        function createSolarSystemDynamics() {
+            const constellation = document.querySelector('.tools-constellation');
+            
+            // Add dynamic cosmic dust
+            for (let i = 0; i < 15; i++) {
+                const dust = document.createElement('div');
+                dust.style.cssText = `
+                    position: absolute;
+                    width: 1px;
+                    height: 1px;
+                    background: rgba(0, 212, 255, 0.4);
+                    border-radius: 50%;
+                    top: ${Math.random() * 100}%;
+                    left: ${Math.random() * 100}%;
+                    animation: cosmicFloat ${5 + Math.random() * 10}s ease-in-out infinite;
+                    animation-delay: ${Math.random() * 5}s;
+                `;
+                constellation.appendChild(dust);
+            }
+            
+            // Add CSS for cosmic dust animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes cosmicFloat {
+                    0%, 100% { 
+                        transform: translateY(0px) translateX(0px) scale(1); 
+                        opacity: 0.4; 
+                    }
+                    33% { 
+                        transform: translateY(-30px) translateX(20px) scale(1.5); 
+                        opacity: 0.8; 
+                    }
+                    66% { 
+                        transform: translateY(20px) translateX(-15px) scale(0.8); 
+                        opacity: 0.6; 
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        // Enhanced Performance Chart Animation
+        function animatePerformanceChart() {
+            const chart = document.querySelector('.performance-chart');
+            if (chart) {
+                // Add data points
+                for (let i = 0; i < 12; i++) {
+                    const point = document.createElement('div');
+                    point.style.cssText = `
+                        position: absolute;
+                        top: ${Math.random() * 40 + 10}%;
+                        left: ${i * 8.33}%;
+                        width: 3px;
+                        height: 3px;
+                        background: rgba(255, 255, 255, 0.8);
+                        border-radius: 50%;
+                        animation: dataPointPulse 2s ease-in-out infinite;
+                        animation-delay: ${i * 0.15}s;
+                        box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
+                    `;
+                    chart.appendChild(point);
+                }
+                
+                // Add CSS for data point animation
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes dataPointPulse {
+                        0%, 100% { 
+                            opacity: 0.6; 
+                            transform: scale(1); 
+                        }
+                        50% { 
+                            opacity: 1; 
+                            transform: scale(1.5); 
+                        }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+        }
+
+        // Enhanced CTA Button Ripple Effect
+        document.querySelectorAll('.cta-btn, .contact-link, .footer-cta-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    background: rgba(255, 255, 255, 0.3);
+                    border-radius: 50%;
+                    transform: scale(0);
+                    animation: rippleEffect 0.6s ease-out;
+                    pointer-events: none;
+                `;
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Add ripple effect CSS
+        const rippleStyle = document.createElement('style');
+        rippleStyle.textContent = `
+            @keyframes rippleEffect {
+                to {
+                    transform: scale(2);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(rippleStyle);
+
+        // Enhanced Mobile Touch Interactions
+        let isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        
+        if (isTouch) {
+            // Enhanced touch feedback for interactive elements
+            document.querySelectorAll('.tool-planet, .experience-card, .project-card, .service-card, .result-card, .contact-card').forEach(item => {
+                item.addEventListener('touchstart', function(e) {
+                    this.style.transform = 'scale(0.95)';
+                    this.style.transition = 'transform 0.1s ease';
+                }, { passive: true });
+                
+                item.addEventListener('touchend', function(e) {
+                    this.style.transform = '';
+                    this.style.transition = 'transform 0.3s ease';
+                }, { passive: true });
+            });
+        }
+
+        // Enhanced Initialization
+        function initializePortfolio() {
+            // Start animations
+            setTimeout(() => {
+                startPlanetHighlight();
+                animateStats();
+                createSolarSystemDynamics();
+                animatePerformanceChart();
+            }, 1000);
+            
+            // Add scroll listeners
+            window.addEventListener('scroll', () => {
+                updateActiveNavLink();
+            }, { passive: true });
+        }
+
+        // Enhanced Console Branding
+        console.log(`
+        🚀 HARIPRASAD SIVAKUMAR - GTM ENGINEER 🚀
+        
+        ═══════════════════════════════════════════════════════════
+        
+        🎯 REVENUE AUTOMATION EXPERT
+        📊 1M+ Leads Generated | 400% Pipeline Growth
+        🤖 AI-Powered GTM Systems | Clay & n8n Specialist
+        
+        ⚡ TECH STACK MASTERY:
+        → Clay & n8n Expert | Supabase Integration
+        → Multi-Channel Outreach Automation
+        → Advanced Lead Scoring Systems  
+        → Data Enrichment Pipelines
+        → Revenue Operations Architecture
+        
+        🌟 LOOKING FOR GROWTH AUTOMATION?
+        📧 hello@hariprasadss.com
+        💼 linkedin.com/in/hariprasadss
+        📅 calendly.com/harigtm/30min
+        
+        Let's build something extraordinary together!
+        
+        ═══════════════════════════════════════════════════════════
+        `);
+
+        // Enhanced Page Visibility API
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                // Pause animations when page is hidden
+                document.querySelectorAll('.solar-orbit').forEach(orbit => {
+                    orbit.style.animationPlayState = 'paused';
+                });
+                document.querySelector('.gtm-sun').style.animationPlayState = 'paused';
+            } else {
+                // Resume animations when page is visible
+                document.querySelectorAll('.solar-orbit').forEach(orbit => {
+                    orbit.style.animationPlayState = 'running';
+                });
+                document.querySelector('.gtm-sun').style.animationPlayState = 'running';
+            }
+        });
+
+        // Enhanced Keyboard Navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-navigation');
+            }
+        });
+
+        document.addEventListener('mousedown', function() {
+            document.body.classList.remove('keyboard-navigation');
+        });
+
+        // Enhanced Initialization on Page Load
+        document.addEventListener('DOMContentLoaded', function() {
+            initializePortfolio();
+        });
+
+        // Enhanced Window Load Event
+        window.addEventListener('load', function() {
+            // Start advanced animations
+            document.body.classList.add('loaded');
+        });
+
+        // Enhanced Resize Handler
+        window.addEventListener('resize', function() {
+            setVH();
+            // Recalculate any position-dependent elements
+            setTimeout(() => {
+                updateActiveNavLink();
+            }, 100);
+        });
+    </script>
+</body>
+</html>
