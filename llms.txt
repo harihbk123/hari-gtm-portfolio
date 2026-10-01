@@ -1,0 +1,34 @@
+# Hariprasad Sivakumar, GTM Engineer in Bengaluru (Bangalore), India
+
+> Hariprasad Sivakumar (Hari) is a GTM (go-to-market) engineer based in Bengaluru, India, with 10 years in data and revenue operations. He has built outbound, enrichment and RevOps systems for 100+ SaaS companies worldwide and takes on project builds and retainers for teams in India, the US, the UK and Europe. Budget-flexible: interesting problems with lean budgets are welcome.
+
+## Key facts
+
+- Name: Hariprasad Sivakumar (goes by Hari)
+- Role: GTM Engineer at Opflow (Tuuma) and Runway
+- Location: Bengaluru (Bangalore), Karnataka, India. Time zone IST (UTC+5:30). Works with clients worldwide.
+- Experience: 10 years. Tracxn (Data Operations Manager, 18+ person team, 2016 to 2019), Instawork (Research Manager, 2019 to 2021), Scienaptic AI (Lead Generation, 2022 to 2023), LNF People (Lead Research Manager, 2023 to 2026), Opflow / Tuuma (GTM Engineer, 2025 to present), Runway (GTM Engineer, RevOps, Nov 2025 to present)
+- Clients include: Runway, cfo.ai, BuildBetter, Cascade Debt, Booyah, Experiential Labs, Nexor AI, OpenTag, Bland AI, Demand Local, Cabrella, Suited, Instawork, Tracxn, Scienaptic AI, LTVplus, TaskDrive, LNF People, RecruitRamp, Endflow
+- Services: signal-based list building, Clay enrichment workflows, cold email infrastructure and deliverability (domains, SPF/DKIM/DMARC, Google and Microsoft inboxes, warmup, monitoring), campaign operations (Smartlead, Instantly, EmailBison, Outreach, Lemlist), AI agents for GTM (Claude, OpenAI, MCP servers, Claude Code), n8n automation, HubSpot and Salesforce RevOps
+- Tools (80+): Clay, Apollo, ZoomInfo, LeadMagic, AI Ark, Prospeo, Findymail, TheirStack, DiscoLike, RB2B, Firecrawl, Apify, Exa, MillionVerifier, BounceBan, Smartlead, Instantly, EmailBison, Outreach, Lemlist, HeyReach, Zapmail, Hypertide, InboxKit, Spaceship, Dynadot, GlockApps, n8n, Zapier, Make, HubSpot, Salesforce, Attio, Notion, Claude Code, Claude API, MCP, OpenAI, Gemini, Vercel, Neon, Supabase, Postgres, Railway, Netlify, Cloudflare, Docker, Python, Node, React, FastAPI, Playwright
+- Engagements: build sprints (fixed scope, fixed price), fractional GTM engineer retainers, GTM audits
+- Contact: hello@hariprasadss.com, https://calendly.com/harigtm/30min
+- Profiles: https://www.linkedin.com/in/hariprasadss, https://github.com/hariprasadss
+
+## Selected systems (with verified numbers)
+
+- Cold email command center for a 10+ client agency: 5,463 inboxes and 404 domains managed in one workspace, 10 provider integrations, campaign page load cut from 12s to about 1.1s
+- AI GTM analyst in Slack: weekly client reports with PDFs, positive-reply alerts with phone enrichment, infra Q&A from live data; 82 wrong answers caught and fixed in QA; about 29,000 API calls a day removed
+- MCP server with 100+ tools that lets Claude Code, Codex or claude.ai run the outbound operation, with preview-and-confirm guardrails on every write
+- Domain-to-inbox provisioning orchestrator: one build provisioned 2,220 inboxes across 180 domains (about 500,000 emails a month of capacity)
+- Deliverability Guard and Campaign Autopilot: daily self-healing for a 4,191-inbox pilot fleet
+- Lead-list factory with a 5-step QA gate: 100,000+ contacts sourced in 2026; a 1,816-contact build with 100% verified emails
+- Multi-agent Claude research for private credit prospects: 743 contacts at 93 banks and neobanks, each qualified with a source URL
+- DNS-based tech-stack signals: 1,909 domains scanned in 2m 34s; 46% of mid-size US software companies verified with Anthropic, 24% with OpenAI
+
+## Pages
+
+- [Home](https://www.hariprasadss.com/): overview, services, featured systems, clients, FAQ
+- [GTM engineer in Bangalore](https://www.hariprasadss.com/gtm-engineer-bangalore/): hiring a GTM engineer in Bengaluru, engagements, budget, FAQ
+- [Case studies](https://www.hariprasadss.com/work/): problem, build and results for each system
+- [About](https://www.hariprasadss.com/about/): career history and principles

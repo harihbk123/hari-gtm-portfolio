@@ -1,6 +1,43 @@
-# Netlify config — static site, no build step
+# Netlify config: static site, no build step
 [build]
   publish = "."
+
+# Old site versions stay in the repo for history but are not served publicly,
+# so search engines and AI crawlers only see one, current version of the facts.
+[[redirects]]
+  from = "/legacy-2025.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/old-website.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/README.md"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/netlify.toml"
+  to = "/"
+  status = 301
+  force = true
+
+# Common alternate spellings of the location page
+[[redirects]]
+  from = "/gtm-engineer-bengaluru"
+  to = "/gtm-engineer-bangalore/"
+  status = 301
+
+[[redirects]]
+  from = "/bangalore"
+  to = "/gtm-engineer-bangalore/"
+  status = 301
 
 # Security headers
 [[headers]]
@@ -11,14 +48,20 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
 
-# Cache logo assets aggressively (they never change)
+# Images never change in place (a new version gets a new file name).
+# CSS is left on Netlify's default revalidation so edits show up immediately.
 [[headers]]
-  for = "/assets/*"
+  for = "/assets/logos/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-# Always serve fresh HTML
 [[headers]]
-  for = "/index.html"
+  for = "/assets/og/*"
   [headers.values]
-    Cache-Control = "public, max-age=0, must-revalidate"
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/llms*.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
+    Cache-Control = "public, max-age=3600"
