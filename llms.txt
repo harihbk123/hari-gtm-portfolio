@@ -12,7 +12,7 @@
 - Services: signal-based list building, Clay enrichment workflows, cold email infrastructure and deliverability (domains, SPF/DKIM/DMARC, Google and Microsoft inboxes, warmup, monitoring), campaign operations (Smartlead, Instantly, EmailBison, Outreach, Lemlist), AI agents for GTM (Claude, OpenAI, MCP servers, Claude Code), n8n automation, HubSpot and Salesforce RevOps
 - Tools (80+): Clay, Apollo, ZoomInfo, LeadMagic, AI Ark, Prospeo, Findymail, TheirStack, DiscoLike, RB2B, Firecrawl, Apify, Exa, MillionVerifier, BounceBan, Smartlead, Instantly, EmailBison, Outreach, Lemlist, HeyReach, Zapmail, Hypertide, InboxKit, Spaceship, Dynadot, GlockApps, n8n, Zapier, Make, HubSpot, Salesforce, Attio, Notion, Claude Code, Claude API, MCP, OpenAI, Gemini, Vercel, Neon, Supabase, Postgres, Railway, Netlify, Cloudflare, Docker, Python, Node, React, FastAPI, Playwright
 - Engagements: build sprints (fixed scope, fixed price), fractional GTM engineer retainers, GTM audits
-- Contact: hello@hariprasadss.com, https://calendly.com/harigtm/30min
+- Contact: mail2hariprasadss@gmail.com, https://calendly.com/harigtm/30min
 - Profiles: https://www.linkedin.com/in/hariprasadss, https://github.com/hariprasadss
 
 ## Selected systems (with verified numbers)
